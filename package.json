@@ -1,0 +1,27 @@
+{
+  "name": "gruppuppgift-wshop",
+  "version": "1.0.0",
+  "description": "A webshop build with node, express and ejs",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanhallberg123/webshop.git"
+  },
+  "author": "Stefan Hallberg, Emma Teo, Isabelle Edlund, Josefin Ljung, Julia Nilsson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stefanhallberg123/webshop/issues"
+  },
+  "homepage": "https://github.com/stefanhallberg123/webshop#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.1"
+  }
+}
