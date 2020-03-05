@@ -1,14 +1,17 @@
 const express = require("express");
+const bodyParser = require("body-parser");
+const bcrypt = require("bcryptjs");
 
 const path = require("path")
 
-const bodyParser = require("body-parser")
 const app = express();
+
 
 const port = process.env.PORT || 2000;
 
 const productItem = require("../model/product");
 
+const user = require("../model/userAccount");
 
 
 app.use(express.urlencoded({ extended: true }));
@@ -51,20 +54,23 @@ app.get("/customer/signup", async (req, res) => {
     res.render("customer/signup")
 })
 app.post("/signup", async (req, res) => {
-    await new userAccount({
+    await new user({
         email: req.body.email, password: req.body.password
-    }).save((error, success) => {
-        if (error) {
-            console.log(error);
-            res.send(error._message)
-        } else {
-            res.redirect("/customer/login")
-        }
     })
+        .save((error, success) => {
+            if (error) {
+                console.log(error);
+                res.send(error._message)
+            } else {
+                res.redirect("/customer/login")
+            }
+        })
 })
-// customer login 
 app.get("/customer/login", async (req, res) => {
     res.render("customer/login");
+})
+
+app.post("/customer/login", async (req, res) => {
 })
 
 
