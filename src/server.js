@@ -39,11 +39,6 @@ app.post("/admin/createproducts", async (req,res) =>{
 })
   });
 
-
-
-
-
-=======
 const userAccount = require("../model/userAccount");
 
 app.use(bodyParser.urlencoded({ extended: false }))
