@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 config/
 node_modules/
 .gitignore
 package-lock.json
-=======
-config
-package-lock.json
-.gitignore
-node_modules/
->>>>>>> 45c7b451c8ae7b69f34acdc1dbf635e82d410ac7
