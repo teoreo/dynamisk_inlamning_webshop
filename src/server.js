@@ -17,10 +17,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // ADMIN
 
-app.get("/admin/createproducts", (req,res)=> {
+app.get("/admin/createproducts", (req, res) => {
     res.render("admin/createproducts")
 })
-app.post("/admin/createproducts", async (req,res) =>{
+app.post("/admin/createproducts", async (req, res) => {
     const addProduct = new productItem({
         course: req.body.course,
         title: req.body.course,
@@ -30,20 +30,19 @@ app.post("/admin/createproducts", async (req,res) =>{
         quantity: req.body.quantity,
         weeks: req.body.weeks
     })
-    await addProduct.save((error,success)=>{
-    if (error){
-      error? res.send(error.message): res.redirect("/todo")
-    }
-    else
-    res.redirect("/admin/createproducts")
-})
-  });
+    await addProduct.save((error, success) => {
+        if (error) {
+            error ? res.send(error.message) : res.redirect("/todo")
+        }
+        else
+            res.redirect("/admin/createproducts")
+    })
+});
 
 
 
 
 
-=======
 const userAccount = require("../model/userAccount");
 
 app.use(bodyParser.urlencoded({ extended: false }))
