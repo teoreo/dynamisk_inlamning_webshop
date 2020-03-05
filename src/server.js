@@ -42,13 +42,6 @@ app.post("/admin/createproducts", async (req, res) => {
     })
 });
 
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> 45c7b451c8ae7b69f34acdc1dbf635e82d410ac7
 const userAccount = require("../model/userAccount");
 
 app.use(bodyParser.urlencoded({ extended: false }))
