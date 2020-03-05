@@ -7,7 +7,8 @@ const schema = new mongoose.Schema({
   price: Number,
   description: String,
   quantity: Number,
-  weeks: Number
+  weeks: Number,
+  country: String
 });
 
 const productItem = mongoose.model("product", schema);

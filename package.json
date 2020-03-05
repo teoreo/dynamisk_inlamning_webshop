@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js & node-sass sass -o public -w"
   },
   "repository": {
     "type": "git",
@@ -20,15 +21,21 @@
   },
   "homepage": "https://github.com/stefanhallberg123/webshop#readme",
   "dependencies": {
-    "bulma": "^0.8.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
-    "mongoose": "^5.9.2",
+    "express-validator": "^6.4.0",
+    "install": "^0.13.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.4",
+    "mongoose": "^5.9.3",
     "node-sass-middleware": "^0.11.0",
     "views": "^1.0.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^7.1.0"
+    "mocha": "^7.1.0",
+    "nodemon": "^2.0.2"
   }
 }
