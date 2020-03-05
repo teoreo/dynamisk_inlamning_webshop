@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log In</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+  <!-- div för vänsterdel -->
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <%- include ("partial/header-customer.ejs") %>
+        <!-- lägg till typsnitt och kolla storlek på inputfälten -->
+        <form class="col-12" action="/login" method="POST">
+          <div class="form-group">
+            <input type="email" class="form-control" id="loginEmail" placeholder="Email" />
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="loginPassword" placeholder="Password" />
+          </div>
+          <!-- Lägg till färg, storlek och typsnitt för knappen -->
+          <button type="submit" id="logInBtn" class="logIn-btn">Log In</button>
+        </form>
+        <%- include ("partial/footer-customer.ejs") %>
+      </div>
+    </div>
+  </div>
+  <!-- img -->
+  <div class="container">
+    <div class="row">
+      <div class="col-5">
+        <div class="col-12">
+          <img src="img" class="img-fluid" alt="picture">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- right column -->
+  <div class="container">
+    <div class="row">
+      <div class="col-1">
+        <img src="up-arrow" class="img-fluid" alt="up-arrow">
+        <a href="SRI">SRI</a>
+        <a href="POR">PRO</a>
+        <a href="COS"></a>
+        <img src="down-arrow" class="img-fluid" alt="down-arrow">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
