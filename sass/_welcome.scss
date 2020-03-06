@@ -1,6 +1,7 @@
 .wectn {
     text-align: center;
     margin-top: 150px;
+<<<<<<< HEAD
 }
 
 .logoimg {
@@ -12,12 +13,36 @@
     text-align: end; 
 }
 
+=======
+ }
+  
+ .logoimg {
+    height: 70px;
+ }
+  
+ .navlinks {
+    padding-top: 30px;
+    text-align: end;
+ }
+  
+>>>>>>> 015c4b9ab4d51c505a0011c64fd1f6180d275b09
     @include tablet {
         padding-top: 30px;
         padding-left: 50px;
     }
+<<<<<<< HEAD
 
     @include desktop {
         padding-top: 30px;
         padding-left: 90px;
     }
+=======
+  
+    @include desktop {
+        padding-top: 30px;
+        padding-left: 90px;
+    }
+  
+  
+ 
+>>>>>>> 015c4b9ab4d51c505a0011c64fd1f6180d275b09

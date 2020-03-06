@@ -1,6 +1,7 @@
 body {
     font-size: calc(14 + (52 - 14) * ((100vw - 100vw) / (100vw - 100vw)));
     font-family: $font;
+<<<<<<< HEAD
     color: $fontcolor;  
 }
 
@@ -23,6 +24,30 @@ a {
 }
     
 .inputshort {
+=======
+    color: $fontcolor; 
+   }
+    
+   a {
+    color: $fontcolor;
+    font-weight: 400;
+    margin-right: 25px;
+   }
+    
+   .title {
+    letter-spacing: 1.71667px;
+    font-weight: 800;
+    margin-bottom: 33px;
+   }
+    
+   .slinput {
+    font-weight: 300;
+    display: block;
+    margin : 0 auto;
+   }
+    
+   .inputshort {
+>>>>>>> 015c4b9ab4d51c505a0011c64fd1f6180d275b09
     font-weight: 300;
     width: 171px;
     height: 33px;
@@ -31,20 +56,37 @@ a {
     border-radius: 0;
     margin: 0 auto;
     padding: 0 auto;
+<<<<<<< HEAD
 }
 
 .inputlong {
+=======
+   }
+    
+   .inputlong {
+>>>>>>> 015c4b9ab4d51c505a0011c64fd1f6180d275b09
     font-weight: 300;
     width: 360px;
     height: 33px;
     background: $background;
     border: 1px solid $dark;
     border-radius: 0;
+<<<<<<< HEAD
 }
 
 .buttonblue {
+=======
+   }
+    
+   .buttonblue {
+>>>>>>> 015c4b9ab4d51c505a0011c64fd1f6180d275b09
     width: 171px;
     height: 33px;
     background: $blue;
     border-radius: 6px;
+<<<<<<< HEAD
 }
+=======
+   } 
+   
+>>>>>>> 015c4b9ab4d51c505a0011c64fd1f6180d275b09
