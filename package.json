@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js & node-sass sass -o public -w"
+    "start": "nodemon index.js & npx node-sass -w sass/main.scss public/main.css"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.4",
     "mongoose": "^5.9.3",
+    "node-sass": "^4.13.1",
     "node-sass-middleware": "^0.11.0",
     "views": "^1.0.2"
   },

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
 /* Variables */
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
 body {
   font-size: calc(14 + (52 - 14) * ((100vw - 100vw) / (100vw - 100vw)));
   font-family: "Montserrat";
@@ -191,34 +191,173 @@ html {
   html .fullheight {
     height: 100%; }
 
-/* Variables */
 body {
   font-size: calc(14 + (52 - 14) * ((100vw - 100vw) / (100vw - 100vw)));
   font-family: "Montserrat";
   color: #464646; }
-  body .container-fluid #navbar {
-    border: solid 1px lightsalmon;
-    height: 50px; }
-    body .container-fluid #navbar a {
-      float: right;
-      color: black;
-      text-decoration: none; }
-  body .container-fluid #leftcontainer {
-    border: solid 1px lightblue;
-    width: 100px; }
-  body .container-fluid #centercontainer {
-    border: solid 1px lightyellow;
-    width: 100px;
-    align-items: center; }
-    body .container-fluid #centercontainer .form-inline .form-control {
-      margin: 40px; }
-    body .container-fluid #centercontainer .form-inline h6 {
-      margin: 2px; }
-    body .container-fluid #centercontainer .form-inline input.checkbox {
-      margin: 6px; }
-  body .container-fluid button {
-    margin: 4px;
-    padding: 4px; }
-  body .container-fluid #rightcontainer {
-    background-color: lightgreen;
-    width: 100px; }
+
+a {
+  color: #464646;
+  font-weight: 400;
+  margin-right: 25px; }
+
+.title {
+  letter-spacing: 1.71667px;
+  font-weight: 800;
+  margin-bottom: 33px; }
+
+.slinput {
+  font-weight: 300;
+  display: block;
+  margin: 0 auto; }
+
+.inputshort {
+  font-weight: 300;
+  width: 171px;
+  height: 33px;
+  background: #F7F7F7;
+  border: 1px solid #979797;
+  border-radius: 0;
+  margin: 0 auto;
+  padding: 0 auto; }
+
+.inputlong {
+  font-weight: 300;
+  width: 360px;
+  height: 33px;
+  background: #F7F7F7;
+  border: 1px solid #979797;
+  border-radius: 0; }
+
+.buttonblue {
+  width: 171px;
+  height: 33px;
+  background: #68C7C9;
+  border-radius: 6px; }
+
+html {
+  height: 100%;
+  margin: 0; }
+  html body {
+    height: 100%;
+    margin: 0;
+    font-size: calc(14 + (52 - 14) * ((100vw - 100vw) / (100vw - 100vw)));
+    font-family: "Montserrat";
+    color: #464646; }
+    html body a {
+      color: #464646;
+      font-weight: 400;
+      margin-right: 25px; }
+    html body .container-fluid {
+      height: 100%;
+      min-height: 100%;
+      margin: 0; }
+      html body .container-fluid .navbarmenu {
+        position: absolute;
+        z-index: 10; }
+        html body .container-fluid .navbarmenu .logoimg {
+          height: 70px; }
+        html body .container-fluid .navbarmenu .navlinks {
+          padding-top: 30px;
+          text-align: end; }
+          @media (min-width: 768px) {
+            html body .container-fluid .navbarmenu .navlinks {
+              padding-top: 30px;
+              padding-left: 50px; } }
+          @media (min-width: 992px) {
+            html body .container-fluid .navbarmenu .navlinks {
+              padding-top: 30px;
+              padding-left: 90px; } }
+        html body .container-fluid .navbarmenu .basketwrapper {
+          float: right; }
+          html body .container-fluid .navbarmenu .basketwrapper .basketlogo {
+            margin-top: 5px;
+            height: 60px; }
+      html body .container-fluid .sectionone {
+        position: relative;
+        height: 100%;
+        margin: 0; }
+        @media (min-width: 768px) {
+          html body .container-fluid .sectionone {
+            height: 100%; } }
+        html body .container-fluid .sectionone .content {
+          height: 100%;
+          padding-top: 200px; }
+          @media (min-width: 768px) {
+            html body .container-fluid .sectionone .content {
+              height: 95%; } }
+        html body .container-fluid .sectionone .footer {
+          height: 5%; }
+          @media (min-width: 768px) {
+            html body .container-fluid .sectionone .footer {
+              height: 5%; } }
+    html body .sectiontwo {
+      height: 90%;
+      background: darkgrey;
+      background-size: cover; }
+      @media (min-width: 768px) {
+        html body .sectiontwo {
+          height: 100%; } }
+    html body .sectionthree {
+      height: 10%;
+      text-align: center;
+      background: #68C7C9; }
+      @media (min-width: 768px) {
+        html body .sectionthree {
+          height: 100%; } }
+      html body .sectionthree .nextsideup {
+        text-align: center; }
+        @media (min-width: 768px) {
+          html body .sectionthree .nextsideup {
+            height: 33%; } }
+        html body .sectionthree .nextsideup .arrowup {
+          display: none;
+          position: absolute;
+          top: 0; }
+          @media (min-width: 768px) {
+            html body .sectionthree .nextsideup .arrowup {
+              height: 58px;
+              position: absolute;
+              display: block;
+              left: 33%;
+              bottom: 1px; } }
+        html body .sectionthree .nextsideup .arrowleft {
+          height: 58px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto; }
+          @media (min-width: 768px) {
+            html body .sectionthree .nextsideup .arrowleft {
+              display: none; } }
+      @media (min-width: 768px) {
+        html body .sectionthree .countrymenu-desktop {
+          height: 33%; } }
+      @media (min-width: 768px) {
+        html body .sectionthree .nextsidedown {
+          height: 34%; } }
+      html body .sectionthree .nextsidedown .arrowdown {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        text-align: center; }
+        @media (min-width: 768px) {
+          html body .sectionthree .nextsidedown .arrowdown {
+            height: 58px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto; } }
+      html body .sectionthree .nextsidedown .arrowright {
+        height: 58px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto; }
+        @media (min-width: 768px) {
+          html body .sectionthree .nextsidedown .arrowright {
+            display: none; } }
+  html .fullheight {
+    height: 100%; }
+
+.slctn {
+  text-align: center; }
+
+/* Variables */

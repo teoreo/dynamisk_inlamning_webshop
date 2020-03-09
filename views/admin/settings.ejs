@@ -17,7 +17,7 @@
         </script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../public/main.css">
 </head>
 
 <body>
@@ -50,43 +50,48 @@
             </div>
         </div>
 
-        <div class="col-12 content wectn">
-                    <!-- main-->
-                    <div class="col-12 col-md-5" id="centercontainer">
-                        <div class="col-12" id="contentform">
-                            <h3 class="titel">ADD PRODUCT</h3>
-                            <form class="form-inline" action="/admin/createproduct" method="POST">
-                                <select class="form-control" id="sel1" placeholder="Select country">
-                                    <option>Siri Lanka</option>
-                                    <option>Portugal</option>
-                                    <option>Costa rica</option>
-                                </select>
-                                <input class="form-control" placeholder="Title" id="title">
-                                <input class="form-control" placeholder="Description" id="description">
-                                <input class="form-control" placeholder="Price" id="price">
-                                <input class="form-control" placeholder="Quantity" id="quantity">
-                                <h6>Amount of weeks</h6>
-                                <input class="checkbox" type="checkbox" placeholder="hej">
-                                <input class="checkbox" type="checkbox">
-                                <input class="checkbox" type="checkbox">
-                                <input class="checkbox" type="checkbox">
-                                <form>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">UPLOAD IMAGE</label>
-                                    </div>
-                                </form>
-                                <button type="submit">ADD PRODUCT</button>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- sidebar -->
-                    <div class="col-12 col-md-1" id="rightcontainer">
-
-                    </div>
+        <!-- DIV HÄR FÖR ATT FÅ DE CENTRERAT -->
+        <h5>SETTINGS</h5>
+        <form>
+            <div class="row">
+                <div class="col-6">
+                    <input type="text" class="inputshort" id="fname" name="fname" placeholder="First name">
                 </div>
+                <div class="col-6">
+                    <input type="text" class="inputshort" id="lname" name="lname" placeholder="Last name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <input type="text" class="inputlong" id="email" name="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <input type="text" class="inputlong" id="address" name="address" placeholder="Address">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <input type="text" class="inputshort" id="zipcode" name="zipcode" placeholder="Zip code">
+                </div>
+                <div class="col-6">
+                    <input type="text" class="inputshort" id="city" name="city" placeholder="City">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <input type="text" class="inputshort" id="password" name="Password" placeholder="Password">
+                </div>
+                <div class="col-6">
+                    <input type="text" class="inputshort" id="password" name="password" placeholder="Confirm Password">
+                </div>
+                <button type="submit" id="" class="buttonblue">SIGN UP</button>
 
             </div>
+        </form>
+        <!-- AVSLUTNINGSDIV HÄR FÖR ATT FÅ DE CENTRERAT -->
+    </div>
 </body>
 
 </html>
