@@ -1,16 +1,17 @@
+@import "mixins";
 
-        .orderinformationborder { 
-            @include desktop{
-                border-right: 0.5px $fontcolor solid;
+.orderinformationborder { 
+    @include desktop{
+        border-right: 0.5px $fontcolor solid;
 
-            }
-        }
+    }
+}
 
-        .informationsection {
-            @include desktop {
-                border-right: 0.5px $fontcolor solid;
-            }
-        }
+.informationsection {
+    @include desktop {
+        border-right: 0.5px $fontcolor solid;
+    }
+}
 
     .logo-container{
         padding: 20px;

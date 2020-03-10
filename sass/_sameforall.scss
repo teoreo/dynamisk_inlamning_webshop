@@ -1,30 +1,6 @@
 body {
     font-size: calc(14 + (52 - 14) * ((100vw - 100vw) / (100vw - 100vw)));
     font-family: $font;
-<<<<<<< HEAD
-    color: $fontcolor;  
-}
-
-a {
-    color: $fontcolor;
-    font-weight: 400;
-    margin-right: 25px;
-}
-
-.title {
-    letter-spacing: 1.71667px;
-    font-weight: 800;
-    margin-bottom: 33px;
-}
-
-.slinput {
-    font-weight: 300;
-    display: block;
-    margin : 0 auto;
-}
-    
-.inputshort {
-=======
     color: $fontcolor; 
    }
     
@@ -47,7 +23,6 @@ a {
    }
     
    .inputshort {
->>>>>>> 015c4b9ab4d51c505a0011c64fd1f6180d275b09
     font-weight: 300;
     width: 171px;
     height: 33px;
@@ -56,37 +31,53 @@ a {
     border-radius: 0;
     margin: 0 auto;
     padding: 0 auto;
-<<<<<<< HEAD
-}
-
-.inputlong {
-=======
    }
     
    .inputlong {
->>>>>>> 015c4b9ab4d51c505a0011c64fd1f6180d275b09
     font-weight: 300;
     width: 360px;
     height: 33px;
     background: $background;
     border: 1px solid $dark;
     border-radius: 0;
-<<<<<<< HEAD
-}
+    margin: 0 auto;
+    padding: 0 auto;    
+   }
 
-.buttonblue {
-=======
+   .dropdownlong {
+    font-weight: 300;
+    width: 360px;
+    height: 33px;
+    background: $background;
+    border: 1px solid $dark;
+    border-radius: 0;
    }
     
    .buttonblue {
->>>>>>> 015c4b9ab4d51c505a0011c64fd1f6180d275b09
     width: 171px;
     height: 33px;
     background: $blue;
     border-radius: 6px;
-<<<<<<< HEAD
-}
-=======
    } 
    
->>>>>>> 015c4b9ab4d51c505a0011c64fd1f6180d275b09
+   .buttongreen {
+    width: 171px;
+    height: 33px;
+    background: $green;
+    border-radius: 6px;
+   } 
+
+   .buttonyellow {
+    width: 171px;
+    height: 33px;
+    background: $yellow;
+    border-radius: 6px;
+   } 
+
+   .buttonred {
+    width: 171px;
+    height: 33px;
+    background: $red;
+    border-radius: 6px;
+   } 
+
