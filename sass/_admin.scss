@@ -1,63 +1,73 @@
-// @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap');
-
-// /* Variables */
-
-// // FONTS \\
-
-// $font: "Montserrat", ;
-
-// // Colors \\
-// $blue: #68C7C9;
-// $red: #FF6948;
-// $yellow: #FFC556;
-// $green: #9AD187;
-// $dark: #979797;
-// $fontcolor: #464646;
-// $background: #F7F7F7;;
-
-
-
-// body {
-//     font-size: calc(14 + (52 - 14) * ((100vw - 100vw) / (100vw - 100vw)));
-//     font-family: $font;
-//     color: $fontcolor;
-//     .container-fluid {
-//         #navbar{
-//             border: solid 1px lightsalmon;
-//             height: 50px;
-//             a{
-//                 float: right;
-//                 color: black;
-//                 text-decoration: none;
-//             }
-//         }
-//         #leftcontainer{
-//             border: solid 1px lightblue;
-//             width: 100px;
-//         }
-//         #centercontainer{
-//         border: solid 1px lightyellow;
-//         width: 100px;
-//         align-items: center;
-//             .form-inline{
-//                 .form-control {
-//                         margin: 40px;
-//                         } 
-//                         h6{
-//                             margin: 2px;
-//                         }
-//                         input.checkbox{
-//                             margin: 6px;
-//                         }
-//                 }
-//         }  
-//         button{
-//              margin: 4px;
-//              padding: 4px;
-//          }
-//         #rightcontainer{
-//         background-color: lightgreen;
-//         width: 100px;
-//         }
-//     }
-// }
+.container-fluid {
+         #navbar{
+             border: solid 1px lightsalmon;
+             height: 50px;
+             a{
+                 float: right;
+                 color: black;
+                 text-decoration: none;
+             }
+         }
+         
+         #centercontainer{
+         width: 100px;
+         align-items: center;
+         margin-top: 10px;
+         margin-bottom: 10px;
+            #contentform{
+                h3{
+                    margin-top: 110px;
+                    text-align: center;
+                }
+            }
+            input{
+                margin: 8px;
+            }
+            #price{
+                float: left;
+            }
+            #quantity{
+                float: right;
+            }
+            .select-weeks  input{
+                display: none;
+              }
+              .week-label {
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                border: 1px solid #ddd;
+                line-height: 40px;
+              }
+            #one:checked ~ label[for="one"],
+            #two:checked ~ label[for="two"],
+            #three:checked ~ label[for="three"],
+            #four:checked ~ label[for="four"]
+                {
+                background: #999;
+                color: #fff;
+            }
+             .form-inline{
+                 #sel1{
+                     border-radius: 0px solid;
+                 }
+                 .form-control {
+                         margin: 20px;
+                         } 
+                         h6{
+                             margin: 2px;
+                         }
+                         input.checkbox{
+                             margin: 6px;
+                         }
+                 }
+                 .custom-file{
+                     width: 60%;
+                 }
+                 .buttonblue {
+                     margin-top: 10px;
+                     margin-left: 120px;
+                 }
+         }  
+     }

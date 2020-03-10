@@ -1,6 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
-/* Variables */
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap");
+<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
 @media (min-width: 992px) {
   .orderinformationborder {
@@ -74,7 +73,10 @@
 form div {
   padding-bottom: 10px; }
 
+=======
+>>>>>>> f538aee043d453f867db3b7e20bb0c510e8b8029
 /* Variables */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
 html {
   height: 100%;
   margin: 0; }
@@ -191,6 +193,57 @@ html {
             display: none; } }
   html .fullheight {
     height: 100%; }
+
+.container-fluid #navbar {
+  border: solid 1px lightsalmon;
+  height: 50px; }
+  .container-fluid #navbar a {
+    float: right;
+    color: black;
+    text-decoration: none; }
+
+.container-fluid #centercontainer {
+  width: 100px;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px; }
+  .container-fluid #centercontainer #contentform h3 {
+    margin-top: 110px;
+    text-align: center; }
+  .container-fluid #centercontainer input {
+    margin: 8px; }
+  .container-fluid #centercontainer #price {
+    float: left; }
+  .container-fluid #centercontainer #quantity {
+    float: right; }
+  .container-fluid #centercontainer .select-weeks input {
+    display: none; }
+  .container-fluid #centercontainer .week-label {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    line-height: 40px; }
+  .container-fluid #centercontainer #one:checked ~ label[for="one"],
+  .container-fluid #centercontainer #two:checked ~ label[for="two"],
+  .container-fluid #centercontainer #three:checked ~ label[for="three"],
+  .container-fluid #centercontainer #four:checked ~ label[for="four"] {
+    background: #999;
+    color: #fff; }
+  .container-fluid #centercontainer .form-inline #sel1 {
+    border-radius: 0px solid; }
+  .container-fluid #centercontainer .form-inline .form-control {
+    margin: 20px; }
+  .container-fluid #centercontainer .form-inline h6 {
+    margin: 2px; }
+  .container-fluid #centercontainer .form-inline input.checkbox {
+    margin: 6px; }
+  .container-fluid #centercontainer .custom-file {
+    width: 60%; }
+  .container-fluid #centercontainer .buttonblue {
+    margin-top: 10px;
+    margin-left: 120px; }
 
 body {
   font-size: calc(14 + (52 - 14) * ((100vw - 100vw) / (100vw - 100vw)));
