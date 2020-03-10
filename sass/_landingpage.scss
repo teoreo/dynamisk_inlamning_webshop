@@ -1,0 +1,188 @@
+
+html{ 
+    height: 100%;
+    margin: 0;
+   
+    body {
+        height: 100%;
+        margin: 0;
+        font-size: calc(14 + (52 - 14) * ((100vw - 100vw) / (100vw - 100vw)));
+        font-family: $font;
+        color: $fontcolor;
+
+        a {
+            color: $fontcolor;
+            font-weight: 400;
+            margin-right: 25px;
+            
+        }
+    
+        .container-fluid {
+            height: 100%;
+            min-height: 100%;
+            margin: 0;
+            
+            .navbarmenu {
+                position: absolute;
+                z-index: 10;
+            
+                .logoimg {
+                    height: 70px;
+                }
+
+                .navlinks {
+                    padding-top: 30px;
+                    text-align: end;
+
+                    @include tablet {
+                        padding-top: 30px;
+                        padding-left: 50px;
+                    }
+
+                    @include desktop {
+                        padding-top: 30px;
+                        padding-left: 90px;
+                    }
+                }
+
+                .basketwrapper {
+                    float: right;
+                    .basketlogo {
+                        margin-top: 5px;
+                        height: 60px;
+                        
+                    }
+                }
+                
+            }
+
+            .sectionone {
+                position: relative;
+                height: 100%;
+                margin:0;
+                
+                @include tablet {
+                    height: 100%;
+                    
+                }
+                .content{
+                    height: 100%;
+                    padding-top: 200px;
+
+                    @include tablet {
+                        height: 95%;
+                    }
+                }
+                .footer{
+                    height: 5%;
+                
+                    @include tablet {
+                        height: 5%;
+                    }
+    
+                }
+            }
+        }
+
+        .sectiontwo {
+            height: 90%;
+            background: darkgrey;
+            // background-image: url(https://images.unsplash.com/flagged/photo-1557533046-154fc97b729f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80);
+            background-size: cover;
+
+            @include tablet {
+                height: 100%;
+            }
+        }
+
+        .sectionthree {
+            height: 10%;
+            text-align: center;
+            background: $blue;
+
+            @include tablet {
+                height: 100%;
+            }
+            
+            .nextsideup {
+                text-align: center;
+                @include tablet {
+                    height: 33%;
+                }
+
+                .arrowup {
+                    display: none;
+                    position: absolute;
+                    top: 0; 
+                    
+                    @include tablet {
+                        height: 58px;
+                        position: absolute;
+                        display: block;
+                        left: 33%;
+                        bottom: 1px;
+                        
+                    
+                    }
+                }
+                .arrowleft {
+                    height: 58px;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    
+                    @include tablet {
+                        display: none;
+                    }
+                }
+            }
+            
+            .countrymenu-desktop {
+                
+
+                @include tablet {
+                    height: 33%;
+                }
+            }
+
+            .nextsidedown {
+                
+                @include tablet {
+                    height: 34%;
+                }
+
+                .arrowdown {
+                    display: none;
+                    position:absolute;   
+                    bottom:0;    
+                    text-align: center;                       
+                    
+                    @include tablet {
+                        height: 58px;
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+
+                    }
+                }
+
+                .arrowright {
+                    height: 58px;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+
+                    @include tablet {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .fullheight {
+        height: 100%;
+        
+        
+    }
+}

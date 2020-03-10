@@ -1,10 +1,10 @@
 <%- include("../partial/header.ejs") %>
 
-<h1 class="coursetitle"><%= product.title %></h1>
-<p class="coursedescription">
-    <%= product.description %>
-</p>
-<div class="dropdown">
+    <h1 class="coursetitle"><%= product.title %></h1>
+    <p class="coursedescription">
+        <%= product.description %>
+    </p>
+    <div class="dropdown">
     <button class="inputlong dropdown-toggle" type="button" data-toggle="dropdown">
         How long do you want to be away?
         <span class="caret"></span>
@@ -17,4 +17,4 @@
     </ul>
     <button type="button" class="buttonblue">Book</button>
 
-    <%- include("../partial/footer.ejs") %>
+<%- include("../partial/footer.ejs") %>
