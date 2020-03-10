@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 const dbOptions = { useUnifiedTopology: true, useNewUrlParser: true };
-const port = process.env.PORT || 2000;
+const port = process.env.PORT || 2002;
 mongoose.connect(config.databaseURL, dbOptions).then(() => {
   app.listen(port, () => console.log(`App listening on port ${port}!`));
 });
