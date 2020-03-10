@@ -40,6 +40,17 @@ body {
     background: $background;
     border: 1px solid $dark;
     border-radius: 0;
+    margin: 0 auto;
+    padding: 0 auto;    
+   }
+
+   .dropdownlong {
+    font-weight: 300;
+    width: 360px;
+    height: 33px;
+    background: $background;
+    border: 1px solid $dark;
+    border-radius: 0;
    }
     
    .buttonblue {
@@ -49,3 +60,24 @@ body {
     border-radius: 6px;
    } 
    
+   .buttongreen {
+    width: 171px;
+    height: 33px;
+    background: $green;
+    border-radius: 6px;
+   } 
+
+   .buttonyellow {
+    width: 171px;
+    height: 33px;
+    background: $yellow;
+    border-radius: 6px;
+   } 
+
+   .buttonred {
+    width: 171px;
+    height: 33px;
+    background: $red;
+    border-radius: 6px;
+   } 
+
