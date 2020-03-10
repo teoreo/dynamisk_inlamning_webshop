@@ -67,28 +67,47 @@ router.get(userROUTE.payments, (req, res) => {
 router.post(userROUTE.payments, async (req, res) => {
 
 });
+// customer signup
+router.get(userROUTE.signup, async (req, res) => {
+    const errorMessage = ""
+    const findUser = await User.find();
+    res.render(userVIEW.signup, { findUser, errorMessage });
+});
+
+router.post(userROUTE.signup, async (req, res) => {
+    const salt = await bcrypt.genSaltSync(10);
+    const hashPassword = await bcrypt.hash(req.body.password, salt)
+    const user = await User.findOne({ email: req.body.email })
+    if (user) return res.render(userVIEW.signup, { errorMessage: "Email already exist" })
+    await new User({
+        email: req.body.email,
+        password: hashPassword
+    }).save();
+    res.render(userVIEW.welcome, { user })
+});
 // customer login
 router.get(userROUTE.login, (req, res) => {
-    res.render(userVIEW.login);
+    const errorMessage = ""
+    res.render(userVIEW.login, { errorMessage });
 });
 
 router.post(userROUTE.login, async (req, res) => {
     const user = await User.findOne({
         email: req.body.loginemail
     })
-    if (!user) return res.redirect(userROUTE.signup)
+    if (!user) return res.render(userVIEW.login, { errorMessage: "Email does not exist" })
     const validUser = await bcrypt.compare(req.body.loginpassword, user.password)
-    if (!validUser) return res.redirect(userROUTE.login)
+    if (!validUser) return res.render(userVIEW.login, { errorMessage: "Wrong password" })
     res.redirect(userROUTE.welcome)
 
-    jwt.sign({user}), "secretKey", (err, token) => {
-        if (err) return res.redirect(userROUTE.login)
-        if(token) {
+    jwt.sign({ user }), "secretKey", (err, token) => {
+        if (err) return res.redirect(userROUTE.login);
+        if (token) {
             const cookie = req.cookies.jsonwebtoken;
-            if(!cookie) {
-                res.cookie("jsonwebtoken", token, {maxAge: 250000000, httpOnly: true});
+            if (!cookie) {
+                res.cookie("jsonwebtoken", token, { maxAge: 250000000, httpOnly: true });
             }
-            res.render(userVIEW.welcome, {user});
+            res.render(userVIEW.welcome, { user });
         }
         res.redirect(userROUTE.login);
     };
@@ -96,23 +115,6 @@ router.post(userROUTE.login, async (req, res) => {
 
 router.get(userROUTE.logout, (req, res) => {
     res.clearCookie("jsonwebtoken").redirect(userROUTE.main);
-});
-// customer signup
-router.get(userROUTE.signup, async (req, res) => {
-
-    const findUser = await User.find();
-    res.render(userVIEW.signup, { findUser });
-});
-
-router.post(userROUTE.signup, async (req, res) => {
-    const salt = await bcrypt.genSaltSync(10);
-    const hashPassword = await bcrypt.hash(req.body.password, salt)
-    await new User({
-        email: req.body.email,
-        password: hashPassword
-    }).save();
-    const user = await User.find({ email: req.body.email })
-    res.render("firstpage.ejs", { user })
 });
 
 // customer welcome
