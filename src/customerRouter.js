@@ -5,7 +5,7 @@ const User = require("../model/userAccount");
 const productItem = require("../model/product");
 
 // middleware
-const router = express();
+const router = express.Router();
 
 
 // ADMIN
@@ -68,6 +68,8 @@ router.post("/customer/login", async (req, res) => {
     const validUser = await bcrypt.compare(req.body.loginpassword, user.password)
     if (!validUser) return res.redirect("/customer/login")
     res.send("hej")
+    
+
 
 })
 
