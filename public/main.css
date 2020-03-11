@@ -1,79 +1,82 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
-/* Variables */
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap");
+<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
-body {
-  font-size: calc(14 + (52 - 14) * ((100vw - 100vw) / (100vw - 100vw)));
-  font-family: "Montserrat";
-  color: #464646; }
-  @media (min-width: 992px) {
-    body .orderinformationborder {
-      border-right: 0.5px #464646 solid; } }
-  @media (min-width: 992px) {
-    body .informationsection {
-      border-right: 0.5px #464646 solid; } }
-  body .logo-container {
-    padding: 20px; }
-    body .logo-container .logo {
-      height: 70px;
-      width: 70px; }
-  body .orderinformation {
-    background-color: #F7F7F7;
-    padding: 15px;
-    margin: 0px 100px 0px 100px; }
-    body .orderinformation span {
-      display: block; }
-    body .orderinformation .ordername {
-      font-weight: 800; }
-    body .orderinformation .orderprice {
-      font-size: calc(110% + 0.25vw);
-      text-align: right; }
-      body .orderinformation .orderprice .orderpricesek {
-        display: inline !important;
-        font-size: calc(50% + 0.25vw); }
-  body .informationsection, body .paymentsection {
-    padding: 20px 120px 25px 120px; }
-    body .informationsection .inputshort, body .paymentsection .inputshort {
-      font-weight: 300;
-      width: 100%;
-      height: 33px;
-      background: #F7F7F7;
-      border: 1px solid #979797;
-      border-radius: 0;
-      padding: 0px 0px 0px 3px; }
-    body .informationsection .inputlong, body .paymentsection .inputlong {
-      font-weight: 300;
-      width: 100%;
-      height: 33px;
-      background: #F7F7F7;
-      border: 1px solid #979797;
-      border-radius: 0;
-      padding: 0px 0px 0px 3px; }
-    body .informationsection h5, body .paymentsection h5 {
-      font-weight: 500;
-      text-align: center;
-      padding-top: 20px;
-      padding-bottom: 20px; }
-    body .informationsection .gdpr, body .paymentsection .gdpr {
-      text-align: right;
-      display: block;
-      font-size: calc(60% + 0.25vw); }
-    body .informationsection .buttondiv, body .paymentsection .buttondiv {
-      text-align: right; }
-      body .informationsection .buttondiv .buttonblue, body .paymentsection .buttondiv .buttonblue {
-        width: 171px;
-        height: 33px;
-        background: #68C7C9;
-        border-radius: 6px; }
-    body .informationsection .paymentlogos, body .paymentsection .paymentlogos {
-      padding-top: 5px;
-      text-align: right; }
-      body .informationsection .paymentlogos img, body .paymentsection .paymentlogos img {
-        height: 25px; }
-  body form div {
-    padding-bottom: 10px; }
+@media (min-width: 992px) {
+  .orderinformationborder {
+    border-right: 0.5px #464646 solid; } }
 
+@media (min-width: 992px) {
+  .informationsection {
+    border-right: 0.5px #464646 solid; } }
+
+.logo-container {
+  padding: 20px; }
+  .logo-container .logo {
+    height: 70px;
+    width: 70px; }
+
+.orderinformation {
+  background-color: #F7F7F7;
+  padding: 15px;
+  margin: 0px 100px 0px 100px; }
+  .orderinformation span {
+    display: block; }
+  .orderinformation .ordername {
+    font-weight: 800; }
+  .orderinformation .orderprice {
+    font-size: calc(110% + 0.25vw);
+    text-align: right; }
+    .orderinformation .orderprice .orderpricesek {
+      display: inline !important;
+      font-size: calc(50% + 0.25vw); }
+
+.informationsection, .paymentsection {
+  padding: 20px 120px 25px 120px; }
+  .informationsection .inputshortco, .paymentsection .inputshortco {
+    font-weight: 300;
+    width: 100%;
+    height: 33px;
+    background: #F7F7F7;
+    border: 1px solid #979797;
+    border-radius: 0;
+    padding: 0px 0px 0px 3px; }
+  .informationsection .inputlongco, .paymentsection .inputlongco {
+    font-weight: 300;
+    width: 100%;
+    height: 33px;
+    background: #F7F7F7;
+    border: 1px solid #979797;
+    border-radius: 0;
+    padding: 0px 0px 0px 3px; }
+  .informationsection h5, .paymentsection h5 {
+    font-weight: 500;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px; }
+  .informationsection .gdpr, .paymentsection .gdpr {
+    text-align: right;
+    display: block;
+    font-size: calc(60% + 0.25vw); }
+  .informationsection .buttondiv, .paymentsection .buttondiv {
+    text-align: right; }
+    .informationsection .buttondiv .buttonblue, .paymentsection .buttondiv .buttonblue {
+      width: 171px;
+      height: 33px;
+      background: #68C7C9;
+      border-radius: 6px; }
+  .informationsection .paymentlogos, .paymentsection .paymentlogos {
+    padding-top: 5px;
+    text-align: right; }
+    .informationsection .paymentlogos img, .paymentsection .paymentlogos img {
+      height: 25px; }
+
+form div {
+  padding-bottom: 10px; }
+
+=======
+>>>>>>> f538aee043d453f867db3b7e20bb0c510e8b8029
 /* Variables */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
 html {
   height: 100%;
   margin: 0; }
@@ -191,6 +194,57 @@ html {
   html .fullheight {
     height: 100%; }
 
+.container-fluid #navbar {
+  border: solid 1px lightsalmon;
+  height: 50px; }
+  .container-fluid #navbar a {
+    float: right;
+    color: black;
+    text-decoration: none; }
+
+.container-fluid #centercontainer {
+  width: 100px;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px; }
+  .container-fluid #centercontainer #contentform h3 {
+    margin-top: 110px;
+    text-align: center; }
+  .container-fluid #centercontainer input {
+    margin: 8px; }
+  .container-fluid #centercontainer #price {
+    float: left; }
+  .container-fluid #centercontainer #quantity {
+    float: right; }
+  .container-fluid #centercontainer .select-weeks input {
+    display: none; }
+  .container-fluid #centercontainer .week-label {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    line-height: 40px; }
+  .container-fluid #centercontainer #one:checked ~ label[for="one"],
+  .container-fluid #centercontainer #two:checked ~ label[for="two"],
+  .container-fluid #centercontainer #three:checked ~ label[for="three"],
+  .container-fluid #centercontainer #four:checked ~ label[for="four"] {
+    background: #999;
+    color: #fff; }
+  .container-fluid #centercontainer .form-inline #sel1 {
+    border-radius: 0px solid; }
+  .container-fluid #centercontainer .form-inline .form-control {
+    margin: 20px; }
+  .container-fluid #centercontainer .form-inline h6 {
+    margin: 2px; }
+  .container-fluid #centercontainer .form-inline input.checkbox {
+    margin: 6px; }
+  .container-fluid #centercontainer .custom-file {
+    width: 60%; }
+  .container-fluid #centercontainer .buttonblue {
+    margin-top: 10px;
+    margin-left: 120px; }
+
 body {
   font-size: calc(14 + (52 - 14) * ((100vw - 100vw) / (100vw - 100vw)));
   font-family: "Montserrat";
@@ -227,6 +281,16 @@ a {
   height: 33px;
   background: #F7F7F7;
   border: 1px solid #979797;
+  border-radius: 0;
+  margin: 0 auto;
+  padding: 0 auto; }
+
+.dropdownlong {
+  font-weight: 300;
+  width: 360px;
+  height: 33px;
+  background: #F7F7F7;
+  border: 1px solid #979797;
   border-radius: 0; }
 
 .buttonblue {
@@ -234,6 +298,27 @@ a {
   height: 33px;
   background: #68C7C9;
   border-radius: 6px; }
+
+.buttongreen {
+  width: 171px;
+  height: 33px;
+  background: #9AD187;
+  border-radius: 6px; }
+
+.buttonyellow {
+  width: 171px;
+  height: 33px;
+  background: #FFC556;
+  border-radius: 6px; }
+
+.buttonred {
+  width: 171px;
+  height: 33px;
+  background: #FF6948;
+  border-radius: 6px; }
+
+.errorMessage {
+  color: #FF6948; }
 
 html {
   height: 100%;
