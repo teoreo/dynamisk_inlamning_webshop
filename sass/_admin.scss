@@ -1,6 +1,7 @@
+
+
 .container-fluid {
          #navbar{
-             border: solid 1px lightsalmon;
              height: 50px;
              a{
                  float: right;
@@ -8,7 +9,6 @@
                  text-decoration: none;
              }
          }
-         
          #centercontainer{
          width: 100px;
          align-items: center;
@@ -18,6 +18,14 @@
                 h3{
                     margin-top: 110px;
                     text-align: center;
+                }
+                #sel1{
+                        font-weight: 300;
+                        width: 360px;
+                        height: 33px;
+                        background: $background;
+                        border-style:1px solid #979797 ;
+                        border-radius: 0px !important ;
                 }
             }
             input{
@@ -45,13 +53,11 @@
             #three:checked ~ label[for="three"],
             #four:checked ~ label[for="four"]
                 {
-                background: #999;
+                background:$blue;
                 color: #fff;
             }
              .form-inline{
-                 #sel1{
-                     border-radius: 0px solid;
-                 }
+                
                  .form-control {
                          margin: 20px;
                          } 

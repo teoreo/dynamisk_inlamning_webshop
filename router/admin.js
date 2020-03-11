@@ -20,7 +20,7 @@ const adminROUTE = {
     welcome: "/admin/welcome",
     products: "/admin/products",
     createproduct: "/admin/createproducts",
-    editproduct: "/admin/editproduct/:id",
+    editproduct: "/admin/editproduct",
     deleteproduct: "/admin/deleteproduct/:id",
     orders: "/admin/orders",
     editorders: "/admin/editorders/:id",
@@ -34,7 +34,7 @@ const adminVIEW = {
     welcome: "admin/welcome",
     products: "admin/products",
     createproduct: "admin/createproduct",
-    editproduct: "admin/editproduct/:id",
+    editproduct: "admin/editproduct",
     orders: "admin/orders",
     editorders: "admin/editorders/:id",
     settings: "admin/settings"
@@ -91,7 +91,7 @@ router.get("/admin/createproducts", (req, res) => {
 router.post("/admin/createproducts", async (req, res) => {
     const addProduct = new productItem({
         course: req.body.course,
-        title: req.body.course,
+        title: req.body.title,
         image: req.body.image,
         price: req.body.price,
         description: req.body.description,
@@ -107,13 +107,21 @@ router.post("/admin/createproducts", async (req, res) => {
     })
 });
 // admin editproduct
+router.get(adminROUTE.editproduct, (req, res) => {
+    res.render(adminVIEW.editproduct)
+})
+
+router.post(adminROUTE.editproduct, (req,res)=>{
+    
+})
+
 // admin orders
 router.get(adminROUTE.orders, (req, res) => {
     res.render(adminVIEW.orders);
 });
 
 router.post(adminROUTE.orders, async (req, res) => {
-
+    res.send("Now on edit product")
 });
 
 // admin settings 
