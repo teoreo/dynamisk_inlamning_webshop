@@ -245,6 +245,9 @@ a {
   background: #FF6948;
   border-radius: 6px; }
 
+.errorMessage {
+  color: #FF6948; }
+
 html {
   height: 100%;
   margin: 0; }
