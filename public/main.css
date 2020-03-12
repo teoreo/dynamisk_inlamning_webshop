@@ -1,122 +1,61 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
 /* Variables */
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
-html {
-  height: 100%;
-  margin: 0; }
-  html body {
-    height: 100%;
-    margin: 0;
-    font-size: calc(14 + (52 - 14) * ((100vw - 100vw) / (100vw - 100vw)));
-    font-family: "Montserrat";
-    color: #464646; }
-    html body a {
-      color: #464646;
-      margin-right: 25px; }
-    html body .container-fluid {
-      height: 100%;
-      min-height: 100%;
-      margin: 0; }
-      html body .container-fluid .navbarmenu {
-        position: absolute;
-        z-index: 10; }
-        html body .container-fluid .navbarmenu .logoimg {
-          height: 70px; }
-        html body .container-fluid .navbarmenu .navlinks {
-          padding-top: 30px;
-          text-align: end; }
-          @media (min-width: 768px) {
-            html body .container-fluid .navbarmenu .navlinks {
-              padding-top: 30px;
-              padding-left: 50px; } }
-          @media (min-width: 992px) {
-            html body .container-fluid .navbarmenu .navlinks {
-              padding-top: 30px;
-              padding-left: 90px; } }
-        html body .container-fluid .navbarmenu .basketwrapper {
-          float: right; }
-          html body .container-fluid .navbarmenu .basketwrapper .basketlogo {
-            margin-top: 5px;
-            height: 60px; }
-      html body .container-fluid .sectionone {
-        position: relative;
-        height: 100%;
-        margin: 0; }
-        @media (min-width: 768px) {
-          html body .container-fluid .sectionone {
-            height: 100%; } }
-        html body .container-fluid .sectionone .content {
-          height: 100%;
-          padding-top: 200px; }
-          @media (min-width: 768px) {
-            html body .container-fluid .sectionone .content {
-              height: 95%; } }
-        html body .container-fluid .sectionone .footer {
-          height: 5%; }
-          @media (min-width: 768px) {
-            html body .container-fluid .sectionone .footer {
-              height: 5%; } }
-    html body .sectiontwo {
-      height: 90%;
-      background: darkgrey;
-      background-image: url(../public/img/test_img.jpg);
-      background-size: cover; }
-      @media (min-width: 768px) {
-        html body .sectiontwo {
-          height: 100%; } }
-    html body .sectionthree {
-      height: 10%;
-      text-align: center;
-      background: #68C7C9; }
-      @media (min-width: 768px) {
-        html body .sectionthree {
-          height: 100%; } }
-      html body .sectionthree .nextsideup {
-        text-align: center; }
-        @media (min-width: 768px) {
-          html body .sectionthree .nextsideup {
-            height: 33%; } }
-        html body .sectionthree .nextsideup .arrowup {
-          display: none; }
-          @media (min-width: 768px) {
-            html body .sectionthree .nextsideup .arrowup {
-              height: 58px;
-              position: absolute;
-              display: block;
-              left: 33%;
-              bottom: 1px; } }
-        html body .sectionthree .nextsideup .arrowleft {
-          height: 58px;
-          display: block;
-          margin-left: auto;
-          margin-right: auto; }
-          @media (min-width: 768px) {
-            html body .sectionthree .nextsideup .arrowleft {
-              display: none; } }
-      @media (min-width: 768px) {
-        html body .sectionthree .countrymenu-desktop {
-          height: 33%; } }
-      @media (min-width: 768px) {
-        html body .sectionthree .nextsidedown {
-          height: 34%; } }
-      html body .sectionthree .nextsidedown .arrowdown {
-        display: none; }
-        @media (min-width: 768px) {
-          html body .sectionthree .nextsidedown .arrowdown {
-            height: 58px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto; } }
-      html body .sectionthree .nextsidedown .arrowright {
-        height: 58px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto; }
-        @media (min-width: 768px) {
-          html body .sectionthree .nextsidedown .arrowright {
-            display: none; } }
-  html .fullheight {
-    height: 100%; }
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap");
+.navbarfirstpage {
+  position: absolute;
+  z-index: 10; }
+  .navbarfirstpage .logoimgfirstpage {
+    height: 70px; }
+  .navbarfirstpage .navlinksfirstpage {
+    padding-top: 30px;
+    text-align: end; }
+    @media (min-width: 768px) {
+      .navbarfirstpage .navlinksfirstpage {
+        padding-top: 30px;
+        padding-left: 50px; } }
+    @media (min-width: 992px) {
+      .navbarfirstpage .navlinksfirstpage {
+        padding-top: 35px; } }
+
+.firstpageimg {
+  display: block;
+  background-image: url("../public/images/first_page_img.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  height: 90%; }
+  @media (min-width: 768px) {
+    .firstpageimg {
+      display: none; } }
+  .firstpageimg .firstpagetextmobile {
+    margin-top: 40%;
+    padding: 15px;
+    color: white;
+    text-align: center; }
+
+.firstpagevideo {
+  display: none;
+  background-color: red; }
+  @media (min-width: 768px) {
+    .firstpagevideo {
+      display: block; } }
+  .firstpagevideo .firstpagetextdesktop {
+    margin-top: 35%;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: white;
+    text-align: center; }
+    @media (min-width: 992px) {
+      .firstpagevideo .firstpagetextdesktop {
+        margin-top: 25%;
+        padding-left: 150px;
+        padding-right: 150px; } }
+    @media (min-width: 1220px) {
+      .firstpagevideo .firstpagetextdesktop {
+        margin-top: 23%;
+        padding-left: 250px;
+        padding-right: 250px; } }
 
 .container-fluid #centercontainer {
   width: 100px;
@@ -418,3 +357,120 @@ html {
   text-align: center; }
 
 /* Variables */
+/* Variables */
+html {
+  height: 100%;
+  margin: 0; }
+  html body {
+    height: 100%;
+    margin: 0;
+    font-size: calc(14 + (52 - 14) * ((100vw - 100vw) / (100vw - 100vw)));
+    font-family: "Montserrat";
+    color: #464646; }
+    html body a {
+      color: #464646;
+      margin-right: 25px; }
+    html body .container-fluid {
+      height: 100%;
+      min-height: 100%;
+      margin: 0; }
+      html body .container-fluid .navbarmenu {
+        position: absolute;
+        z-index: 10; }
+        html body .container-fluid .navbarmenu .logoimg {
+          height: 70px; }
+        html body .container-fluid .navbarmenu .navlinks {
+          padding-top: 30px;
+          text-align: end; }
+          @media (min-width: 768px) {
+            html body .container-fluid .navbarmenu .navlinks {
+              padding-top: 30px;
+              padding-left: 50px; } }
+          @media (min-width: 992px) {
+            html body .container-fluid .navbarmenu .navlinks {
+              padding-top: 30px;
+              padding-left: 90px; } }
+        html body .container-fluid .navbarmenu .basketwrapper {
+          float: right; }
+          html body .container-fluid .navbarmenu .basketwrapper .basketlogo {
+            margin-top: 5px;
+            height: 60px; }
+      html body .container-fluid .sectionone {
+        position: relative;
+        height: 100%;
+        margin: 0; }
+        @media (min-width: 768px) {
+          html body .container-fluid .sectionone {
+            height: 100%; } }
+        html body .container-fluid .sectionone .content {
+          height: 100%;
+          padding-top: 200px; }
+          @media (min-width: 768px) {
+            html body .container-fluid .sectionone .content {
+              height: 95%; } }
+        html body .container-fluid .sectionone .footer {
+          height: 5%; }
+          @media (min-width: 768px) {
+            html body .container-fluid .sectionone .footer {
+              height: 5%; } }
+    html body .sectiontwo {
+      height: 90%;
+      background: darkgrey;
+      background-image: url(../public/img/test_img.jpg);
+      background-size: cover; }
+      @media (min-width: 768px) {
+        html body .sectiontwo {
+          height: 100%; } }
+    html body .sectionthree {
+      height: 10%;
+      text-align: center;
+      background: #68C7C9; }
+      @media (min-width: 768px) {
+        html body .sectionthree {
+          height: 100%; } }
+      html body .sectionthree .nextsideup {
+        text-align: center; }
+        @media (min-width: 768px) {
+          html body .sectionthree .nextsideup {
+            height: 33%; } }
+        html body .sectionthree .nextsideup .arrowup {
+          display: none; }
+          @media (min-width: 768px) {
+            html body .sectionthree .nextsideup .arrowup {
+              height: 58px;
+              position: absolute;
+              display: block;
+              left: 33%;
+              bottom: 1px; } }
+        html body .sectionthree .nextsideup .arrowleft {
+          height: 58px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto; }
+          @media (min-width: 768px) {
+            html body .sectionthree .nextsideup .arrowleft {
+              display: none; } }
+      @media (min-width: 768px) {
+        html body .sectionthree .countrymenu-desktop {
+          height: 33%; } }
+      @media (min-width: 768px) {
+        html body .sectionthree .nextsidedown {
+          height: 34%; } }
+      html body .sectionthree .nextsidedown .arrowdown {
+        display: none; }
+        @media (min-width: 768px) {
+          html body .sectionthree .nextsidedown .arrowdown {
+            height: 58px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto; } }
+      html body .sectionthree .nextsidedown .arrowright {
+        height: 58px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto; }
+        @media (min-width: 768px) {
+          html body .sectionthree .nextsidedown .arrowright {
+            display: none; } }
+  html .fullheight {
+    height: 100%; }

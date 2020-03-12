@@ -1,4 +1,4 @@
-config
-package-lock.json
-.gitignore
+config/
 node_modules/
+.gitignore
+package-lock.json
