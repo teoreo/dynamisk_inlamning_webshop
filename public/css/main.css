@@ -289,7 +289,7 @@ html {
               height: 5%; } }
     html body .sectiontwo {
       height: 90%;
-      background-image: url("../images/img3.jpg");
+      background: darkgrey;
       background-size: cover; }
       @media (min-width: 768px) {
         html body .sectiontwo {
@@ -415,7 +415,7 @@ html {
               height: 5%; } }
     html body .imgsection_static {
       height: 90%;
-      background-image: url("../images/img3.png");
+      background-image: url("../images/first_page_img.png");
       background-size: cover; }
       @media (min-width: 768px) {
         html body .imgsection_static {
