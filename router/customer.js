@@ -16,7 +16,7 @@ router.use(express.static("public"));
 console.log(User)
 
 const userROUTE = {
-    main: "/",
+    main: "/", // done
     bookings: "/booking",
     payments: "/payment",
     login: "/login",
@@ -26,11 +26,12 @@ const userROUTE = {
     orders: "/orders",
     logout: "/logout",
     thankyou: "/thankyou",
-    delete: "/delete/:id"
+    delete: "/delete/:id",
+    prodgenerator: "/prodgenerator"
 };
 
 const userVIEW = {
-    main: "landingpage",
+    main: "landingpage", //done
     bookings: "booking",
     payments: "payment",
     login: "login",
@@ -39,7 +40,8 @@ const userVIEW = {
     orders: "orders",
     settings: "settings",
     orders: "orders",
-    thankyou: "thankyou"
+    thankyou: "thankyou",
+    prodgenerator: "/partial/prodgenerator"
 }
 
 // customer main
@@ -47,9 +49,6 @@ router.get(userROUTE.main, (req, res) => {
     res.render(userVIEW.main);
 });
 
-router.post(userROUTE.main, async (req, res) => {
-
-});
 // customer booking
 router.get(userROUTE.bookings, (req, res) => {
     res.render(userVIEW.bookings);
@@ -148,6 +147,14 @@ router.get(userROUTE.thankyou, (req, res) => {
 });
 
 router.post(userROUTE.thankyou, async (req, res) => {
+
+});
+
+router.get(userROUTE.prodgenerator, (req, res) => {
+
+});
+
+router.post(userROUTE.prodgenerator, async (req, res) => {
 
 });
 
