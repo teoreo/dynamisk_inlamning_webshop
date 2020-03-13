@@ -15,7 +15,6 @@ router.set("view engine", "ejs");
 router.use(express.static("public"));
 console.log(User)
 
-// Variables
 const userROUTE = {
     main: "/",
     bookings: "/booking",
@@ -31,7 +30,7 @@ const userROUTE = {
 };
 
 const userVIEW = {
-    main: "main",
+    main: "landingpage",
     bookings: "booking",
     payments: "payment",
     login: "login",
@@ -134,6 +133,7 @@ router.get(userROUTE.settings, (req, res) => {
 router.post(userROUTE.settings, async (req, res) => {
 
 });
+
 // customer orders
 router.get(userROUTE.orders, (req, res) => {
     res.render(userVIEW.orders);
