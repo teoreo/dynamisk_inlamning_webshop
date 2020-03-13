@@ -103,12 +103,11 @@ html{
             }
         }
 
-        .sectiontwo {
+        .imgsection_static {
             height: 90%;
-            // background: darkgrey;
-            background-image: url(../public/img/test_img.jpg);
+            background-image: url("../images/img3.png");
             background-size: cover;
-
+             
             @include tablet {
                 height: 100%;
             }
