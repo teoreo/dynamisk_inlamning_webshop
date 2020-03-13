@@ -474,3 +474,31 @@ html {
             display: none; } }
   html .fullheight {
     height: 100%; }
+
+body .container-fluid #title_admin {
+  margin-top: 180px;
+  text-align: center; }
+  body .container-fluid #title_admin #title_prod {
+    font-size: 30px; }
+
+body .container-fluid #row_orders {
+  margin-top: 10px; }
+  body .container-fluid #row_orders table {
+    font-family: "Montserrat"; }
+    body .container-fluid #row_orders table thead th {
+      font-weight: 300;
+      font-family: "Montserrat"; }
+
+body .container-fluid #title_admin {
+  margin-top: 180px;
+  text-align: center; }
+  body .container-fluid #title_admin #title_prod {
+    font-size: 30px; }
+
+body .container-fluid #row_orders {
+  margin-top: 10px; }
+  body .container-fluid #row_orders table {
+    font-family: "Montserrat"; }
+    body .container-fluid #row_orders table thead th {
+      font-weight: 300;
+      font-family: "Montserrat"; }
