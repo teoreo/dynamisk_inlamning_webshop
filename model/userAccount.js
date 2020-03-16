@@ -8,7 +8,7 @@ const schema = new mongoose.Schema({
     address: String,
     zipcode: Number,
     city: String,
-    isAdmin: Boolean
+    isAdmin: {type: Boolean, default: false }
 
 })
 

@@ -26,25 +26,27 @@ router.use(express.static("public"));
 console.log(User)
 
 const userROUTE = {
-    main: "/",
+    main: "/", // done
     bookings: "/booking",
-    payments: "/payment",
+    checkout: "/checkout",
     login: "/login",
     signup: "/signup",
     welcome: "/welcome",
     settings: "/settings",
+    settingparams: "/settings/:id", // Skicka in rätt id
     orders: "/orders",
     logout: "/logout",
     thankyou: "/thankyou",
     delete: "/delete/:id",
     reset: "/reset",
-    resetform: "/reset/:token"
+    resetform: "/reset/:token",
+    prodgenerator: "/prodgenerator"
 };
 
 const userVIEW = {
-    main: "landingpage",
+    main: "landingpage", //done
     bookings: "booking",
-    payments: "payment",
+    checkout: "checkout",
     login: "login",
     signup: "signup",
     welcome: "welcome",
@@ -53,8 +55,9 @@ const userVIEW = {
     orders: "orders",
     thankyou: "thankyou",
     reset: "reset",
-    resetform: "resetform"
+    resetform: "resetform",
 
+    prodgenerator: "/partial/prodgenerator"
 }
 
 // customer main
@@ -62,9 +65,6 @@ router.get(userROUTE.main, (req, res) => {
     res.render(userVIEW.main);
 });
 
-router.post(userROUTE.main, async (req, res) => {
-
-});
 // customer booking
 router.get(userROUTE.bookings, (req, res) => {
     res.render(userVIEW.bookings);
@@ -73,12 +73,12 @@ router.get(userROUTE.bookings, (req, res) => {
 router.post(userROUTE.bookings, async (req, res) => {
 
 });
-// customer payments
-router.get(userROUTE.payments, (req, res) => {
-    res.render(userVIEW.payments);
+// customer checkout
+router.get(userROUTE.checkout, (req, res) => {
+    res.render(userVIEW.checkout);
 });
 
-router.post(userROUTE.payments, async (req, res) => {
+router.post(userROUTE.checkout, async (req, res) => {
 
 });
 // customer signup
@@ -152,9 +152,28 @@ router.get(userROUTE.settings, (req, res) => {
     res.render(userVIEW.settings);
 });
 
-router.post(userROUTE.settings, async (req, res) => {
+// router.get(userROUTE.settingsparams, (req, res) => {
+//     console.log(req.params.id)
+//     const user = User.findOne({_id: req.params.id})
+//     // req.params kan behövas 
+//     // const user = User.findOne({_id: req.params.id})
+//     console.log(user);
+//     res.render(userVIEW.settings, user);
+// });
 
-});
+router.post(userROUTE.settings, async (req, res) => {
+    const user = await User.updateOne({_id: req.body._id})
+            user.firstname = req.body.fname,
+            user.lastname = req.body.lname,
+            user.email = req.body.email,
+            user.address = req.body.address,
+            user.zipcode = req.body.zipcode,
+            user.city = req.body.city,
+            user.password = req.body.password,
+            user.confpassword = req.body.confpassword
+            console.log(user);
+        await user.save();
+    });
 
 // customer orders
 router.get(userROUTE.orders, (req, res) => {
@@ -215,5 +234,13 @@ router.post(userROUTE.resetform, async (req, res) => {
 
     res.redirect(userROUTE.login)
 })
+
+router.get(userROUTE.prodgenerator, (req, res) => {
+
+});
+
+router.post(userROUTE.prodgenerator, async (req, res) => {
+
+});
 
 module.exports = router;
