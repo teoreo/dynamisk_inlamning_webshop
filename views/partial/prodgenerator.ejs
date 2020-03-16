@@ -1,16 +1,4 @@
 
-<div class="todoSection">
-    <% threeTodos.forEach( (todo) => { %>
-    <ul id="myUL">
-        <li id="item" class="liItem"><%= todo.text %>
-            <a href="/update/<%=todo._id%>"><i class="update fas fa-pencil-alt"></i></a>
-            <a href="/delete/<%=todo._id%>"><i class="close fas fa-trash-alt"></i></a>
-        </li>
-    </ul>
-    <%  }) %>
-</div>
-
-
 
 <div class="col-12 col-md-1 col sectionthree order-md-3">
     <div class="row fullheight">
