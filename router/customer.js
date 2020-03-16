@@ -3,11 +3,21 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcryptjs");
 const User = require("../model/userAccount");
 const productItem = require("../model/product");
+const nodemailer = require("nodemailer");
 const jwt = require("jsonwebtoken");
-const verifyToken = require("./verifyToken")
+const crypto = require("crypto");
+const verifyToken = require("./verifyToken");
+const sendGridTransport = require("nodemailer-sendgrid-transport");
+const config = require("../config/config");
 
 // middleware
 const router = express();
+
+const transport = nodemailer.createTransport(sendGridTransport({
+    auth: {
+        ap_key: config
+    }
+}))
 
 router.use(bodyParser.urlencoded({ extended: false }))
 router.use(express.urlencoded({ extended: true }));
@@ -26,7 +36,9 @@ const userROUTE = {
     orders: "/orders",
     logout: "/logout",
     thankyou: "/thankyou",
-    delete: "/delete/:id"
+    delete: "/delete/:id",
+    reset: "/reset",
+    resetform: "/reset/:token"
 };
 
 const userVIEW = {
@@ -39,7 +51,10 @@ const userVIEW = {
     orders: "orders",
     settings: "settings",
     orders: "orders",
-    thankyou: "thankyou"
+    thankyou: "thankyou",
+    reset: "reset",
+    resetform: "resetform"
+
 }
 
 // customer main
@@ -83,6 +98,13 @@ router.post(userROUTE.signup, async (req, res) => {
         password: hashPassword
     }).save();
     res.render(userVIEW.welcome, { user })
+
+    transport.sendMail({
+        to: user.email,
+        from: "<noreply>stefan.hallberg@medieinstitutet.se",
+        subject: "Login Suceed",
+        html: "<h1>  Välkommen </h1>" + user.email
+    })
 });
 // customer login
 router.get(userROUTE.login, (req, res) => {
@@ -150,5 +172,48 @@ router.get(userROUTE.thankyou, (req, res) => {
 router.post(userROUTE.thankyou, async (req, res) => {
 
 });
+// customer reset password
+// skickas mejl med länk för att återställa lösenordet
+router.get(userROUTE.reset, (req, res) => {
+    res.render(userVIEW.reset);
+})
+router.post(userROUTE.reset, async (req, res) => {
+    const user = await User.findOne({ email: req.body.resetMail })
+    if (!user) return res.redirect(userROUTE.signup)
+
+    crypto.randomBytes(32, async (err, token) => {
+        if (err) return res.redirect(userROUTE.signup);
+        const resetToken = token.toString("hex");
+
+        user.resetToken = resetToken;
+        user.expirationToken = Date.now() + 1000000;
+        await user.save();
+
+        await transport.sendMail({
+            to: user.email,
+            from: "<noreply>stefan.hallberg@medieinstitutet.se",
+            subject: "Reset password",
+            html: `<h1> Reset Password Link: http://localhost:8005/reset/${resetToken} </h1>`
+        })
+        res.redirect(userROUTE.login)
+    })
+
+})
+//hämtar user länken där mann återställer sjäkva lösenordet
+router.get(userROUTE.resetform, async (req, res) => {
+    const user = await User.findOne({ resetToken: req.params.token, expirationToken: { $gt: Date.now() } })
+    if (!user) return res.redirect(userROUTE.signup)
+    res.render(userVIEW.resetrform, { user })
+})
+router.post(userROUTE.resetform, async (req, res) => {
+    const user = await User.findOne({ _id: req.body.userId })
+
+    user.password = bcrypt.hash(req.body.password, 10);
+    user.resetToken = undefined;
+    user.expirationToken = undefined;
+    await user.save();
+
+    res.redirect(userROUTE.login)
+})
 
 module.exports = router;
