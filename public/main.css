@@ -283,7 +283,10 @@ html {
               height: 5%; } }
     html body .sectiontwo {
       height: 90%;
+<<<<<<< HEAD
       background-image: url("../images/img3.jpg");
+=======
+>>>>>>> 230bb412189165147ff6b1db8f01c4d07f4a055e
       background-size: cover; }
       @media (min-width: 768px) {
         html body .sectiontwo {
@@ -359,7 +362,152 @@ html {
 .backgroundrec {
   width: 100%;
   height: 100%;
+<<<<<<< HEAD
   background: #F7F7F7; }
+=======
+  margin: 0; }
+  html body {
+    height: 100%;
+    margin: 0;
+    font-size: calc(14 + (52 - 14) * ((100vw - 100vw) / (100vw - 100vw)));
+    font-family: "Montserrat";
+    color: #464646; }
+    html body a {
+      color: #464646;
+      margin-right: 25px; }
+    html body .container-fluid {
+      height: 100%;
+      min-height: 100%;
+      margin: 0; }
+      html body .container-fluid .navbarmenu {
+        position: absolute;
+        z-index: 10; }
+        html body .container-fluid .navbarmenu .logoimg {
+          height: 70px; }
+        html body .container-fluid .navbarmenu .navlinks {
+          padding-top: 30px;
+          text-align: end; }
+          @media (min-width: 768px) {
+            html body .container-fluid .navbarmenu .navlinks {
+              padding-top: 30px;
+              padding-left: 50px; } }
+          @media (min-width: 992px) {
+            html body .container-fluid .navbarmenu .navlinks {
+              padding-top: 30px;
+              padding-left: 90px; } }
+        html body .container-fluid .navbarmenu .basketwrapper {
+          float: right; }
+          html body .container-fluid .navbarmenu .basketwrapper .basketlogo {
+            margin-top: 5px;
+            height: 60px; }
+      html body .container-fluid .sectionone {
+        position: relative;
+        height: 100%;
+        margin: 0; }
+        @media (min-width: 768px) {
+          html body .container-fluid .sectionone {
+            height: 100%; } }
+        html body .container-fluid .sectionone .content {
+          height: 100%;
+          padding-top: 200px; }
+          @media (min-width: 768px) {
+            html body .container-fluid .sectionone .content {
+              height: 95%; } }
+        html body .container-fluid .sectionone .footer {
+          height: 5%; }
+          @media (min-width: 768px) {
+            html body .container-fluid .sectionone .footer {
+              height: 5%; } }
+    html body .imgsection_static {
+      height: 90%;
+      background-image: url("../images/img3.png");
+      background-size: cover; }
+      @media (min-width: 768px) {
+        html body .imgsection_static {
+          height: 100%; } }
+    html body .sectionthree {
+      height: 10%;
+      text-align: center;
+      background: #68C7C9; }
+      @media (min-width: 768px) {
+        html body .sectionthree {
+          height: 100%; } }
+      html body .sectionthree .nextsideup {
+        text-align: center; }
+        @media (min-width: 768px) {
+          html body .sectionthree .nextsideup {
+            height: 33%; } }
+        html body .sectionthree .nextsideup .arrowup {
+          display: none; }
+          @media (min-width: 768px) {
+            html body .sectionthree .nextsideup .arrowup {
+              height: 58px;
+              position: absolute;
+              display: block;
+              left: 33%;
+              bottom: 1px; } }
+        html body .sectionthree .nextsideup .arrowleft {
+          height: 58px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto; }
+          @media (min-width: 768px) {
+            html body .sectionthree .nextsideup .arrowleft {
+              display: none; } }
+      @media (min-width: 768px) {
+        html body .sectionthree .countrymenu-desktop {
+          height: 33%; } }
+      @media (min-width: 768px) {
+        html body .sectionthree .nextsidedown {
+          height: 34%; } }
+      html body .sectionthree .nextsidedown .arrowdown {
+        display: none; }
+        @media (min-width: 768px) {
+          html body .sectionthree .nextsidedown .arrowdown {
+            height: 58px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto; } }
+      html body .sectionthree .nextsidedown .arrowright {
+        height: 58px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto; }
+        @media (min-width: 768px) {
+          html body .sectionthree .nextsidedown .arrowright {
+            display: none; } }
+  html .fullheight {
+    height: 100%; }
+
+body .container-fluid #title_admin {
+  margin-top: 180px;
+  text-align: center; }
+  body .container-fluid #title_admin #title_prod {
+    font-size: 30px; }
+
+body .container-fluid #row_orders {
+  margin-top: 10px; }
+  body .container-fluid #row_orders table {
+    font-family: "Montserrat"; }
+    body .container-fluid #row_orders table thead th {
+      font-weight: 300;
+      font-family: "Montserrat"; }
+
+body .container-fluid #title_admin {
+  margin-top: 180px;
+  text-align: center; }
+  body .container-fluid #title_admin #title_prod {
+    font-size: 30px; }
+
+body .container-fluid #row_orders {
+  margin-top: 10px; }
+  body .container-fluid #row_orders table {
+    font-family: "Montserrat"; }
+    body .container-fluid #row_orders table thead th {
+      font-weight: 300;
+      font-family: "Montserrat"; }
+
+>>>>>>> 230bb412189165147ff6b1db8f01c4d07f4a055e
 
 .orderimg {
   width: 100%;
