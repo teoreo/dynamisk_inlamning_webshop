@@ -40,7 +40,6 @@ const adminVIEW = {
     settings: "admin/settings"
 };
 
-
 // admin main
 router.get(adminROUTE.main, (req, res) => {
     res.render(adminVIEW.main);

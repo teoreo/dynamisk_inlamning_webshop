@@ -3,11 +3,21 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcryptjs");
 const User = require("../model/userAccount");
 const productItem = require("../model/product");
+const nodemailer = require("nodemailer");
 const jwt = require("jsonwebtoken");
-const verifyToken = require("./verifyToken")
+const crypto = require("crypto");
+const verifyToken = require("./verifyToken");
+const sendGridTransport = require("nodemailer-sendgrid-transport");
+const config = require("../config/config");
 
 // middleware
 const router = express();
+
+const transport = nodemailer.createTransport(sendGridTransport({
+    auth: {
+        ap_key: config
+    }
+}))
 
 router.use(bodyParser.urlencoded({ extended: false }))
 router.use(express.urlencoded({ extended: true }));
@@ -16,30 +26,38 @@ router.use(express.static("public"));
 console.log(User)
 
 const userROUTE = {
-    main: "/",
+    main: "/", // done
     bookings: "/booking",
-    payments: "/payment",
+    checkout: "/checkout",
     login: "/login",
     signup: "/signup",
     welcome: "/welcome",
     settings: "/settings",
+    settingparams: "/settings/:id", // Skicka in rätt id
     orders: "/orders",
     logout: "/logout",
     thankyou: "/thankyou",
-    delete: "/delete/:id"
+    delete: "/delete/:id",
+    reset: "/reset",
+    resetform: "/reset/:token",
+    prodgenerator: "/prodgenerator"
 };
 
 const userVIEW = {
-    main: "landingpage",
+    main: "landingpage", //done
     bookings: "booking",
-    payments: "payment",
+    checkout: "checkout",
     login: "login",
     signup: "signup",
     welcome: "welcome",
     orders: "orders",
     settings: "settings",
     orders: "orders",
-    thankyou: "thankyou"
+    thankyou: "thankyou",
+    reset: "reset",
+    resetform: "resetform",
+
+    prodgenerator: "/partial/prodgenerator"
 }
 
 // customer main
@@ -47,9 +65,6 @@ router.get(userROUTE.main, (req, res) => {
     res.render(userVIEW.main);
 });
 
-router.post(userROUTE.main, async (req, res) => {
-
-});
 // customer booking
 router.get(userROUTE.bookings, (req, res) => {
     res.render(userVIEW.bookings);
@@ -58,12 +73,12 @@ router.get(userROUTE.bookings, (req, res) => {
 router.post(userROUTE.bookings, async (req, res) => {
 
 });
-// customer payments
-router.get("/customer/checkout", (req, res) => {
-    res.render("checkout.ejs");
+// customer checkout
+router.get(userROUTE.checkout, (req, res) => {
+    res.render(userVIEW.checkout);
 });
 
-router.post("/customer/checkout", async (req, res) => {
+router.post(userROUTE.checkout, async (req, res) => {
 
 });
 // customer signup
@@ -83,6 +98,13 @@ router.post(userROUTE.signup, async (req, res) => {
         password: hashPassword
     }).save();
     res.render(userVIEW.welcome, { user })
+
+    transport.sendMail({
+        to: user.email,
+        from: "<noreply>stefan.hallberg@medieinstitutet.se",
+        subject: "Login Suceed",
+        html: "<h1>  Välkommen </h1>" + user.email
+    })
 });
 // customer login
 router.get(userROUTE.login, (req, res) => {
@@ -130,9 +152,28 @@ router.get(userROUTE.settings, (req, res) => {
     res.render(userVIEW.settings);
 });
 
-router.post(userROUTE.settings, async (req, res) => {
+// router.get(userROUTE.settingsparams, (req, res) => {
+//     console.log(req.params.id)
+//     const user = User.findOne({_id: req.params.id})
+//     // req.params kan behövas 
+//     // const user = User.findOne({_id: req.params.id})
+//     console.log(user);
+//     res.render(userVIEW.settings, user);
+// });
 
-});
+router.post(userROUTE.settings, async (req, res) => {
+    const user = await User.updateOne({_id: req.body._id})
+            user.firstname = req.body.fname,
+            user.lastname = req.body.lname,
+            user.email = req.body.email,
+            user.address = req.body.address,
+            user.zipcode = req.body.zipcode,
+            user.city = req.body.city,
+            user.password = req.body.password,
+            user.confpassword = req.body.confpassword
+            console.log(user);
+        await user.save();
+    });
 
 // customer orders
 router.get(userROUTE.orders, (req, res) => {
@@ -148,6 +189,57 @@ router.get(userROUTE.thankyou, (req, res) => {
 });
 
 router.post(userROUTE.thankyou, async (req, res) => {
+
+});
+// customer reset password
+// skickas mejl med länk för att återställa lösenordet
+router.get(userROUTE.reset, (req, res) => {
+    res.render(userVIEW.reset);
+})
+router.post(userROUTE.reset, async (req, res) => {
+    const user = await User.findOne({ email: req.body.resetMail })
+    if (!user) return res.redirect(userROUTE.signup)
+
+    crypto.randomBytes(32, async (err, token) => {
+        if (err) return res.redirect(userROUTE.signup);
+        const resetToken = token.toString("hex");
+
+        user.resetToken = resetToken;
+        user.expirationToken = Date.now() + 1000000;
+        await user.save();
+
+        await transport.sendMail({
+            to: user.email,
+            from: "<noreply>stefan.hallberg@medieinstitutet.se",
+            subject: "Reset password",
+            html: `<h1> Reset Password Link: http://localhost:8005/reset/${resetToken} </h1>`
+        })
+        res.redirect(userROUTE.login)
+    })
+
+})
+//hämtar user länken där mann återställer sjäkva lösenordet
+router.get(userROUTE.resetform, async (req, res) => {
+    const user = await User.findOne({ resetToken: req.params.token, expirationToken: { $gt: Date.now() } })
+    if (!user) return res.redirect(userROUTE.signup)
+    res.render(userVIEW.resetrform, { user })
+})
+router.post(userROUTE.resetform, async (req, res) => {
+    const user = await User.findOne({ _id: req.body.userId })
+
+    user.password = bcrypt.hash(req.body.password, 10);
+    user.resetToken = undefined;
+    user.expirationToken = undefined;
+    await user.save();
+
+    res.redirect(userROUTE.login)
+})
+
+router.get(userROUTE.prodgenerator, (req, res) => {
+
+});
+
+router.post(userROUTE.prodgenerator, async (req, res) => {
 
 });
 
