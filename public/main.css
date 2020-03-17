@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
 /* Variables */
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
 .navbarfirstpage {
   position: absolute;
   z-index: 10; }
@@ -284,11 +286,7 @@ html {
     html body .sectiontwo {
       height: 90%;
       background-image: url("../images/img3.jpg");
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 230bb412189165147ff6b1db8f01c4d07f4a055e
->>>>>>> d603a1767b25f13a2ccfecf3514a9663d1ab614a
+
       background-size: cover; }
       @media (min-width: 768px) {
         html body .sectiontwo {
@@ -364,12 +362,7 @@ html {
 .backgroundrec {
   width: 100%;
   height: 100%;
-<<<<<<< HEAD
-  background: #F7F7F7; }
-=======
-<<<<<<< HEAD
-  background: #F7F7F7; }
-=======
+  background: #F7F7F7; 
   margin: 0; }
   html body {
     height: 100%;
@@ -512,29 +505,76 @@ body .container-fluid #row_orders {
       font-weight: 300;
       font-family: "Montserrat"; }
 
->>>>>>> 230bb412189165147ff6b1db8f01c4d07f4a055e
->>>>>>> d603a1767b25f13a2ccfecf3514a9663d1ab614a
 
-.orderimg {
-  width: 100%;
-  padding-top: 5%;
-  padding-bottom: 5%; }
+/* Variables */
+@media (min-width: 992px) {
+  .orderinformationborder {
+    border-right: 0.5px #464646 solid; } }
 
-.imgctn {
-  text-align: center; }
+@media (min-width: 992px) {
+  .informationsection {
+    border-right: 0.5px #464646 solid; } }
 
-.textend {
-  text-align: end; }
+.logo-container {
+  padding: 20px; }
+  .logo-container .logo {
+    height: 70px;
+    width: 70px; }
 
-.titlectn {
-  margin-top: 20px;
-  margin-bottom: 10px; }
-  .titlectn .coursetitle {
-    font-size: 25px; }
-  .titlectn .price {
-    font-size: 20px; }
+.orderinformation {
+  background-color: #F7F7F7;
+  padding: 15px;
+  margin: 0px 100px 0px 100px; }
+  .orderinformation span {
+    display: block; }
+  .orderinformation .ordername {
+    font-weight: 800; }
+  .orderinformation .orderprice {
+    font-size: calc(110% + 0.25vw);
+    text-align: right; }
+    .orderinformation .orderprice .orderpricesek {
+      display: inline !important;
+      font-size: calc(50% + 0.25vw); }
 
-.txtctn {
-  margin-top: -13px; }
-  .txtctn .coursetxt {
-    font-weight: 300; }
+.informationsection, .paymentsection {
+  padding: 20px 120px 25px 120px; }
+  .informationsection .inputshortco, .paymentsection .inputshortco {
+    font-weight: 300;
+    width: 100%;
+    height: 33px;
+    background: #F7F7F7;
+    border: 1px solid #979797;
+    border-radius: 0;
+    padding: 0px 0px 0px 3px; }
+  .informationsection .inputlongco, .paymentsection .inputlongco {
+    font-weight: 300;
+    width: 100%;
+    height: 33px;
+    background: #F7F7F7;
+    border: 1px solid #979797;
+    border-radius: 0;
+    padding: 0px 0px 0px 3px; }
+  .informationsection h5, .paymentsection h5 {
+    font-weight: 500;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px; }
+  .informationsection .gdpr, .paymentsection .gdpr {
+    text-align: right;
+    display: block;
+    font-size: calc(60% + 0.25vw); }
+  .informationsection .buttondiv, .paymentsection .buttondiv {
+    text-align: right; }
+    .informationsection .buttondiv .buttonblue, .paymentsection .buttondiv .buttonblue {
+      width: 171px;
+      height: 33px;
+      background: #68C7C9;
+      border-radius: 6px; }
+  .informationsection .paymentlogos, .paymentsection .paymentlogos {
+    padding-top: 5px;
+    text-align: right; }
+    .informationsection .paymentlogos img, .paymentsection .paymentlogos img {
+      height: 25px; }
+
+form div {
+  padding-bottom: 10px; }
