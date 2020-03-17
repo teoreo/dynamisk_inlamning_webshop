@@ -59,11 +59,11 @@ router.post(userROUTE.bookings, async (req, res) => {
 
 });
 // customer payments
-router.get(userROUTE.payments, (req, res) => {
-    res.render(userVIEW.payments);
+router.get("/customer/checkout", (req, res) => {
+    res.render("checkout.ejs");
 });
 
-router.post(userROUTE.payments, async (req, res) => {
+router.post("/customer/checkout", async (req, res) => {
 
 });
 // customer signup
