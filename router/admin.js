@@ -81,7 +81,7 @@ router.get(adminROUTE.products, (req, res) => {
 });
 
 router.post(adminROUTE.products, async (req, res) => {
-
+    
 });
 
 // admin createproduct
@@ -107,12 +107,17 @@ router.post("/admin/createproducts", async (req, res) => {
     })
 });
 // admin editproduct
-router.get(adminROUTE.editproduct, (req, res) => {
-    res.render(adminVIEW.editproduct)
+router.get(adminROUTE.editproduct, async (req, res) => {
+    const response = await productItem.findById({_id:req.params.id})
+    res.render(adminVIEW.editproduct, {response})
 })
 
-router.post(adminROUTE.editproduct, (req,res)=>{
+router.post(adminROUTE.editproduct, async (req,res)=>{
+    await productItem.updateOne({_id:req.body._id},
+        {$set: {text: req.body.text, done:req.body.done}},
+    {runValidators:true}, (error)=> error? res.send(error.message): res.redirect(adminROUTE.products) 
     
+    )
 })
 
 // admin orders
