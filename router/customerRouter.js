@@ -15,7 +15,7 @@ const router = express();
 
 const transport = nodemailer.createTransport(sendGridTransport({
     auth: {
-        ap_key: config
+        ap_key: config.mail
     }
 }))
 
@@ -44,7 +44,7 @@ const userROUTE = {
 };
 
 const userVIEW = {
-    main: "landingpage", //done
+    main: "firstpagevideo", //done
     course: "course",
     checkout: "checkout",
     login: "login",
@@ -163,17 +163,17 @@ router.get(userROUTE.settings, (req, res) => {
 // });
 
 router.post(userROUTE.settings, async (req, res) => {
-    const user = await User.updateOne({_id: req.body._id})
-            user.firstname = req.body.fname,
-            user.lastname = req.body.lname,
-            user.email = req.body.email,
-            user.address = req.body.address,
-            user.zipcode = req.body.zipcode,
-            user.city = req.body.city,
-            user.password = req.body.password,
-            user.confpassword = req.body.confpassword
-            console.log(user);
-        await user.save();
+    const user = await User.updateOne({ _id: req.body._id })
+    user.firstname = req.body.fname,
+        user.lastname = req.body.lname,
+        user.email = req.body.email,
+        user.address = req.body.address,
+        user.zipcode = req.body.zipcode,
+        user.city = req.body.city,
+        user.password = req.body.password,
+        user.confpassword = req.body.confpassword
+    console.log(user);
+    await user.save();
 });
 
 // customer orders \\

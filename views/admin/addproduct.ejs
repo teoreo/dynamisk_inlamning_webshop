@@ -10,46 +10,47 @@
                 <form action="/admin/addproduct" method="POST">
                     <div class="row row_admin">
                         <div class="col-12">
-                            <select class="inputdropdown" id="sel1" placeholder="Select country">
-                                <option>Sri Lanka</option>
-                                <option>Portugal</option>
-                                <option>Costa rica</option>
+                            <select class="inputdropdown" id="sel1" name="country" placeholder="Select country">
+                                <option value="Sri Lanka">Sri Lanka</option>
+                                <option value="Portugal">Portugal</option>
+                                <option value="Costa Rica">Costa Rica</option>
                             </select>
                         </div>
                     </div>
                     <div class="row row_admin">
                         <div class="col-12">
-                            <input class="form-control inputlong_admp" placeholder="Title" id="title">
+                            <input class="form-control inputlong_admp" placeholder="Title" name="title" id="title">
                         </div>
                     </div>
                     <div class="row row_admin">
                         <div class="col-12">
-                            <input class="form-control inputlong_admp" type="text" placeholder="Description"
-                                id="description">
+                            <input class="form-control inputlong_admp" type="text" name="description"
+                                placeholder="Description" id="description">
                         </div>
                     </div>
                     <div class="row row_admin">
                         <div class="col-6">
-                            <input class="form-control inputshort_admp" placeholder="Price" id="price">
+                            <input class="form-control inputshort_admp" placeholder="Price" name="price" id="price">
                         </div>
                         <div class="col-6">
-                            <input class="form-control inputshort_admp" placeholder="Quantity" id="quantity">
+                            <input class="form-control inputshort_admp" placeholder="Quantity" name="quantity"
+                                id="quantity">
                         </div>
                     </div>
                     <div class="row row_admin">
                         <div class="select-weeks col-sm-6 ">
                             <h6>Amount of weeks</h6>
-                            <input class="checkbox" type="checkbox" id="one">
-                            <input class="checkbox" type="checkbox" id="two">
-                            <input class="checkbox" type="checkbox" id="three">
-                            <input class="checkbox" type="checkbox" id="four">
+                            <input class="checkbox" type="radio" value="1" name="weeks" id="one">
+                            <input class="checkbox" type="radio" value="2" name="weeks" id="two">
+                            <input class="checkbox" type="radio" value="3" name="weeks" id="three">
+                            <input class="checkbox" type="radio" value="4" name="weeks" id="four">
                             <label class="week-label" for="one">1</label>
                             <label class="week-label" for="two">2</label>
                             <label class="week-label" for="three">3</label>
                             <label class="week-label" for="four">4</label>
                         </div>
                         <div class="custom-file col-sm-6">
-                            <input type="file" class="custom-file-input inputshort_admp" id="customFile">
+                            <input type="file" class="custom-file-input inputshort_admp" name="image" id="customFile">
                             <label class="custom-file-label" for="customFile">UPLOAD IMAGE</label>
                         </div>
                     </div>

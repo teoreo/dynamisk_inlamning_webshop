@@ -85,33 +85,48 @@ router.post(adminROUTE.login, async (req, res) => {
 
 // });
 // admin products
-router.get(adminROUTE.products, (req, res) => {
-    res.render(adminVIEW.products);
+router.get(adminROUTE.products, async (req, res) => {
+    const currentPage = req.query.page || 1;
+    const productPerPage = 2;
+    const sortByDate = req.query.sort;
+
+    const allProducts = await productItem.find();
+
+    const fiveProducts = await productItem.find().sort({ date: sortByDate }).skip((currentPage - 1) * productPerPage).limit(productPerPage)
+    const pagesCount = Math.ceil(allProducts.length / productPerPage)
+
+    res.render(adminVIEW.products, { fiveProducts, pagesCount, currentPage });
 });
 
-router.post(adminROUTE.products, async (req, res) => {
+// router.post(adminROUTE.products, async (req, res) => {
 
-});
+// });
+
 
 // admin addproduct
+
 router.get(adminROUTE.addproduct, (req, res) => {
     res.render(adminVIEW.addproduct)
 })
 router.post(adminROUTE.addproduct, async (req, res) => {
     const addProduct = new productItem({
-        course: req.body.course,
         title: req.body.title,
         image: req.body.image,
         price: req.body.price,
         description: req.body.description,
         quantity: req.body.quantity,
-        weeks: req.body.weeks
+        weeks: req.body.weeks,
+        country: req.body.country
+
     })
     await addProduct.save((error, success) => {
         if (error) {
-            error ? res.send(error.message) : res.redirect(adminROUTE.addproduct)
+            res.send(error.message)
+        } else {
+            res.redirect(adminROUTE.products)
         }
     })
+    console.log(req.body.country)
 });
 // admin editproduct
 router.get(adminROUTE.editproduct, async (req, res) => {
