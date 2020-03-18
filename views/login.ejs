@@ -1,4 +1,4 @@
-<%- include("./partial/header.ejs") %>
+<%- include("./partial/mainheader.ejs") %>
 
 
 <div class="col-12 content slctn">
@@ -6,16 +6,14 @@
     <h1 class="title">LOG IN</h1>
     <p class="errorMessage"><%= errorMessage %></p>
     <div class="form-group">
-      <input type="email" name="loginemail" class="inputlong slinput form-control" id="loginEmail"
-        placeholder="Email" />
+      <input type="email" name="loginemail" class="inputlong form-control" id="loginEmail" placeholder="Email" />
     </div>
     <div class="form-group">
-      <input type="password" name="loginpassword" class="inputlong slinput form-control" id="loginPassword"
+      <input type="password" name="loginpassword" class="inputlong form-control" id="loginPassword"
         placeholder="Password" />
-
     </div>
     <button type="submit" id="logInBtn" class="buttonblue">Log In</button>
   </form>
 </div>
 
-<%- include("./partial/footer.ejs") %>
+<%- include("./partial/mainfooter.ejs") %>

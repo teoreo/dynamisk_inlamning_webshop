@@ -1,0 +1,7 @@
+<form action="/reset/:token" method="post">
+    <input type="hidden"
+        value="<%=user._id" name="userId">
+    <input type="password" name="password" placeholder="New Password">
+    <button type="button">Reset Password</button>
+</form>
+<!-- man kommer hit för att återställa sitt lösenord. I mejlet som skickas finns en länk som redirectar hit via ens token.  -->

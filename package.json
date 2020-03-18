@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js & node-sass -w sass -o public"
+    "start": "nodemon index.js & node-sass -w sass -o public",
+    "scss": "node-sass --watch sass -o public"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,8 @@
     "mongoose": "^5.9.3",
     "node-sass": "^4.13.1",
     "node-sass-middleware": "^0.11.0",
+    "nodemailer": "^6.4.5",
+    "nodemailer-sendgrid-transport": "^0.2.0",
     "views": "^1.0.2"
   },
   "devDependencies": {

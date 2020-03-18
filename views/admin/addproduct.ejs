@@ -1,0 +1,40 @@
+<%- include("../partial/adminheader.ejs") %>
+
+        <div class="col-12 content wectn">
+            <!-- main-->
+
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-4" id="centercontainer">
+                    <div id="contentform">
+                        <h3 class="title">ADD PRODUCT</h3>
+                        <form class="   " action="/admin/createproduct" method="POST">
+                            <select class="dropdownlong" id="sel1" placeholder="Select country">
+                                <option>Sri Lanka</option>
+                                <option>Portugal</option>
+                                <option>Costa Rica</option>
+                            </select>
+                            <input class="form-control inputlong" placeholder="Title" id="title">
+                            <input class="form-control inputlong" placeholder="Description" id="description">
+                            <input class="form-control inputshort" placeholder="Price" id="price">
+                            <input class="form-control inputshort" placeholder="Quantity" id="quantity">
+                            <h6>Amount of weeks</h6>
+                            <input class="checkbox" type="checkbox" placeholder="hej">
+                            <input class="checkbox" type="checkbox">
+                            <input class="checkbox" type="checkbox">
+                            <input class="checkbox" type="checkbox">
+                            <form>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input inputshort" id="customFile">
+                                    <label class="custom-file-label" for="customFile">UPLOAD IMAGE</label>
+                                </div>
+                                <button class="buttonblue" type="submit">ADD PRODUCT</button>
+                            </form>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- main-->
+        </div>
+        
+<%- include("../partial/adminfooter.ejs") %>

@@ -1,0 +1,62 @@
+<%- include("../partial/adminheader.ejs") %>
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-7 col-lg-5" id="centercontainer">
+        <div class="row" id="contentform">
+            <div class="col-12">
+                <h3 class="title">SETTINGS</h3>
+                <form action="/" method="">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row row_admin">
+                                <div class="col-6">
+                                    <input type="text" class="inputshort_admp" id="fname" name="fname"
+                                        placeholder="First name">
+                                </div>
+                            
+                            <div class="col-6">
+                                <input type="text" class="inputshort_admp" id="lname" name="lname" placeholder="Last name">
+                            </div>
+                        </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="inputlong" id="email" name="email" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="inputlong" id="address" name="address"
+                                        placeholder="Address">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="text" class="inputshort" id="zipcode" name="zipcode"
+                                        placeholder="Zip code">
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" class="inputshort" id="city" name="city" placeholder="City">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="text" class="inputshort" id="password" name="Password"
+                                        placeholder="Password">
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" class="inputshort" id="password" name="password"
+                                        placeholder="Confirm Password">
+                                </div>
+                                <button type="submit" id="" class="buttonblue">SIGN UP</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%- include("../partial/adminfooter.ejs") %>

@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const config = require("./config/config");
-const User = require("./router/customer");
-const Admin = require("./router/admin");
+const User = require("./router/customerRouter");
+const Admin = require("./router/adminRouter");
 const path = require("path");
 const app = express();
 
@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 const dbOptions = { useUnifiedTopology: true, useNewUrlParser: true };
-const port = process.env.PORT || 2222;
+const port = process.env.PORT || 8007;
 mongoose.connect(config.databaseURL, dbOptions).then(() => {
   app.listen(port, () => console.log(`App listening on port ${port}!`));
-});
+}); 

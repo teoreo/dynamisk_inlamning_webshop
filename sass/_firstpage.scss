@@ -1,3 +1,6 @@
+// KOLLA VILKEN AV DESSA 
+// Döpa om till header_footer
+
 @import "mixins.scss";
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap');
 
@@ -100,12 +103,11 @@ html{
             }
         }
 
-        .sectiontwo {
+        .imgsection_static {
             height: 90%;
-            background: darkgrey;
-            background-image: url(../public/img/test_img.jpg);
+            background-image: url("../images/img3.png");
             background-size: cover;
-
+             
             @include tablet {
                 height: 100%;
             }
