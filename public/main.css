@@ -490,6 +490,8 @@ body .container-fluid #row_orders {
     body .container-fluid #row_orders table thead th {
       font-weight: 300;
       font-family: "Montserrat"; }
+    body .container-fluid #row_orders table img {
+      width: 7%; }
 
 body .container-fluid #title_admin {
   margin-top: 180px;
