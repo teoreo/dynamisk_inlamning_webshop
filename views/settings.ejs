@@ -1,63 +1,58 @@
 <%- include("./partial/customerheader.ejs") %>
 
+
+<div class="row justify-content-center" id="title_admin">
+    <div class="col-12 col-md-7 col-lg-5">
+        <h1>SETTINGS</h1>
+    </div>
+</div>
 <div class="row justify-content-center">
-    <div class="col-12 col-md-7 col-lg-5" id="centercontainer">
-        <div class="row" id="contentform">
-            <div class="col-12">
-                <h3 class="title">SETTINGS</h3>
+    <div class="col-12 col-md-7 col-lg-5">
+
+        <form action="/admin/createproducts" method="POST">
+            <div class="row">
+                <input type="text" value="" class="inputshort" id="id" name="_id" placeholder="" hidden>
+                <div class="col">
+                    <input class="form-control inputshort" placeholder="First Name" id="fname">
+                </div>
+                <div class="col">
+                    <input class="form-control inputshort" placeholder="Last Name" id="lname">
+                </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-12">
+                    <input class="form-control inputlong" placeholder="Email" id="email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <input class="form-control inputlong" type="text" placeholder="Adress" id="address">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input class="form-control inputshort" placeholder="Zip code" id="zipcode">
+                </div>
+                <div class="col">
+                    <input class="form-control inputshort" placeholder="City" id="city">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input class="form-control inputshort" placeholder="Password" id="password">
+                </div>
+                <div class="col">
+                    <input class="form-control inputshort" placeholder="Confirm Password" id="confpassword">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <button class="buttonblue" type="submit">UPDATE</button>
+                </div>
+            </div>
+
+        </form>
     </div>
 </div>
-<form class="input-group">
-    <div class="row">
-        <div class="col-6">
-            <input type="text" value="" class="inputshort" id="id" name="_id" placeholder="" hidden>
-        </div>
-        <div class="col-6">
-            <input type="text" value="" class="inputshort" id="fname" name="fname"
-                placeholder="First name">
-        </div>
-        <div class="col-6">
-            <input type="text" value="" class="inputshort" id="lname" name="lname"
-                placeholder="Last name">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <input type="text" value="" class="inputlong" id="email" name="email" placeholder="Email">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <input type="text" value="" class="inputlong" id="address" name="address"
-                placeholder="Address">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-6">
-            <input type="text" value="" class="inputshort" id="zipcode" name="zipcode"
-                placeholder="Zip code">
-        </div>
-        <div class="col-6">
-            <input type="text" value="" class="inputshort" id="city" name="city" placeholder="City">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-6">
-            <input type="text" value="" class="inputshort" id="password" name="password"
-                placeholder="Password">
-        </div>
-        <div class="col-6">
-            <input type="text" value="" class="inputshort" id="confpassword" name="confpassword"
-                placeholder="Confirm Password">
-        </div>
-    </div>
-    <div class="col-12">
-        <button type="submit" id="" class="buttonblue">SIGN UP</button>
-    </div>
-</form>
-</div>
-</div>
-</div>
+
 <%- include("./partial/customerfooter.ejs") %>

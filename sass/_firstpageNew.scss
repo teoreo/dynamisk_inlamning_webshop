@@ -1,16 +1,10 @@
 // First page med video
-
-
 @import "variables.scss";
 @import "mixins";
 
 .navbarfirstpage {
     position: absolute;
     z-index: 10;
-
-    .logoimgfirstpage {
-        height: 70px;
-    }
 
     .navlinksfirstpage {
         padding-top: 30px;

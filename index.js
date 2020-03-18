@@ -1,11 +1,10 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const config = require("./config/config");
-const User = require("./router/customer");
-const Admin = require("./router/admin");
+const User = require("./router/customerRouter");
+const Admin = require("./router/adminRouter");
 const path = require("path");
 const app = express();
-
 
 app.use(express.urlencoded({ extended: true }));
 app.use(User);

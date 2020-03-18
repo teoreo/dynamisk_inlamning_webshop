@@ -1,20 +1,21 @@
 <%- include("../partial/adminheader.ejs") %>
 
-<!-- main-->              
+<!-- main-->
 <div class="row justify-content-center">
     <div class="col-12 col-md-7 col-lg-5" id="centercontainer">
         <div class="row" id="contentform">
             <div class="col-12">
-                <h3 class="title">EDIT PRODUCT</h3>
-
+                <h1>EDIT PRODUCT</h1>
                 <form action="/admin/createproducts" method="POST">
                     <div class="row row_admin">
                         <div class="col-12">
-                            <select class="inputdropdown" id="sel1" placeholder="Select country">
-                                <option>Sri Lanka</option>
-                                <option>Portugal</option>
-                                <option>Costa rica</option>
-                            </select>
+                            <div class="input-group">
+                                <select class="inputdropdown form-control" id="sel1" placeholder="Select country">
+                                    <option>Sri Lanka</option>
+                                    <option>Portugal</option>
+                                    <option>Costa rica</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="row row_admin">

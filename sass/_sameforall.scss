@@ -1,7 +1,7 @@
 body {
-    font-size: calc(14 + (52 - 14) * ((100vw - 100vw) / (100vw - 100vw)));
-    font-family: $font;
-    color: $fontcolor; 
+    // font-size: calc(14 + (52 - 14) * ((100vw - 100vw) / (100vw - 100vw)));
+    // font-family: $font;
+    // color: $fontcolor; 
    }
     
    a {
@@ -10,11 +10,11 @@ body {
     margin-right: 25px;
    }
     
-   .title {
-    letter-spacing: 1.71667px;
-    font-weight: 800;
-    margin-bottom: 33px;
-   }
+//    .title {
+//     letter-spacing: 1.71667px;
+//     font-weight: 800;
+//     margin-bottom: 33px;
+//    }
     
 //    .slinput {
 //     font-weight: 300;
@@ -24,7 +24,6 @@ body {
     
    .inputshort {
     font-weight: 300;
-    width: 171px;
     height: 33px;
     background: $background;
     border: 1px solid $dark;
@@ -35,7 +34,6 @@ body {
     
    .inputlong {
     font-weight: 300;
-    width: 360px;
     height: 33px;
     background: $background;
     border: 1px solid $dark;
@@ -58,6 +56,7 @@ body {
     height: 33px;
     background: $blue;
     border-radius: 6px;
+    text-align:center;
    } 
    
    .buttongreen {
@@ -84,3 +83,43 @@ body {
        color: $red;
    } 
 
+   .container-fluid {
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+.logoimg {
+    height: 70px;
+    // width: 70px;
+}
+
+.basketlogo {
+    margin-top: 20px;
+    height: 35px;
+}
+
+.arrowleft {
+    height: 58px;
+}
+
+.arrowright {
+    height: 58px;
+}
+
+.arrowdown {
+    height: 58px;
+}
+
+.arrowup {
+    height: 58px;
+}
+
+
+.loggedinctn {
+    width: 100px;
+    align-items: center;
+    margin-top: 70px;
+    margin-bottom: 10px;
+    text-align: center;
+}

@@ -1,5 +1,5 @@
 // KOLLA VILKEN AV DESSA 
-// Döpa om till header_footer
+// DENNA ÄR GAMLA FIRST PAGE
 
 @import "mixins.scss";
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap');
@@ -36,18 +36,18 @@ html{
             
         }
     
-        .container-fluid {
-            height: 100%;
-            min-height: 100%;
-            margin: 0;
+        // .container-fluid {
+        //     height: 100%;
+        //     min-height: 100%;
+        //     margin: 0;
             
             .navbarmenu {
                 position: absolute;
                 z-index: 10;
             
-                .logoimg {
-                    height: 70px;
-                }
+                // .logoimg {
+                //     height: 70px;
+                // }
 
                 .navlinks {
                     padding-top: 30px;
@@ -66,11 +66,11 @@ html{
 
                 .basketwrapper {
                     float: right;
-                    .basketlogo {
-                        margin-top: 5px;
-                        height: 60px;
+                    // .basketlogo {
+                    //     margin-top: 5px;
+                    //     height: 60px;
                         
-                    }
+                    // }
                 }
                 
             }
@@ -197,4 +197,4 @@ html{
         
         
     }
-}
+// }
