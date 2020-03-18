@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
 /* Variables */
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
+<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap");
@@ -168,6 +169,10 @@ p {
   color: #464646;
   margin-bottom: 20px; }
 
+=======
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
+>>>>>>> 41f2c17c7fc339c5e072aa4b2da33f03748a3cfd
 .navbarfirstpage {
   position: absolute;
   z-index: 10; }
@@ -433,6 +438,7 @@ a {
   height: 100%;
   min-height: 100%;
   margin: 0; }
+<<<<<<< HEAD
 
 .logoimg {
   height: 70px; }
@@ -459,6 +465,127 @@ a {
   margin-top: 70px;
   margin-bottom: 10px;
   text-align: center; }
+=======
+  html body {
+    height: 100%;
+    margin: 0;
+    font-size: calc(14 + (52 - 14) * ((100vw - 100vw) / (100vw - 100vw)));
+    font-family: "Montserrat";
+    color: #464646; }
+    html body a {
+      color: #464646;
+      font-weight: 400;
+      margin-right: 25px; }
+    html body .container-fluid {
+      height: 100%;
+      min-height: 100%;
+      margin: 0; }
+      html body .container-fluid .navbarmenu {
+        position: absolute;
+        z-index: 10; }
+        html body .container-fluid .navbarmenu .logoimg {
+          height: 70px; }
+        html body .container-fluid .navbarmenu .navlinks {
+          padding-top: 30px;
+          text-align: end; }
+          @media (min-width: 768px) {
+            html body .container-fluid .navbarmenu .navlinks {
+              padding-top: 30px;
+              padding-left: 50px; } }
+          @media (min-width: 992px) {
+            html body .container-fluid .navbarmenu .navlinks {
+              padding-top: 30px;
+              padding-left: 90px; } }
+        html body .container-fluid .navbarmenu .basketwrapper {
+          float: right; }
+          html body .container-fluid .navbarmenu .basketwrapper .basketlogo {
+            margin-top: 5px;
+            height: 60px; }
+      html body .container-fluid .sectionone {
+        position: relative;
+        height: 100%;
+        margin: 0; }
+        @media (min-width: 768px) {
+          html body .container-fluid .sectionone {
+            height: 100%; } }
+        html body .container-fluid .sectionone .content {
+          height: 100%;
+          padding-top: 200px; }
+          @media (min-width: 768px) {
+            html body .container-fluid .sectionone .content {
+              height: 95%; } }
+        html body .container-fluid .sectionone .footer {
+          height: 5%; }
+          @media (min-width: 768px) {
+            html body .container-fluid .sectionone .footer {
+              height: 5%; } }
+    html body .sectiontwo {
+      height: 90%;
+      background-image: url("../images/img3.jpg");
+
+      background-size: cover; }
+      @media (min-width: 768px) {
+        html body .sectiontwo {
+          height: 100%; } }
+    html body .sectionthree {
+      height: 10%;
+      text-align: center;
+      background: #68C7C9; }
+      @media (min-width: 768px) {
+        html body .sectionthree {
+          height: 100%; } }
+      html body .sectionthree .nextsideup {
+        text-align: center; }
+        @media (min-width: 768px) {
+          html body .sectionthree .nextsideup {
+            height: 33%; } }
+        html body .sectionthree .nextsideup .arrowup {
+          display: none;
+          position: absolute;
+          top: 0; }
+          @media (min-width: 768px) {
+            html body .sectionthree .nextsideup .arrowup {
+              height: 58px;
+              position: absolute;
+              display: block;
+              left: 33%;
+              bottom: 1px; } }
+        html body .sectionthree .nextsideup .arrowleft {
+          height: 58px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto; }
+          @media (min-width: 768px) {
+            html body .sectionthree .nextsideup .arrowleft {
+              display: none; } }
+      @media (min-width: 768px) {
+        html body .sectionthree .countrymenu-desktop {
+          height: 33%; } }
+      @media (min-width: 768px) {
+        html body .sectionthree .nextsidedown {
+          height: 34%; } }
+      html body .sectionthree .nextsidedown .arrowdown {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        text-align: center; }
+        @media (min-width: 768px) {
+          html body .sectionthree .nextsidedown .arrowdown {
+            height: 58px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto; } }
+      html body .sectionthree .nextsidedown .arrowright {
+        height: 58px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto; }
+        @media (min-width: 768px) {
+          html body .sectionthree .nextsidedown .arrowright {
+            display: none; } }
+  html .fullheight {
+    height: 100%; }
+>>>>>>> 41f2c17c7fc339c5e072aa4b2da33f03748a3cfd
 
 .slctn {
   text-align: center; }
@@ -516,6 +643,10 @@ p {
 /* Variables */
 html {
   height: 100%;
+<<<<<<< HEAD
+=======
+  background: #F7F7F7; 
+>>>>>>> 41f2c17c7fc339c5e072aa4b2da33f03748a3cfd
   margin: 0; }
   html body {
     height: 100%;
@@ -629,6 +760,7 @@ html {
 #row_orders {
   margin-top: 10px; }
 
+<<<<<<< HEAD
 .ordertitle {
   text-align: center;
   margin-top: 120px;
@@ -638,26 +770,80 @@ html {
   width: 100%;
   height: 100%;
   background: #F7F7F7; }
+=======
+>>>>>>> 41f2c17c7fc339c5e072aa4b2da33f03748a3cfd
 
-.orderimg {
-  width: 100%;
-  padding-top: 5%;
-  padding-bottom: 5%; }
+/* Variables */
+@media (min-width: 992px) {
+  .orderinformationborder {
+    border-right: 0.5px #464646 solid; } }
 
-.imgctn {
-  text-align: center; }
+@media (min-width: 992px) {
+  .informationsection {
+    border-right: 0.5px #464646 solid; } }
 
-.textend {
-  text-align: end; }
+.logo-container {
+  padding: 20px; }
+  .logo-container .logo {
+    height: 70px;
+    width: 70px; }
 
-.titlectn {
-  margin-top: 20px;
-  margin-bottom: 10px; }
-  .titlectn .coursetitle {
-    font-size: 25px; }
-  .titlectn .price {
-    font-size: 20px; }
+.orderinformation {
+  background-color: #F7F7F7;
+  padding: 15px;
+  margin: 0px 100px 0px 100px; }
+  .orderinformation span {
+    display: block; }
+  .orderinformation .ordername {
+    font-weight: 800; }
+  .orderinformation .orderprice {
+    font-size: calc(110% + 0.25vw);
+    text-align: right; }
+    .orderinformation .orderprice .orderpricesek {
+      display: inline !important;
+      font-size: calc(50% + 0.25vw); }
 
+.informationsection, .paymentsection {
+  padding: 20px 120px 25px 120px; }
+  .informationsection .inputshortco, .paymentsection .inputshortco {
+    font-weight: 300;
+    width: 100%;
+    height: 33px;
+    background: #F7F7F7;
+    border: 1px solid #979797;
+    border-radius: 0;
+    padding: 0px 0px 0px 3px; }
+  .informationsection .inputlongco, .paymentsection .inputlongco {
+    font-weight: 300;
+    width: 100%;
+    height: 33px;
+    background: #F7F7F7;
+    border: 1px solid #979797;
+    border-radius: 0;
+    padding: 0px 0px 0px 3px; }
+  .informationsection h5, .paymentsection h5 {
+    font-weight: 500;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px; }
+  .informationsection .gdpr, .paymentsection .gdpr {
+    text-align: right;
+    display: block;
+    font-size: calc(60% + 0.25vw); }
+  .informationsection .buttondiv, .paymentsection .buttondiv {
+    text-align: right; }
+    .informationsection .buttondiv .buttonblue, .paymentsection .buttondiv .buttonblue {
+      width: 171px;
+      height: 33px;
+      background: #68C7C9;
+      border-radius: 6px; }
+  .informationsection .paymentlogos, .paymentsection .paymentlogos {
+    padding-top: 5px;
+    text-align: right; }
+    .informationsection .paymentlogos img, .paymentsection .paymentlogos img {
+      height: 25px; }
+
+<<<<<<< HEAD
 .txtctn {
   margin-top: -13px; }
   .txtctn .coursetxt {
@@ -784,3 +970,7 @@ p {
         margin-top: 23%;
         padding-left: 250px;
         padding-right: 250px; } }
+=======
+form div {
+  padding-bottom: 10px; }
+>>>>>>> 41f2c17c7fc339c5e072aa4b2da33f03748a3cfd

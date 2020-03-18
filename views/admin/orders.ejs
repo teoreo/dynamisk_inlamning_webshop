@@ -53,6 +53,60 @@
     </div>
 </div>
 
+        
+            <!-- ORDER INFORMATION -->
+            <div class="row justify-content-center" id="title_admin">
+                <div class="col-12 col-md-7 col-lg-5">
+                            <h3 class="title" id="title_prod">ORDERS</h3>
+                </div>
+            </div>
+            <div class="row" id="row_orders">
+                <div class="col-12">
+                    <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">ORDER NR</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">ADRESS</th>
+                        <th scope="col">PRICE</th>
+                        <th scope="col">WEEKS</th>
+                        <th scope="col">EDIT</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <!-- loop > -->
+                        <th scope="row" id="order_nr"></th>
+                        <td id="order_name">Josefine</td> 
+                        <td id="order_adress">tulegatan 23</td>
+                        <td id="order_price">1250</td>
+                        <td id="order_weeks">1</td>
+                        <td id="order_edit" value="">-</td>
+                        <!-- loop -->
+                      </tr>
+                      <tr>
+                        <th scope="row"id="order_nr"></th>
+                        <td id="order_name">Isabelle</td>
+                        <td id="order_adress">Thornton</td>
+                        <td id="order_price">@fat</td>
+                        <td id="order_weeks">2</td>
+                        <td id="order_edit">-</td>
+                        
+                      </tr>
+                      <tr>
+                        <th scope="row"id="order_nr">1337</th>
+                        <td id="order_name">Stefan</td>
+                        <td id="order_adress">the Bird</td>
+                        <td id="order_price">@twitter</td>
+                        <td id="order_weeks">3</td>
+                        <td id="order_edit">-</td>
+                        
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+        
 </body>
 
 <%- include("../partial/adminfooter.ejs") %>

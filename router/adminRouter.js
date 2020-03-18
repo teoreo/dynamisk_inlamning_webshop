@@ -16,7 +16,7 @@ router.use(express.static("public"));
 const adminROUTE = {
     main: "/admin",
     login: "/admin/login",
-    signup: "/admin/signup",
+    // signup: "/admin/signup",
     welcome: "/admin/welcome",
     products: "/admin/products",
     createproduct: "/admin/createproducts",
@@ -30,7 +30,7 @@ const adminROUTE = {
 const adminVIEW = {
     main: "admin/main",
     login: "admin/login",
-    signup: "admin/signup",
+    // signup: "admin/signup",
     welcome: "admin/welcome",
     products: "admin/products",
     createproduct: "admin/createproduct",
@@ -57,30 +57,40 @@ router.post(adminROUTE.welcome, async (req, res) => {
 
 });
 
-// admin login \\
-router.get(adminROUTE.login, (req, res) => {
-    res.render(adminVIEW.login);
+// admin login
+router.get(adminROUTE.login, async (req, res) => {
+    // const admin = await new Admin({
+    //     email: "admin@websurfers.com",
+    //     password: "admin"
+    // }).save();
+    const errorMessage = ""
+    res.render(adminVIEW.login, { errorMessage });
 });
 
 router.post(adminROUTE.login, async (req, res) => {
-
+    const admin = await Admin.findOne({
+        email: req.body.loginemail,
+        password: req.body.loginpassword
+    })
+    if (!admin) return res.render(adminVIEW.login, { errorMessage: "You are not an admin or wrong password" })
+    res.redirect(adminROUTE.welcome);
 });
 
-// admin signup \\
-router.get(adminROUTE.signup, (req, res) => {
-    res.render(adminVIEW.signup);
-});
+// // admin signup
+// router.get(adminROUTE.signup, (req, res) => {
+//     res.render(adminVIEW.signup);
+// });
 
-router.post(adminROUTE.signup, async (req, res) => {
+// router.post(adminROUTE.signup, async (req, res) => {
 
-});
-// admin products \\
+// });
+// admin products
 router.get(adminROUTE.products, (req, res) => {
     res.render(adminVIEW.products);
 });
 
 router.post(adminROUTE.products, async (req, res) => {
-
+    
 });
 
 // admin createproduct \\
@@ -106,13 +116,18 @@ router.post("/admin/createproducts", async (req, res) => {
             res.redirect("/admin/createproducts")
     })
 });
-// admin editproduct \\
-router.get(adminROUTE.editproduct, (req, res) => {
-    res.render(adminVIEW.editproduct)
+// admin editproduct
+router.get(adminROUTE.editproduct, async (req, res) => {
+    const response = await productItem.findById({_id:req.params.id})
+    res.render(adminVIEW.editproduct, {response})
 })
 
-router.post(adminROUTE.editproduct, (req,res)=>{
+router.post(adminROUTE.editproduct, async (req,res)=>{
+    await productItem.updateOne({_id:req.body._id},
+        {$set: {text: req.body.text, done:req.body.done}},
+    {runValidators:true}, (error)=> error? res.send(error.message): res.redirect(adminROUTE.products) 
     
+    )
 })
 
 // admin orders \\

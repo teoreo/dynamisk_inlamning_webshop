@@ -8,8 +8,6 @@ const schema = new mongoose.Schema({
     address: String,
     zipcode: Number,
     city: String,
-    isAdmin: {type: Boolean, default: false }
-
 })
 
 const User = mongoose.model("User", schema)
