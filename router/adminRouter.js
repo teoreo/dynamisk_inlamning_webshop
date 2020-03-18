@@ -16,7 +16,7 @@ router.use(express.static("public"));
 const adminROUTE = {
     main: "/admin",
     login: "/admin/login",
-    signup: "/admin/signup",
+    // signup: "/admin/signup",
     welcome: "/admin/welcome",
     products: "/admin/products",
     createproduct: "/admin/createproducts",
@@ -30,7 +30,7 @@ const adminROUTE = {
 const adminVIEW = {
     main: "admin/main",
     login: "admin/login",
-    signup: "admin/signup",
+    // signup: "admin/signup",
     welcome: "admin/welcome",
     products: "admin/products",
     createproduct: "admin/createproduct",
@@ -58,22 +58,32 @@ router.post(adminROUTE.welcome, async (req, res) => {
 });
 
 // admin login
-router.get(adminROUTE.login, (req, res) => {
-    res.render(adminVIEW.login);
+router.get(adminROUTE.login, async (req, res) => {
+    // const admin = await new Admin({
+    //     email: "admin@websurfers.com",
+    //     password: "admin"
+    // }).save();
+    const errorMessage = ""
+    res.render(adminVIEW.login, { errorMessage });
 });
 
 router.post(adminROUTE.login, async (req, res) => {
-
+    const admin = await Admin.findOne({
+        email: req.body.loginemail,
+        password: req.body.loginpassword
+    })
+    if (!admin) return res.render(adminVIEW.login, { errorMessage: "You are not an admin or wrong password" })
+    res.redirect(adminROUTE.welcome);
 });
 
-// admin signup
-router.get(adminROUTE.signup, (req, res) => {
-    res.render(adminVIEW.signup);
-});
+// // admin signup
+// router.get(adminROUTE.signup, (req, res) => {
+//     res.render(adminVIEW.signup);
+// });
 
-router.post(adminROUTE.signup, async (req, res) => {
+// router.post(adminROUTE.signup, async (req, res) => {
 
-});
+// });
 // admin products
 router.get(adminROUTE.products, (req, res) => {
     res.render(adminVIEW.products);
