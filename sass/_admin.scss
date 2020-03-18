@@ -1,5 +1,7 @@
+@import "variables.scss";
+@import "mixins.scss";
 
-.container-fluid {
+// .container-fluid {
          #centercontainer{
          width: 100px;
          align-items: center;
@@ -136,4 +138,4 @@
                      
                  }
          }  
-     }
+    //  }

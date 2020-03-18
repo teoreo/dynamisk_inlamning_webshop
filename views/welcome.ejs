@@ -1,62 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include("./partial/customerheader.ejs") %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>WEB SURFERS</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="../main.css">
-</head>
 
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 navbarmenu">
-                <div class="row">
-                    <div class="col-2 col-md-7">
-                        <a href="#" class="">
-                            <img src="../images/logo_blue.png" alt="logo" class="logoimg">
-                        </a>
-                    </div>
-                    <div class="col-10 col-md-5 navbar-default">
-                        <ul class="navbar-nav navbar-expand navlinks">
-                            <li class="nav-item">
-                                <a href="products" class="nav-link">PRODUCTS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="orders" class="nav-link">ORDERS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="settings" class="nav-link">SETTINGS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="login" class="nav-link">LOG OUT</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 content wectn">
-                <h1 class="title">Welcome!</h1>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <br>doloremque
-                    laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore <br>veritatis et quasi
+<div class="row justify-content-center" id="title_admin">
+    <div class="col-12 col-md-7 col-lg-5">
+        <h1>Welcome</h1>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-12 col-md-7 col-lg-5">
+                <p class="welcometxt">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                    laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
                     architecto beatae vitae dicta sunt explicabo.
                 </p>
             </div>
         </div>
     </div>
-</body>
-
-</html>
+</div>
+<%- include("./partial/customerfooter.ejs") %>

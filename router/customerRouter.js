@@ -10,7 +10,7 @@ const verifyToken = require("./verifyToken");
 const sendGridTransport = require("nodemailer-sendgrid-transport");
 const config = require("../config/config");
 
-// middleware
+// middleware  \\
 const router = express();
 
 const transport = nodemailer.createTransport(sendGridTransport({
@@ -27,7 +27,7 @@ console.log(User)
 
 const userROUTE = {
     main: "/", // done
-    bookings: "/booking",
+    course: "/course",
     checkout: "/checkout",
     login: "/login",
     signup: "/signup",
@@ -45,7 +45,7 @@ const userROUTE = {
 
 const userVIEW = {
     main: "landingpage", //done
-    bookings: "booking",
+    course: "course",
     checkout: "checkout",
     login: "login",
     signup: "signup",
@@ -58,22 +58,22 @@ const userVIEW = {
     resetform: "resetform",
 
     prodgenerator: "/partial/prodgenerator"
-}
+};
 
-// customer main
+// customer main \\
 router.get(userROUTE.main, (req, res) => {
     res.render(userVIEW.main);
 });
 
-// customer booking
-router.get(userROUTE.bookings, (req, res) => {
-    res.render(userVIEW.bookings);
+// customer course \\
+router.get(userROUTE.course, (req, res) => {
+    res.render(userVIEW.course);
 });
 
-router.post(userROUTE.bookings, async (req, res) => {
+router.post(userROUTE.course, async (req, res) => {
 
 });
-// customer checkout
+// customer checkout \\
 router.get(userROUTE.checkout, (req, res) => {
     res.render(userVIEW.checkout);
 });
@@ -81,7 +81,7 @@ router.get(userROUTE.checkout, (req, res) => {
 router.post(userROUTE.checkout, async (req, res) => {
 
 });
-// customer signup
+// customer signup \\
 router.get(userROUTE.signup, async (req, res) => {
     const errorMessage = ""
     const findUser = await User.find();
@@ -106,7 +106,7 @@ router.post(userROUTE.signup, async (req, res) => {
         html: "<h1>  Välkommen </h1>" + user.email
     })
 });
-// customer login
+// customer login \\
 router.get(userROUTE.login, (req, res) => {
     const errorMessage = ""
     res.render(userVIEW.login, { errorMessage });
@@ -134,11 +134,12 @@ router.post(userROUTE.login, async (req, res) => {
     };
 });
 
+// log Out \\
 router.get(userROUTE.logout, (req, res) => {
     res.clearCookie("jsonwebtoken").redirect(userROUTE.main);
 });
 
-// customer welcome
+// customer welcome \\
 router.get(userROUTE.welcome, (req, res) => {
     res.render(userVIEW.welcome);
 });
@@ -147,7 +148,7 @@ router.post(userROUTE.welcome, async (req, res) => {
 
 });
 
-// customer settings
+// customer settings \\
 router.get(userROUTE.settings, (req, res) => {
     res.render(userVIEW.settings);
 });
@@ -173,9 +174,9 @@ router.post(userROUTE.settings, async (req, res) => {
             user.confpassword = req.body.confpassword
             console.log(user);
         await user.save();
-    });
+});
 
-// customer orders
+// customer orders \\
 router.get(userROUTE.orders, (req, res) => {
     res.render(userVIEW.orders);
 });
@@ -183,7 +184,8 @@ router.get(userROUTE.orders, (req, res) => {
 router.post(userROUTE.orders, async (req, res) => {
 
 });
-// customer thankyou
+
+// customer thankyou \\
 router.get(userROUTE.thankyou, (req, res) => {
     res.render(userVIEW.thankyou);
 });

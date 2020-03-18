@@ -16,11 +16,7 @@
 
     .logo-container{
         padding: 20px;
-
-        .logo {
-            height: 70px;
-            width: 70px;
-        }
+        margin-bottom: 40px;
     }
 
     .orderinformation {
@@ -71,12 +67,10 @@
         }
 
         h5 {
-            font-weight: 500;
             text-align: center;
             padding-top: 20px;
             padding-bottom: 20px;
         }
-
         
         .gdpr {
             text-align: right;
@@ -87,19 +81,13 @@
         .buttondiv {
             text-align: right;
             
-            .buttonblue {
-                width: 171px;
-                height: 33px;
-                background: $blue;
-                border-radius: 6px;
-            }
         }
 
         .paymentlogos {
             padding-top: 5px;
             text-align: right;
 
-            img {
+            .paymentlogo {
                 height: 25px;
             }
         }

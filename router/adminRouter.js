@@ -127,7 +127,7 @@ router.post(adminROUTE.editproduct, async (req, res) => {
     )
 })
 
-// admin orders
+// admin orders \\
 router.get(adminROUTE.orders, (req, res) => {
     res.render(adminVIEW.orders);
 });
@@ -136,7 +136,7 @@ router.post(adminROUTE.orders, async (req, res) => {
     res.send("Now on edit product")
 });
 
-// admin settings 
+// admin settings  \\
 router.get(adminROUTE.settings, (req, res) => {
     res.render(adminVIEW.settings);
 });
@@ -144,7 +144,5 @@ router.get(adminROUTE.settings, (req, res) => {
 router.post(adminROUTE.settings, async (req, res) => {
 
 });
-
-
 
 module.exports = router;

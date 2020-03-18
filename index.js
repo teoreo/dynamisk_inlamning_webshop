@@ -6,7 +6,6 @@ const Admin = require("./router/adminRouter");
 const path = require("path");
 const app = express();
 
-
 app.use(express.urlencoded({ extended: true }));
 app.use(User);
 app.use(Admin);
