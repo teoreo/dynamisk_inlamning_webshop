@@ -270,6 +270,16 @@ p {
   color: #464646;
   margin-bottom: 20px; }
 
+.ctnorderproduct {
+  padding: 2rem 0rem; }
+
+.table-image td,
+.table-image th {
+  vertical-align: middle; }
+  .table-image td .img-thumbnail,
+  .table-image th .img-thumbnail {
+    width: 25px; }
+
 #centercontainer {
   width: 100px;
   align-items: center;
@@ -628,12 +638,17 @@ body .container-fluid #title_admin {
     font-size: 30px; }
 
 body .container-fluid #row_orders {
-  margin-top: 10px; }
+  margin-top: 10px;
+  justify-content: space-between; }
   body .container-fluid #row_orders table {
     font-family: "Montserrat"; }
     body .container-fluid #row_orders table thead th {
       font-weight: 300;
       font-family: "Montserrat"; }
+    body .container-fluid #row_orders table .editproduct {
+      text-align: end; }
+    body .container-fluid #row_orders table .productEditDelete {
+      width: 4%; }
 
 .ordertitle {
   text-align: center;
