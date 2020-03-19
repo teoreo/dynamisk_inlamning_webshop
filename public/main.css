@@ -4,7 +4,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,800&display=swap");
 h1 {
   font-family: "Montserrat";
   font-style: normal;
@@ -622,12 +621,19 @@ html {
 .fullheight {
   height: 100%; }
 
-#title_admin {
+body .container-fluid #title_admin {
   margin-top: 180px;
   text-align: center; }
+  body .container-fluid #title_admin #title_prod {
+    font-size: 30px; }
 
-#row_orders {
+body .container-fluid #row_orders {
   margin-top: 10px; }
+  body .container-fluid #row_orders table {
+    font-family: "Montserrat"; }
+    body .container-fluid #row_orders table thead th {
+      font-weight: 300;
+      font-family: "Montserrat"; }
 
 .ordertitle {
   text-align: center;
@@ -681,106 +687,3 @@ html {
     margin-left: 10px; }
   .dropdown .buttonblue {
     margin-left: 10px; }
-
-/* Variables */
-h1 {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 800;
-  font-size: 35px;
-  line-height: 43px;
-  letter-spacing: 1.71667px;
-  margin-bottom: 33px;
-  color: #464646; }
-
-h2 {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 25px;
-  line-height: 21px;
-  letter-spacing: 1.71667px;
-  margin-bottom: 33px;
-  color: #464646; }
-
-h3 {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 21px;
-  letter-spacing: 1.71667px;
-  margin-bottom: 33px;
-  color: #464646; }
-
-h4 {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 300;
-  font-size: 17px;
-  line-height: 21px;
-  letter-spacing: 1.71667px;
-  margin-bottom: 33px;
-  color: #464646; }
-
-p {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 300;
-  font-size: 15px;
-  line-height: 18px;
-  color: #464646;
-  margin-bottom: 20px; }
-
-.navbarfirstpage {
-  position: absolute;
-  z-index: 10; }
-  .navbarfirstpage .navlinksfirstpage {
-    padding-top: 30px;
-    text-align: end; }
-    @media (min-width: 768px) {
-      .navbarfirstpage .navlinksfirstpage {
-        padding-top: 30px;
-        padding-left: 50px; } }
-    @media (min-width: 992px) {
-      .navbarfirstpage .navlinksfirstpage {
-        padding-top: 35px; } }
-
-.firstpageimg {
-  display: block;
-  background-image: url("../public/images/first_page_img.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  height: 90%; }
-  @media (min-width: 768px) {
-    .firstpageimg {
-      display: none; } }
-  .firstpageimg .firstpagetextmobile {
-    margin-top: 40%;
-    padding: 15px;
-    color: white;
-    text-align: center; }
-
-.firstpagevideo {
-  display: none;
-  background-color: red; }
-  @media (min-width: 768px) {
-    .firstpagevideo {
-      display: block; } }
-  .firstpagevideo .firstpagetextdesktop {
-    margin-top: 35%;
-    padding-left: 30px;
-    padding-right: 30px;
-    color: white;
-    text-align: center; }
-    @media (min-width: 992px) {
-      .firstpagevideo .firstpagetextdesktop {
-        margin-top: 25%;
-        padding-left: 150px;
-        padding-right: 150px; } }
-    @media (min-width: 1220px) {
-      .firstpagevideo .firstpagetextdesktop {
-        margin-top: 23%;
-        padding-left: 250px;
-        padding-right: 250px; } }

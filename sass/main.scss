@@ -1,18 +1,18 @@
 // Import from all SCSS files:
 
-@import "checkout.scss";
-@import "firstpageNew.scss";
-@import "admin.scss";
+@import "c_checkout.scss";
+@import "c_firstpage_video.scss";
+@import "admin_add_edit.scss";
 @import "mixins.scss"; 
-@import "sameforall.scss";
+@import "sameforall.scss"; 
 // @import "landningpage.scss"; 
 @import "login_signup.scss";
 @import "variables.scss";
-@import "firstpage.scss";
+@import "primary.scss";
 @import "Aproducts.scss";
 @import "Aorders.scss";
-@import "orders.scss";
-@import "welcome.scss";
-@import "course.scss";
-@import "firstpageNew.scss";
+@import "c_orders.scss";
+@import "welcome.scss"; 
+@import "c_course.scss";
+
 
