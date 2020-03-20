@@ -20,12 +20,37 @@
 
 
 // .container-fluid {
-#centercontainer {
-    width: 100px;
-    align-items: center;
-    margin-top: 70px;
-    margin-bottom: 10px;
-    text-align: center;
+
+    .ctnorderproduct {
+        padding: 2rem 0rem;
+     }
+      
+     .table-image {
+      
+        td,
+        th {
+            vertical-align: middle;
+      
+            .img-thumbnail {
+                width: 25px;
+            }
+        }
+     }
+     
+         #centercontainer{
+         width: 100px;
+         align-items: center;
+         margin-top: 70px;
+         margin-bottom: 10px;
+         text-align: center;
+            #contentform{
+                .row_admin{
+                    margin-bottom: 8px;
+                }
+                h3{
+                    margin-top: 110px;
+                    text-align: center;
+                }
 
     #contentform {
         .row_admin {

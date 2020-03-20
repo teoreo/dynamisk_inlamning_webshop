@@ -20,8 +20,8 @@ const adminROUTE = {
     welcome: "/admin/welcome",
     products: "/admin/products",
     addproduct: "/admin/addproduct",
-    editproduct: "/admin/editproduct",
-    deleteproduct: "/admin/deleteproduct/:id",
+    editproduct: "/admin/editproduct/:id",
+    deleteproduct: "/admin/delete/:id",
     orders: "/admin/orders",
     editorders: "/admin/editorders/:id",
     settings: "/admin/settings"
@@ -84,10 +84,11 @@ router.post(adminROUTE.login, async (req, res) => {
 // router.post(adminROUTE.signup, async (req, res) => {
 
 // });
+
 // admin products
 router.get(adminROUTE.products, async (req, res) => {
     const currentPage = req.query.page || 1;
-    const productPerPage = 2;
+    const productPerPage = 4;
     const sortByDate = req.query.sort;
 
     const allProducts = await productItem.find();
@@ -96,6 +97,34 @@ router.get(adminROUTE.products, async (req, res) => {
     const pagesCount = Math.ceil(allProducts.length / productPerPage)
 
     res.render(adminVIEW.products, { fiveProducts, pagesCount, currentPage });
+});
+
+router.get(adminROUTE.deleteproduct, async (req, res) => {
+    await productItem.deleteOne({ _id: req.params.id });
+    res.redirect(adminROUTE.products)
+});
+
+router.get(adminROUTE.editproduct, async (req, res) => {
+    const response = await productItem.findById({ _id: req.params.id });
+    res.render(adminVIEW.editproduct, { response })
+});
+
+router.post(adminROUTE.editproduct, async (req, res) => {
+    await productItem.updateOne({ _id: req.body._id },
+        {
+            $set: {
+                title: req.body.title,
+                price: req.body.price,
+                description: req.body.description,
+                quantity: req.body.quantity,
+                weeks: req.body.weeks,
+            }
+        }, (error) =>
+        error ? res.send(error.message) : res.redirect(adminROUTE.products)
+    );
+
+    res.redirect(adminROUTE.products)
+
 });
 
 // router.post(adminROUTE.products, async (req, res) => {

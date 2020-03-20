@@ -638,12 +638,17 @@ body .container-fluid #title_admin {
     font-size: 30px; }
 
 body .container-fluid #row_orders {
-  margin-top: 10px; }
+  margin-top: 10px;
+  justify-content: space-between; }
   body .container-fluid #row_orders table {
     font-family: "Montserrat"; }
     body .container-fluid #row_orders table thead th {
       font-weight: 300;
       font-family: "Montserrat"; }
+    body .container-fluid #row_orders table .editproduct {
+      text-align: end; }
+    body .container-fluid #row_orders table .productEditDelete {
+      width: 4%; }
 
 .ordertitle {
   text-align: center;
