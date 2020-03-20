@@ -2,6 +2,23 @@
 @import "mixins.scss";
 
 // .container-fluid {
+
+    .ctnorderproduct {
+        padding: 2rem 0rem;
+     }
+      
+     .table-image {
+      
+        td,
+        th {
+            vertical-align: middle;
+      
+            .img-thumbnail {
+                width: 25px;
+            }
+        }
+     }
+     
          #centercontainer{
          width: 100px;
          align-items: center;
