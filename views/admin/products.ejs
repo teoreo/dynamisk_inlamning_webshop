@@ -1,80 +1,82 @@
 <%- include("../partial/adminheader.ejs") %>
 <!-- ORDER INFORMATION -->
 <div class="row justify-content-center" id="title_admin">
-    <div class="col-12 col-md-7 col-lg-5">
-        <h1>PRODUCTS</h1>
-    </div>
+	<div class="col-12 col-md-7 col-lg-5">
+		<h1>PRODUCTS</h1>
+	</div>
 </div>
-<div class="row" id="row_orders">
-	<div class="col-12">
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th scope="col">
-						<p>COUNTRY</p>
-					</th>
-					<th scope="col">
-						<p>TITLE</p>
-					</th>
-					<th scope="col">
-						<p>DESCRIPTION</p>
-					</th>
-					<th scope="col">
-						<p>PRICE</p>
-					</th>
-					<th scope="col">
-						<p>WEEKS</p>
-					</th>
-					<th scope="col">
-						<p>EDIT</p>
-					</th>
-				</tr>
-			</thead>
-			<tbody>
 
-				<% fiveProducts.forEach((products) => { %>
-				<tr>
-					<th scope="row" id="order_nr">
-
-						<p><%=products.country %></p>
-
-					</th>
-					<td id="order_titel">
-						<p><%=products.title %></p>
-					</td>
-					<td id="order_title">
-						<p><%=products.description %>
-						</p>
-					</td>
-					<td id="order_price">
-						<p><%=products.price %></p>
-					</td>
-					<td id="order_weeks">
-						<p><%=products.weeks %></p>
-					</td>
-					<td id="order_edit">
-						<p></p>
-					</td>
-
-				</tr>
-				<%	}) %>
-				<!-- loop -->
-
-			</tbody>
-		</table>
+	<div class="container ctnorderproduct">
 		<div class="row">
 			<div class="col-12">
+				<table class="table table-image table-striped">
+					<thead>
+						<tr>
+							<th scope="row">
+							<th scope="col">
+								<P>COUNTRY</P>
+							</th>
+							<th scope="col">
+								<P>TITLE</P>
+							</th>
+							<th scope="col">
+								<P>DESCRIPTION</P>
+							</th>
+							<th scope="col">
+								<P>PRICE</P>
+							</th>
+							<th scope="col">
+								<P>WEEKS</P>
+							</th>
+							<th scope="col">
+								<P>EDIT</P>
+							</th>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% fiveProducts.forEach((products) => { %>
+						<tr>
+							<th scope="row">
+							<td class="w-15">
+								<p><%=products.country %></p>
+							</td>
+
+							<td class="w-15">
+								<p><%=products.price %></p>
+							</td>
+							<td class="w-15">
+								<p><%=products.title %></p>
+							</td>
+							<td class="w-15">
+								<p><%=products.price %></p>
+							</td>
+							<td class="w-15">
+								<p><%=products.weeks %></p>
+							</td>
+							<td class="w-15">
+								<img src="/images/edit.svg" class="img-fluid img-thumbnail" alt="Sheep">
+								<img src="/images/delete.svg" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							</th>
+						</tr>
+						<% }) %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 ">
 				<% for(let page=1; page <= pagesCount && pagesCount > 1; page++ ) { %>
 				<% if (currentPage === page) { %>
-				<button class="pages"><a href="/admin/products/?page=<%=page%>"><%=page%></a></button>
+				<button class="pages"><a href="/admin/products/?page=<%=page%>"><span class="pagetxt"><%=page%></span></a></button>
 				<% } else { %>
-				<button class="pages"><a href="/admin/products/?page=<%=page%>"><%=page%></a></button>
+				<button class="pages"><a href="/admin/products/?page=<%=page%>"><span><%=page%></span></a></button>
 				<%	} %>
 
 				<% } %>
 			</div>
 		</div>
 	</div>
-</div>
-</div>
+
 <%- include("../partial/adminfooter.ejs") %>

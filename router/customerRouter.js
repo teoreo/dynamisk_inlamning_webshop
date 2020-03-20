@@ -198,6 +198,7 @@ router.post(userROUTE.thankyou, async (req, res) => {
 router.get(userROUTE.reset, (req, res) => {
     res.render(userVIEW.reset);
 })
+
 router.post(userROUTE.reset, async (req, res) => {
     const user = await User.findOne({ email: req.body.resetMail })
     if (!user) return res.redirect(userROUTE.signup)
@@ -226,6 +227,7 @@ router.get(userROUTE.resetform, async (req, res) => {
     if (!user) return res.redirect(userROUTE.signup)
     res.render(userVIEW.resetrform, { user })
 })
+
 router.post(userROUTE.resetform, async (req, res) => {
     const user = await User.findOne({ _id: req.body.userId })
 
