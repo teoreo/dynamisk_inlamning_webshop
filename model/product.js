@@ -7,14 +7,11 @@ const schema = new mongoose.Schema({
 	price: Number,
 	description: String,
 	quantity: Number,
-	weekone: Number,
-	weektwo: Number,
-	weekthree: Number,
-	weekfour: Number,
 	country: { type: String, },
-	date: { type: Date, default: Date.now }
+	date: { type: Date, default: Date.now },
+	user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true}
 });
 
-const productItem = mongoose.model("product", schema);
+const productItem = mongoose.model("Product", schema);
 
 module.exports = productItem;

@@ -5,7 +5,9 @@ const User = require("./router/customerRouter");
 const Admin = require("./router/adminRouter");
 const path = require("path");
 const app = express();
+const cookieparser = require("cookie-parser");
 
+app.use(cookieparser());
 app.use(express.urlencoded({ extended: true }));
 app.use(User);
 app.use(Admin);
