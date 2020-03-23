@@ -1,105 +1,84 @@
 <%- include("../partial/adminheader.ejs") %>
 
-<!-- ORDER INFORMATION -->
 <div class="row justify-content-center" id="title_admin">
 	<div class="col-12 col-md-7 col-lg-5">
 		<h1>ORDERS</h1>
 	</div>
 </div>
-<div class="row" id="row_orders">
-	<div class="col-12">
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th scope="col">
-						<p>ORDER NR</p>
-					</th>
-					<th scope="col">
-						<p>NAME</p>
-					</th>
-					<th scope="col">
-						<p>ADRESS</p>
-					</th>
-					<th scope="col">
-						<p>PRICE</p>
-					</th>
-					<th scope="col">
-						<p>WEEKS</p>
-					</th>
-					<th scope="col">
-						<p>EDIT</p>
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<!-- loop > -->
-					<th scope="row" id="order_nr">
-						<p></p>
-					</th>
-					<td id="order_name">
-						<p>Josefine</p>
-					</td>
-					<td id="order_adress">
-						<p>tulegatan 23</p>
-					</td>
-					<td id="order_price">
-						<p>1250</p>
-					</td>
-					<td id="order_weeks">
-						<p>1</p>
-					</td>
-					<td id="order_edit">
-						<p>-</p>
-					</td>
-					<!-- loop -->
-				</tr>
-				<tr>
-					<th scope="row" id="order_nr">
-						<p></p>
-					</th>
-					<td id="order_name">
-						<p>Isabelle</p>
-					</td>
-					<td id="order_adress">
-						<p>Thornton</p>
-					</td>
-					<td id="order_price">
-						<p>@fat</p>
-					</td>
-					<td id="order_weeks">
-						<p>2</p>
-					</td>
-					<td id="order_edit">
-						<p>-</p>
-					</td>
 
-				</tr>
-				<tr>
-					<th scope="row" id="order_nr">
-						<p>1337</p>
-					</th>
-					<td id="order_name">
-						<p>Stefan</p>
-					</td>
-					<td id="order_adress">
-						<p>the Bird</p>
-					</td>
-					<td id="order_price">
-						<p>@twitter</p>
-					</td>
-					<td id="order_weeks">
-						<p>3</p>
-					</td>
-					<td id="order_edit">
-						<p></p>
-					</td>
+<div class="container ctnorderproduct">
+	<div class="row">
+		<div class="col-12">
+			<table class="table table-image table-striped">
+				<thead>
+					<tr>
+						<th scope="row">
+						<th scope="col">
+							<P>ORDER NO</P>
+						</th>
+						<th scope="col">
+							<P>NAME</P>
+						</th>
+						<th scope="col">
+							<P>ADDRESS</P>
+						</th>
+						<th scope="col">
+							<P>PRICE</P>
+						</th>
+						<th scope="col">
+							<P>WEEKS</P>
+						</th>
+						<th scope="col">
+							<P>EDIT</P>
+						</th>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% fiveOrders.forEach((orders) => { %>
+					<tr>
+						<th scope="row">
+						<td class="w-15">
+							<p><%=orders.orderno %></p>
+						</td>
 
-				</tr>
-			</tbody>
-		</table>
+						<td class="w-15">
+							<p><%=orders.name %></p>
+						</td>
+						<td class="w-15">
+							<p><%=orders.address %></p>
+						</td>
+						<td class="w-15">
+							<p><%=orders.price %></p>
+						</td>
+						<td class="w-15">
+							<p><%=orders.weeks %></p>
+						</td>
+						<td class="w-15">
+							<a href="/admin/editproduct/<%=orders._id%>"><img src="/images/edit.svg" alt="edit"
+									class="img-fluid img-thumbnail"></a>
+						</td>
+						</th>
+					</tr>
+					<% }) %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 ">
+			<% for(let page=1; page <= pagesCount && pagesCount > 1; page++ ) { %>
+			<% if (currentPage === page) { %>
+			<a href="/admin/orders/?page=<%=page%>"><button class="pages"><span class="pagetxt"><%=page%></span></button></a>
+			<% } else { %>
+			<a href="/admin/orders/?page=<%=page%>"><button class="pages">
+					<span><%=page%></span>
+				</button></a>
+			<%  } %>
+
+			<% } %>
+		</div>
 	</div>
 </div>
-</body>
 
 <%- include("../partial/adminfooter.ejs") %>
