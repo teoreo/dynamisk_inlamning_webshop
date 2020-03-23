@@ -138,7 +138,6 @@ router.post(adminROUTE.editproduct, async (req, res) => {
                 price: req.body.price,
                 description: req.body.description,
                 quantity: req.body.quantity,
-                weeks: req.body.weeks,
             }
         }, (error) =>
         error ? res.send(error.message) : res.redirect(adminROUTE.products)
@@ -165,10 +164,6 @@ router.post(adminROUTE.addproduct, async (req, res) => {
         price: req.body.price,
         description: req.body.description,
         quantity: req.body.quantity,
-        weekone: req.body.weekone,
-        weektwo: req.body.weektwo,
-        weekthree: req.body.weekthree,
-        weekfour: req.body.weekfour,
         country: req.body.country
     });
     
