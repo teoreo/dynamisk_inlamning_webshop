@@ -17,7 +17,7 @@ const transport = nodemailer.createTransport(sendGridTransport({
     auth: {
         ap_key: config.mail
     }
-}))
+}));
 
 router.use(bodyParser.urlencoded({ extended: false }))
 router.use(express.urlencoded({ extended: true }));
@@ -66,13 +66,29 @@ router.get(userROUTE.main, (req, res) => {
 });
 
 // customer course \\
-router.get(userROUTE.course, (req, res) => {
-    res.render(userVIEW.course);
+router.get(userROUTE.course, async (req, res) => {
+    const currentPage = req.query.page || 1;
+    const productPerPage = 1;
+    const sortByDate = req.query.sort;
+
+    const allCourses = await productItem.find();
+
+    const oneCourse = await productItem.find().sort({
+        date: sortByDate
+    }).skip((currentPage - 1) * productPerPage).limit(productPerPage)
+    const pagesCount = Math.ceil(allCourses.length / productPerPage)
+
+    res.render(userVIEW.course, {
+        oneCourse,
+        pagesCount,
+        currentPage
+    });
 });
 
-router.post(userROUTE.course, async (req, res) => {
+// router.post(userROUTE.course, async (req, res) => {
 
-});
+// });
+
 // customer checkout \\
 router.get(userROUTE.checkout, (req, res) => {
     res.render(userVIEW.checkout);
@@ -193,11 +209,13 @@ router.get(userROUTE.thankyou, (req, res) => {
 router.post(userROUTE.thankyou, async (req, res) => {
 
 });
+
 // customer reset password
 // skickas mejl med länk för att återställa lösenordet
 router.get(userROUTE.reset, (req, res) => {
     res.render(userVIEW.reset);
-})
+});
+
 router.post(userROUTE.reset, async (req, res) => {
     const user = await User.findOne({ email: req.body.resetMail })
     if (!user) return res.redirect(userROUTE.signup)
@@ -219,13 +237,15 @@ router.post(userROUTE.reset, async (req, res) => {
         res.redirect(userROUTE.login)
     })
 
-})
+});
+
 //hämtar user länken där mann återställer sjäkva lösenordet
 router.get(userROUTE.resetform, async (req, res) => {
     const user = await User.findOne({ resetToken: req.params.token, expirationToken: { $gt: Date.now() } })
     if (!user) return res.redirect(userROUTE.signup)
     res.render(userVIEW.resetrform, { user })
-})
+});
+
 router.post(userROUTE.resetform, async (req, res) => {
     const user = await User.findOne({ _id: req.body.userId })
 
@@ -235,7 +255,7 @@ router.post(userROUTE.resetform, async (req, res) => {
     await user.save();
 
     res.redirect(userROUTE.login)
-})
+});
 
 router.get(userROUTE.prodgenerator, (req, res) => {
 
