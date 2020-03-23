@@ -24,7 +24,7 @@ describe("should test if ecommerce logic works", () => {
 //         customerRouter = require("../router/customerRouter");
 //     });
 
-//     let userData = {
+//     let userData = ({
 //         fname: "Sara",
 //         lname: "Andersson",
 //         address: "Random address somewhere",
@@ -33,7 +33,7 @@ describe("should test if ecommerce logic works", () => {
 //         cardno: "274979845297549",
 //         ddmm: "0104",
 //         cvc: "722"
-//     }
+//     });
 
 //     it("POST /checkout", (done) => {
 //         request(customerRouter)
@@ -49,23 +49,3 @@ describe("should test if ecommerce logic works", () => {
 //     });
 // });
 
-
-// Admin Logic \\
-
-describe("reach and post to /admin/welcome", () => {
-    let adminRouter;
-
-    beforeEach(() => {
-        adminRouter = require("../router/adminRouter");
-    });
-
-    it("should reach /admin/welcome", (done) => {
-        request(adminRouter)
-        .get("/admin/welcome")
-        .expect(200)
-        .end((err) => {
-            if (err) return done(err);
-            done();
-        });
-    });
-});
