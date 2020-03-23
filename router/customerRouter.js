@@ -40,7 +40,10 @@ const userROUTE = {
     delete: "/delete/:id",
     reset: "/reset",
     resetform: "/reset/:token",
-    prodgenerator: "/prodgenerator"
+    prodgenerator: "/prodgenerator",
+    wishlist: "/wishlist",
+    wishlistid: "/wishlist/:id",
+    deletewishlist: "/deletewishlist/:id"
 };
 
 const userVIEW = {
@@ -56,6 +59,7 @@ const userVIEW = {
     thankyou: "thankyou",
     reset: "reset",
     resetform: "resetform",
+    wishlist: "wishlist",
 
     prodgenerator: "/partial/prodgenerator"
 };
@@ -135,9 +139,8 @@ router.post(userROUTE.login, async (req, res) => {
     if (!user) return res.render(userVIEW.login, { errorMessage: "Email does not exist" })
     const validUser = await bcrypt.compare(req.body.loginpassword, user.password)
     if (!validUser) return res.render(userVIEW.login, { errorMessage: "Wrong password" })
-    res.redirect(userROUTE.welcome)
-
-    jwt.sign({ user }), "secretKey", (err, token) => {
+  
+    jwt.sign({ user }, "secretKey", (err, token) => {
         if (err) return res.redirect(userROUTE.login);
         if (token) {
             const cookie = req.cookies.jsonwebtoken;
@@ -147,7 +150,7 @@ router.post(userROUTE.login, async (req, res) => {
             res.render(userVIEW.welcome, { user });
         }
         res.redirect(userROUTE.login);
-    };
+    });
 });
 
 // log Out \\
@@ -161,8 +164,28 @@ router.get(userROUTE.welcome, (req, res) => {
 });
 
 router.post(userROUTE.welcome, async (req, res) => {
-
 });
+
+// customer wishlist \\
+router.get(userROUTE.wishlist, verifyToken, async (req, res) => {
+    const user = await User.findOne({_id:req.body.user._id}).populate("wishlist.productId")
+    console.log(user.wishlist._id)
+    res.render(userVIEW.wishlist, {user});
+});
+
+router.get(userROUTE.wishlistid, verifyToken, async (req, res) => {
+    const product = await productItem.findOne({_id:req.params.id})
+    const user = await User.findOne({_id:req.body.user._id})
+    await user.addToWishlist(product)
+    res.redirect(userROUTE.wishlist);
+});
+
+router.get(userROUTE.deletewishlist, verifyToken, async (req, res) => {
+    const user = await User.findOne({_id:req.body.user._id})
+    user.removeFromList(req.params.id)
+    res.redirect(userROUTE.wishlist);
+});
+
 
 // customer settings \\
 router.get(userROUTE.settings, (req, res) => {

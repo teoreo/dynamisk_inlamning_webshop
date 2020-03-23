@@ -107,35 +107,13 @@
                                     <%= course.description %>
                                 </p>
                             </div>
-                            <select class="dropdown-menu">
-                                <option selected>How many weeks?</option>
-                                <option class="weeks"><%= course.weekone %></option>
-                                <option class="weeks"><%= course.weektwo %></option>
-                                <option class="weeks"><%= course.weekthree %></option>
-                                <option class="weeks"><%= course.weekfour %></option>
-                            </select>
-    
                             <button type="button" class="buttonred">Book</button>
                         </form>
 
-                        <!-- <div class="dropdown">
-        <button class="inputlong " type="button" data-toggle="dropdown">
-            How long do you want to be away?
-            <img src="/images/dropdown.svg" class="imgdropdown"/>
-            <span class="caret"></span> 
-        </button>
-        -->
-                        <!-- <select class="dropdown-menu">
-                            <option selected>How many weeks?</option>
-                            <option class="weeks"><%= course.weekone %></option>
-                            <option class="weeks"><%= course.weektwo %></option>
-                            <option class="weeks"><%= course.weekthree %></option>
-                            <option class="weeks"><%= course.weekfour %></option>
-                        </select>
+                        <a href="/wishlist/<%=course._id%>">
+                            <img src="/images/handnotclicked.svg" class="smallimg">
+                        </a>
 
-                        <button type="button" class="buttonred">Book</button> -->
-                        <!-- </div> -->
-                        <!--LOOP END-->
                         <% }); %>
                     </div>
                     <%- include("./partial/maincfooter.ejs") %>

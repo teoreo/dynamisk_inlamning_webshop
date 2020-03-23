@@ -1,0 +1,10 @@
+<h1>MY WISHLIST</h1>
+
+<ul>
+    <% user.wishlist.forEach((product) => {%>
+        <li>
+            <%= product.productId.name%>
+        </li>
+        <a href="/deletewishlist/<%=product.productId._id%>">delete from wishlist</a>
+    <% }) %>
+</ul>
