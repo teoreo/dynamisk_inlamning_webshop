@@ -265,4 +265,4 @@ router.post(userROUTE.prodgenerator, async (req, res) => {
 
 });
 
-module.exports = router;
+module.exports = { router, userROUTE, userVIEW }

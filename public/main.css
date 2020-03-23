@@ -280,6 +280,16 @@ p {
   .table-image th .img-thumbnail {
     width: 25px; }
 
+.ctnorderproduct {
+  padding: 2rem 0rem; }
+
+.table-image td,
+.table-image th {
+  vertical-align: middle; }
+  .table-image td .img-thumbnail,
+  .table-image th .img-thumbnail {
+    width: 25px; }
+
 #centercontainer {
   width: 100px;
   align-items: center;
@@ -291,7 +301,12 @@ p {
   #centercontainer #contentform h3 {
     margin-top: 110px;
     text-align: center; }
-  #centercontainer #contentform #sel1 {
+  #centercontainer #contentform #contentform .row_admin {
+    margin-bottom: 8px; }
+  #centercontainer #contentform #contentform h3 {
+    margin-top: 110px;
+    text-align: center; }
+  #centercontainer #contentform #contentform #sel1 {
     font-weight: 300;
     width: 100%;
     height: 33px;
@@ -299,7 +314,7 @@ p {
     border-style: 1px solid #979797;
     border-radius: 0px;
     -webkit-appearance: none; }
-  #centercontainer #contentform .inputshort_admp {
+  #centercontainer #contentform #contentform .inputshort_admp {
     font-weight: 300;
     height: 33px;
     background: #F7F7F7;
@@ -307,7 +322,7 @@ p {
     border-radius: 0;
     margin: 0 auto;
     padding: 0 auto; }
-  #centercontainer #contentform .inputlong_admp {
+  #centercontainer #contentform #contentform .inputlong_admp {
     font-weight: 300;
     height: 33px;
     background: #F7F7F7;
@@ -316,67 +331,67 @@ p {
     margin: 0 auto;
     padding: 0 auto; }
   @media (min-width: 768px) {
-    #centercontainer #price {
+    #centercontainer #contentform #price {
       float: left;
       margin-left: 2px; } }
   @media (min-width: 768px) {
-    #centercontainer #quantity {
+    #centercontainer #contentform #quantity {
       margin-left: 10px;
       float: left; } }
-  #centercontainer .select-weeks {
+  #centercontainer #contentform .select-weeks {
     width: 40%; }
     @media (min-width: 768px) {
-      #centercontainer .select-weeks {
+      #centercontainer #contentform .select-weeks {
         width: 60%; } }
-    #centercontainer .select-weeks input {
+    #centercontainer #contentform .select-weeks input {
       display: none; }
-  #centercontainer .week-label {
+  #centercontainer #contentform .week-label {
     display: inline-block;
     width: 34px;
     height: 34px;
     text-align: center;
     border: 1px solid #ddd;
     line-height: 34px; }
-  #centercontainer #one:checked ~ label[for="one"],
-  #centercontainer #two:checked ~ label[for="two"],
-  #centercontainer #three:checked ~ label[for="three"],
-  #centercontainer #four:checked ~ label[for="four"] {
+  #centercontainer #contentform #one:checked ~ label[for="one"],
+  #centercontainer #contentform #two:checked ~ label[for="two"],
+  #centercontainer #contentform #three:checked ~ label[for="three"],
+  #centercontainer #contentform #four:checked ~ label[for="four"] {
     background: #68C7C9;
     color: #fff; }
-  #centercontainer .form-inline .form-control {
+  #centercontainer #contentform .form-inline .form-control {
     margin: 20px; }
-  #centercontainer .form-inline h6 {
+  #centercontainer #contentform .form-inline h6 {
     margin: 2px; }
-  #centercontainer .form-inline input.checkbox {
+  #centercontainer #contentform .form-inline input.checkbox {
     margin: 6px; }
-  #centercontainer .custom-file {
+  #centercontainer #contentform .custom-file {
     width: 60%;
     margin-top: 23px; }
     @media (min-width: 768px) {
-      #centercontainer .custom-file {
+      #centercontainer #contentform .custom-file {
         width: 80%;
         margin-top: 0px; } }
     @media (min-width: 992px) {
-      #centercontainer .custom-file {
+      #centercontainer #contentform .custom-file {
         width: 100%; } }
-    #centercontainer .custom-file #customFile {
+    #centercontainer #contentform .custom-file #customFile {
       border-radius: 0px; }
-    #centercontainer .custom-file label.custom-file-label::after {
+    #centercontainer #contentform .custom-file label.custom-file-label::after {
       content: none;
       border-radius: 0px;
       -webkit-appearance: none; }
-    #centercontainer .custom-file .custom-file-label {
+    #centercontainer #contentform .custom-file .custom-file-label {
       margin-top: 2px;
       margin-right: 5px;
       width: 60%; }
       @media (min-width: 768px) {
-        #centercontainer .custom-file .custom-file-label {
+        #centercontainer #contentform .custom-file .custom-file-label {
           margin-top: 24px;
           margin-right: 45px; } }
   @media (min-width: 768px) and (min-width: 992px) {
-    #centercontainer .custom-file .custom-file-label {
+    #centercontainer #contentform .custom-file .custom-file-label {
       width: 80%; } }
-  #centercontainer .buttonblue {
+  #centercontainer #contentform .buttonblue {
     margin-top: 10px; }
 
 a {
@@ -461,6 +476,9 @@ a {
 
 .arrowup {
   height: 58px; }
+
+.smallimg {
+  width: 30px; }
 
 .loggedinctn {
   width: 100px;
