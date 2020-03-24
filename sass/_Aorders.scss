@@ -6,9 +6,10 @@ body{
                 #title_prod{
                     font-size: 30px;
                 }
-        }
+        } 
             #row_orders{
                 margin-top: 10px;
+                justify-content: space-between;
 
                 table {
                     thead th{
@@ -17,6 +18,14 @@ body{
                     }
                     font-family: $font;
                     
+                    .editproduct {
+                        text-align: end;
+                    }
+
+                     .productEditDelete{
+                         
+                         width: 4%;
+                     }
                 }
             }
 

@@ -1,118 +1,78 @@
 <%- include("../partial/adminheader.ejs") %>
 
-<div class="row justify-content-center">
-    <div class="col-12 col-md-7 col-lg-5" id="centercontainer">
-        <div class="row" id="contentform">
-            <div class="col-12">
-                <h3 class="title">ORDERS</h3>
-            <!-- ORDER INFORMATION -->
-            </div>
-        </div>
-    </div>
+<div class="row justify-content-center" id="title_admin">
+	<div class="col-12 col-md-7 col-lg-5">
+		<h1>ORDERS</h1>
+	</div>
 </div>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>WEB SURFERS</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-        </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-        </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-        </script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="../main.css">
-</head>
 
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 navbarmenu">
-                <div class="row">
-                    <div class="col-2 col-md-6">
-                        <a class="" href="#">
-                            <img src="../images/logo_blue.png" alt="logo" class="logoimg">
-                        </a>
-                    </div>
-                    <div class="col-10 col-md-6 navbar-default">
-                        <ul class="navbar-nav navbar-expand navlinks">
-                            <li class="nav-item">
-                                <a class="nav-link" href="admin/orders.ejs">PRODUCTS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="admin/orders.ejs">ORDERS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="admin/settings.ejs">SETTINGS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="admin/login.ejs">LOG OUT</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="container ctnorderproduct">
+	<div class="row">
+		<div class="col-12">
+			<table class="table table-image table-striped">
+				<thead>
+					<tr>
+						<th scope="row">
+						<th scope="col">
+							<P>ORDER NO</P>
+						</th>
+						<th scope="col">
+							<P>NAME</P>
+						</th>
+						<th scope="col">
+							<P>ADDRESS</P>
+						</th>
+						<th scope="col">
+							<P>PRICE</P>
+						</th>
+						<th scope="col">
+							<P>EDIT</P>
+						</th>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% fiveOrders.forEach((orders) => { %>
+					<tr>
+						<th scope="row">
+						<td class="w-15">
+							<p><%=orders.orderno %></p>
+						</td>
 
-        
-            <!-- ORDER INFORMATION -->
-            <div class="row justify-content-center" id="title_admin">
-                <div class="col-12 col-md-7 col-lg-5">
-                            <h3 class="title" id="title_prod">ORDERS</h3>
-                </div>
-            </div>
-            <div class="row" id="row_orders">
-                <div class="col-12">
-                    <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">ORDER NR</th>
-                        <th scope="col">NAME</th>
-                        <th scope="col">ADRESS</th>
-                        <th scope="col">PRICE</th>
-                        <th scope="col">WEEKS</th>
-                        <th scope="col">EDIT</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <!-- loop > -->
-                        <th scope="row" id="order_nr"></th>
-                        <td id="order_name">Josefine</td> 
-                        <td id="order_adress">tulegatan 23</td>
-                        <td id="order_price">1250</td>
-                        <td id="order_weeks">1</td>
-                        <td id="order_edit" value="">-</td>
-                        <!-- loop -->
-                      </tr>
-                      <tr>
-                        <th scope="row"id="order_nr"></th>
-                        <td id="order_name">Isabelle</td>
-                        <td id="order_adress">Thornton</td>
-                        <td id="order_price">@fat</td>
-                        <td id="order_weeks">2</td>
-                        <td id="order_edit">-</td>
-                        
-                      </tr>
-                      <tr>
-                        <th scope="row"id="order_nr">1337</th>
-                        <td id="order_name">Stefan</td>
-                        <td id="order_adress">the Bird</td>
-                        <td id="order_price">@twitter</td>
-                        <td id="order_weeks">3</td>
-                        <td id="order_edit">-</td>
-                        
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-        </div>
-        
-</body>
+						<td class="w-15">
+							<p><%=orders.name %></p>
+						</td>
+						<td class="w-15">
+							<p><%=orders.address %></p>
+						</td>
+						<td class="w-15">
+							<p><%=orders.price %></p>
+						</td>
+						<td class="w-15">
+							<a href="/admin/editproduct/<%=orders._id%>"><img src="/images/edit.svg" alt="edit"
+									class="img-fluid img-thumbnail"></a>
+						</td>
+						</th>
+					</tr>
+					<% }) %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 ">
+			<% for(let page=1; page <= pagesCount && pagesCount > 1; page++ ) { %>
+			<% if (currentPage === page) { %>
+			<a href="/admin/orders/?page=<%=page%>"><button class="pages"><span class="pagetxt"><%=page%></span></button></a>
+			<% } else { %>
+			<a href="/admin/orders/?page=<%=page%>"><button class="pages">
+					<span><%=page%></span>
+				</button></a>
+			<%  } %>
+
+			<% } %>
+		</div>
+	</div>
+</div>
 
 <%- include("../partial/adminfooter.ejs") %>

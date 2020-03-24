@@ -1,119 +1,85 @@
 <%- include("../partial/adminheader.ejs") %>
+<!-- ORDER INFORMATION -->
 
-<div class="row justify-content-center">
-    <div class="col-12 col-md-7 col-lg-5" id="centercontainer">
-        <div class="row" id="contentform">
-            <div class="col-12">
-                <h3 class="title">PRODUCTS</h3>
-
-            <!-- PRODUCT INFORMATION -->
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Morbi leo risus</li>
-                    <li class="list-group-item">Porta ac consectetur ac</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<div class="row justify-content-center" id="title_admin">
+	<div class="col-12 col-md-7 col-lg-5">
+		<h1>PRODUCTS</h1>
+	</div>
 </div>
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 navbarmenu">
-                <div class="row">
-                    <div class="col-2 col-md-6">
-                        <a class="" href="#">
-                            <img src="../images/logo_blue.png" alt="logo" class="logoimg">
-                        </a>
-                    </div>
-                    <div class="col-10 col-md-6 navbar-default">
-                        <ul class="navbar-nav navbar-expand navlinks">
-                            <li class="nav-item">
-                                <a class="nav-link" href="admin/orders.ejs">PRODUCTS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="admin/orders.ejs">ORDERS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="admin/settings.ejs">SETTINGS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="admin/login.ejs">LOG OUT</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        
-            <!-- PRODUCT INFORMATION -->
-            <div class="row justify-content-center" id="title_admin">
-                <div class="col-12 col-md-7 col-lg-5">
-                            <h3 class="title" id="title_prod">PRODUCTS</h3>
-                </div>
-            </div>
-            <div class="row" id="row_orders">
-                <div class="col-12">
-                    <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">COUNTRY</th>
-                        <th scope="col">TITLE</th>
-                        <th scope="col">DESCRIPTION</th>
-                        <th scope="col">PRICE</th>
-                        <th scope="col">WEEKS</th>
-                        <th scope="col">IMAGE</th>
-                        <th scope="col">EDIT/DELETE</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"></th>
-                        <td>Mark</td> 
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>-</td>
-                        <td>
-                            <a href="/admin/editproduct">
-                                <img src="../../images/edit.png" alt="edit">
-                            </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row"></th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@mdo</td>
-                        <td>-</td>
-                        <td><a href="/admin/editproduct">
-                            <img src="../../images/edit.png" alt="edit">
-                        </a><a href="/admin/editproduct">
-                            <img src="../../images/delete.png" alt="edit">
-                        </a></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"></th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                        <td>@mdo</td>
-                        <td>-</td>
-                        <td>
-                            <a href="/admin/editproduct">
-                                <img src="../../images/edit.png" alt="edit">
-                            </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-        </div>
-  
-</body>
+<div class="container ctnorderproduct">
+	<div class="row">
+		<div class="col-12">
+			<table class="table table-image table-striped">
+				<thead>
+					<tr>
+						<th scope="row">
+						<th scope="col">
+							<P>COUNTRY</P>
+						</th>
+						<th scope="col">
+							<P>TITLE</P>
+						</th>
+						<th scope="col">
+							<P>DESCRIPTION</P>
+						</th>
+						<th scope="col">
+							<P>PRICE</P>
+						</th>
+						<th scope="col">
+							<P>EDIT</P>
+						</th>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% fiveProducts.forEach((products) => { %>
+					<tr>
+						<th scope="row">
+						<td class="w-15">
+							<p><%=products.country %></p>
+						</td>
+
+						<td class="w-15">
+							<p><%=products.title %></p>
+						</td>
+						<td class="w-15">
+							<p><%=products.description %></p>
+						</td>
+						<td class="w-15">
+							<p><%=products.price %></p>
+						</td>
+						<td class="w-15">
+							<a href="/admin/editproduct/<%=products._id%>"><img src="/images/edit.svg" alt="edit"
+									class="img-fluid img-thumbnail"></a>
+							<a href="/admin/delete/<%=products._id%>"><img src="/images/delete.svg" alt="delete"
+									class="img-fluid img-thumbnail"></a>
+						</td>
+						</th>
+					</tr>
+					<% }) %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 ">
+			<% for(let page=1; page <= pagesCount && pagesCount > 1; page++ ) { %>
+			<% if (currentPage === page) { %>
+			<a href="/admin/products/?page=<%=page%>"><button class="pages"><span class="pagetxt"><%=page%></span></button></a>
+			<% } else { %>
+			<a href="/admin/products/?page=<%=page%>"><button class="pages">
+					<span><%=page%></span>
+				</button></a>
+			<%  } %>
+
+			<% } %>
+		</div>
+	</div>
+</div>
+
+
+<!--  dadf -->
+
 
 <%- include("../partial/adminfooter.ejs") %>

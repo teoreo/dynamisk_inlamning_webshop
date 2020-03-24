@@ -1,53 +1,52 @@
 <%- include("../partial/adminheader.ejs") %>
 
-<!-- main-->              
+
+
+
+
+
+<!-- main-->
 <div class="row justify-content-center">
     <div class="col-12 col-md-7 col-lg-5" id="centercontainer">
         <div class="row" id="contentform">
             <div class="col-12">
-                <h3 class="title">EDIT PRODUCT</h3>
-
-                <form action="/admin/createproducts" method="POST">
+                <h1>EDIT PRODUCT</h1>
+                <form action="/admin/addproduct" method="POST">
                     <div class="row row_admin">
                         <div class="col-12">
-                            <select class="inputdropdown" id="sel1" placeholder="Select country">
-                                <option>Sri Lanka</option>
-                                <option>Portugal</option>
-                                <option>Costa rica</option>
-                            </select>
+                            <div class="input-group">
+                                <select class="inputdropdown" id="sel1" name="country" placeholder="Select country">
+                                    <option value="Sri Lanka">SRI</option>
+                                    <option value="Portugal">PRO</option>
+                                    <option value="Costa Rica">COS</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="row row_admin">
                         <div class="col-12">
-                            <input class="form-control inputlong_admp" placeholder="Title" id="title">
+                            <input type="text" name="_id" value="" hidden>
+                            <input class="form-control inputlong_admp" placeholder="Title" id="title" name="title"
+                                value="<%=response.title%>">
                         </div>
                     </div>
                     <div class="row row_admin">
                         <div class="col-12">
                             <input class="form-control inputlong_admp" type="text" placeholder="Description"
-                                id="description">
+                                id="description" name="description" value="<%=response.description%>">
                         </div>
                     </div>
                     <div class="row row_admin">
                         <div class="col-6">
-                            <input class="form-control inputshort_admp" placeholder="Price" id="price">
+                            <input class="form-control inputshort_admp" placeholder="Price" id="price" name="price"
+                                value="<%=response.price%>">
                         </div>
                         <div class="col-6">
-                            <input class="form-control inputshort_admp" placeholder="Quantity" id="quantity">
+                            <input class="form-control inputshort_admp" placeholder="Quantity" id="quantity"
+                                name="quantity" value="<%=response.quantity%>">
                         </div>
                     </div>
                     <div class="row row_admin">
-                        <div class="select-weeks col-sm-6 ">
-                            <h6>Amount of weeks</h6>
-                            <input class="checkbox" type="checkbox" id="one">
-                            <input class="checkbox" type="checkbox" id="two">
-                            <input class="checkbox" type="checkbox" id="three">
-                            <input class="checkbox" type="checkbox" id="four">
-                            <label class="week-label" for="one">1</label>
-                            <label class="week-label" for="two">2</label>
-                            <label class="week-label" for="three">3</label>
-                            <label class="week-label" for="four">4</label>
-                        </div>
                         <div class="custom-file col-sm-6">
                             <input type="file" class="custom-file-input inputshort_admp" id="customFile">
                             <label class="custom-file-label" for="customFile">UPLOAD IMAGE</label>
@@ -55,7 +54,7 @@
                     </div>
                     <div class="row row_admin">
                         <div class="col-12">
-                            <button class="buttonblue" type="submit">UPDATE</button>
+                           <button class="buttonblue" type="submit">UPDATE</button>
                         </div>
                     </div>
 

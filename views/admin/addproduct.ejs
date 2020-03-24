@@ -1,40 +1,64 @@
 <%- include("../partial/adminheader.ejs") %>
 
-        <div class="col-12 content wectn">
-            <!-- main-->
+<!-- main replica of Emmas editproduct -->
 
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-4" id="centercontainer">
-                    <div id="contentform">
-                        <h3 class="title">ADD PRODUCT</h3>
-                        <form class="   " action="/admin/createproduct" method="POST">
-                            <select class="dropdownlong" id="sel1" placeholder="Select country">
-                                <option>Sri Lanka</option>
-                                <option>Portugal</option>
-                                <option>Costa Rica</option>
+
+
+
+
+
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-7 col-lg-5" id="centercontainer">
+        <div class="row" id="contentform">
+            <div class="col-12">
+                <h3 class="title">ADD PRODUCT</h3>
+
+                <form action="/admin/addproduct" method="POST">
+                    <div class="row row_admin">
+                        <div class="col-12">
+                            <select class="inputdropdown" id="sel1" name="country" placeholder="Select country">
+                                <option value="Sri Lanka">SRI</option>
+                                <option value="Portugal">POR</option>
+                                <option value="Costa Rica">COS</option>
                             </select>
-                            <input class="form-control inputlong" placeholder="Title" id="title">
-                            <input class="form-control inputlong" placeholder="Description" id="description">
-                            <input class="form-control inputshort" placeholder="Price" id="price">
-                            <input class="form-control inputshort" placeholder="Quantity" id="quantity">
-                            <h6>Amount of weeks</h6>
-                            <input class="checkbox" type="checkbox" placeholder="hej">
-                            <input class="checkbox" type="checkbox">
-                            <input class="checkbox" type="checkbox">
-                            <input class="checkbox" type="checkbox">
-                            <form>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input inputshort" id="customFile">
-                                    <label class="custom-file-label" for="customFile">UPLOAD IMAGE</label>
-                                </div>
-                                <button class="buttonblue" type="submit">ADD PRODUCT</button>
-                            </form>
-
-                        </form>
+                        </div>
                     </div>
-                </div>
+                    <div class="row row_admin">
+                        <div class="col-12">
+                            <input class="form-control inputlong_admp" placeholder="Title" name="title" id="title">
+                        </div>
+                    </div>
+                    <div class="row row_admin">
+                        <div class="col-12">
+                            <input class="form-control inputlong_admp" type="text" name="description"
+                                placeholder="Description" id="description">
+                        </div>
+                    </div>
+                    <div class="row row_admin">
+                        <div class="col-6">
+                            <input class="form-control inputshort_admp" placeholder="Price" name="price" id="price">
+                        </div>
+                        <div class="col-6">
+                            <input class="form-control inputshort_admp" placeholder="Quantity" name="quantity"
+                                id="quantity">
+                        </div>
+                    </div>
+                    <div class="row row_admin">
+                        <div class="custom-file col-sm-12">
+                            <input type="file" class="custom-file-input inputshort_admp" name="image" id="customFile">
+                            <label class="custom-file-label" for="customFile">UPLOAD IMAGE</label>
+                        </div>
+                    </div>
+                    <div class="row row_admin">
+                        <div class="col-12">
+                            <button class="buttonblue" type="submit">Add</button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
-            <!-- main-->
         </div>
-        
-<%- include("../partial/adminfooter.ejs") %>
+    </div>
+
+    <%- include("../partial/adminfooter.ejs") %>

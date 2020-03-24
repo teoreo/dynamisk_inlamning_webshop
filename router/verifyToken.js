@@ -3,9 +3,10 @@ module.exports = (req, res, next) => {
     const token = req.cookies.jsonwebtoken;
     if (token) {
         const user = jwt.verify(token, "secretKey")
-        req = user;
+        req.body = user;
         next();
     } else {
-        res.send("Error message. Opsi!");
+        res.send("Error message: You have to log in first!");
     }
 };  
+
