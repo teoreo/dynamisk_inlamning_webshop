@@ -3,7 +3,8 @@
 <ul>
     <% user.wishlist.forEach((product) => {%>
         <li>
-            <%= product.productId.name%>
+            <%= product.productId.title%>
+            <%= product.productId.price%>
         </li>
         <a href="/deletewishlist/<%=product.productId._id%>">delete from wishlist</a>
     <% }) %>

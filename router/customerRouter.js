@@ -23,7 +23,7 @@ router.use(bodyParser.urlencoded({ extended: false }))
 router.use(express.urlencoded({ extended: true }));
 router.set("view engine", "ejs");
 router.use(express.static("public"));
-console.log(User)
+
 
 const userROUTE = {
     main: "/", // done
@@ -169,7 +169,7 @@ router.post(userROUTE.welcome, async (req, res) => {
 // customer wishlist \\
 router.get(userROUTE.wishlist, verifyToken, async (req, res) => {
     const user = await User.findOne({_id:req.body.user._id}).populate("wishlist.productId")
-    console.log(user.wishlist._id)
+    //console.log(user)
     res.render(userVIEW.wishlist, {user});
 });
 
@@ -288,4 +288,4 @@ router.post(userROUTE.prodgenerator, async (req, res) => {
 
 });
 
-module.exports = { router, userROUTE, userVIEW }
+module.exports = router;
