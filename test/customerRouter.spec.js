@@ -1,20 +1,33 @@
 const describe = require("mocha").describe;
+const mongoose = require("mongoose");
 const request = require("supertest");
+const databaseURL = require("../config/config").databaseURL
+const {router, userVIEW, userROUTE }  = require("../router/customerRouter")
 
 // Customer Logic \\
 
 describe("should test if ecommerce logic works", () => {
-    let customerRouter;
+    let server; 
 
-    beforeEach(() => {
-        customerRouter = require("../router/customerRouter");
-    });
+    before( (done) => {
+        mongoose.connect(databaseURL, { useUnifiedTopology: true, useNewUrlParser: true }).then(() => {
+            server = router.listen(8081, () => console.log(`App testing on 8081!`));
+            done();
+        }); 
+    })
 
     it("should reach main page /", (done) => {
-        request(customerRouter)
-        .get("/")
+        request(server)
+        .get(userROUTE.main)
         .expect(200, done)
     })
+
+    after( (done) => {
+        server.close()
+        mongoose.disconnect()
+        console.log("Finished testing, server is closed")
+        done();
+    });
 });
 
 // describe("reach and post to /checkout", () => {
