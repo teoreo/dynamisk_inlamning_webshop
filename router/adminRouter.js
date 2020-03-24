@@ -133,10 +133,6 @@ router.get(adminROUTE.products, verifyTokenAdmin, async (req, res) => {
     });
 });
 
-//router.post(adminROUTE.products, (req,res)=>{
- //   res.render()
-//})
-
 router.get(adminROUTE.deleteproduct, verifyTokenAdmin, async (req, res) => {
     await productItem.deleteOne({
         _id: req.params.id
@@ -222,7 +218,7 @@ router.post(adminROUTE.editproduct, async (req, res) => {
                 price: req.body.price,
                 description: req.body.description,
                 quantity: req.body.quantity,
-                country: req.body.country
+                country: req.body.country,
             }
         })
         //, {
