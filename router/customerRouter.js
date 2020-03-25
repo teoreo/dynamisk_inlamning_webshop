@@ -111,9 +111,10 @@ router.get(userROUTE.signup, async (req, res) => {
 router.post(userROUTE.signup, async (req, res) => {
     const salt = await bcrypt.genSaltSync(10);
     const hashPassword = await bcrypt.hash(req.body.password, salt)
-    const user = await User.findOne({ email: req.body.email })
-    if (user) return res.render(userVIEW.signup, { errorMessage: "Email already exist" })
-    await new User({
+    const signUpuser = await User.findOne({ email: req.body.email })
+    
+    if (signUpuser) return res.render(userVIEW.signup, { errorMessage: "Email already exist" })
+    const user = await new User({
         email: req.body.email,
         password: hashPassword
     }).save();
@@ -169,19 +170,21 @@ router.post(userROUTE.welcome, async (req, res) => {
 // customer wishlist \\
 router.get(userROUTE.wishlist, verifyToken, async (req, res) => {
     const user = await User.findOne({_id:req.body.user._id}).populate("wishlist.productId")
-    //console.log(user)
+    console.log(user)
     res.render(userVIEW.wishlist, {user});
 });
 
 router.get(userROUTE.wishlistid, verifyToken, async (req, res) => {
     const product = await productItem.findOne({_id:req.params.id})
     const user = await User.findOne({_id:req.body.user._id})
+    console.log(req.body.user)
     await user.addToWishlist(product)
     res.redirect(userROUTE.wishlist);
 });
 
 router.get(userROUTE.deletewishlist, verifyToken, async (req, res) => {
     const user = await User.findOne({_id:req.body.user._id})
+    
     user.removeFromList(req.params.id)
     res.redirect(userROUTE.wishlist);
 });

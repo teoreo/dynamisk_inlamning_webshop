@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-2">
                         <a href="#" class="headerlink">
-                            <img src="../images/logo_red.svg" alt="logo" class="logoimg">
+                            <img src="../images/logo_blue.svg" alt="logo" class="logoimg">
                         </a>
                     </div>
                     <div class="col-8 col-md-4 navlinks">
@@ -46,11 +46,11 @@
 
             <!-- Section two -->
             <% oneCourse.forEach( (course) => { %>
-            <div class="col-12 col-md-5 sectiontwo col order-md-2">
+            <div class="col-12 col-md-5 sectiontwo col order-md-2 fullheight">
 
-                <div class="row fullheight">
+                <div class="row fullheight imgend">
                     <div class="imgsection_static fullheight">
-                        <img src="<%= course.image %> ">
+                        <img class="productimg" src="<%= course.image %> ">
                     </div>
                 </div>
             </div>
@@ -71,12 +71,12 @@
 
                         <% for(let page=1; page <= pagesCount && pagesCount > 1; page++ ) { %>
                         <% if (currentPage === page) { %>
-                        <a href="/course/?page=<%=page%>"><span class="pagetxt"><%= course.country %></span></a>
+                        <a href="/course/?page=<%=page%>"><span class="pagetxt"><%= page %></span></a>
                         <% } else { %>
                         <a href="/course/?page=<%=page%>">
-                            <span><%= course.country %></span>
+                            <span><%= page %></span> 
                         </a>
-                        <%  } %>
+                        <%  } %> 
                         <% } %>
                     </div>
                     <div class="col-4 col-md-12 nextsidedown">
@@ -101,18 +101,32 @@
                     <div class="col-12 content">
                         <form action="/checkout" class="col-12" method="POST">
                             <!--LOOP-->
-                            <h1 class="courseTitle"><%= course.title %></h1>
-                            <div class="">
-                                <p class="courseDescription">
-                                    <%= course.description %>
-                                </p>
+                            <div class="col-12 fullheight">
+                                <div class="row titlectn fullheight">
+                                    <div class="col-8">
+                                        <h1><%= course.country %></h1>    
+                                    </div>
+                                    <div class="col-4 textend mt-3">
+                                        <h2><%= course.price %>SEK</h2>
+                                    </div>
+                                    <div class="col-12">
+                                        <h3><%= course.title %></h3>    
+                                    </div>
+                                    <div class="col-12 courseDescription">
+                                        <h3><%= course.description %></h3>
+                                    </div>
+                                    <div class="col-4">
+                                    <button type="button" class="buttonblue">Book</button>
+                                </div>
+                                <div class="col-8">
+                                <a href="/wishlist/<%=course._id%>">
+                                    <img src="/images/handnotclicked.svg" class="smallimg">
+                                </a>
+                                <span>Add course to wishlist!</span>
+                                </div>
                             </div>
-                            <button type="button" class="buttonred">Book</button>
+                            </div>
                         </form>
-
-                        <a href="/wishlist/<%=course._id%>">
-                            <img src="/images/handnotclicked.svg" class="smallimg">
-                        </a>
 
                         <% }); %>
                     </div>

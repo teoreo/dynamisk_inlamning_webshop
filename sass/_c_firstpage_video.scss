@@ -25,7 +25,7 @@
 
 .firstpageimg {
     display: block;
-    background-image: url("../public/images/first_page_img.png");
+    background-image: url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -46,12 +46,11 @@
 
 .firstpagevideo {
     display: none;
-    background-color: red;
-    // background-image: url("../public/images/first_page_img.png");
-    // background-size: cover;
-    // background-repeat: no-repeat;
-    // background-position: 50% 50%;
-   
+     background-image: url("../images/first_page_img_desktop.jpg");
+     background-size: cover;
+    background-repeat: no-repeat;
+        background-position: 50% 50%;
+        
 
     @include tablet {
         display: block;
@@ -63,6 +62,7 @@
         padding-right: 30px;
         color: $white;
         text-align: center;
+        
 
         @include desktop {
             margin-top: 25%;
@@ -77,4 +77,8 @@
         }
     }
 } 
+
+.firsttxt{
+    color: white;
+}
 

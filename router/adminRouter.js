@@ -1,43 +1,28 @@
 const express = require("express");
-const bodyParser = require("body-parser");
-const bcrypt = require("bcryptjs");
 const Admin = require("../model/admin");
 const productItem = require("../model/product");
 const jwt = require("jsonwebtoken");
 const verifyTokenAdmin = require("./verifyTokenAdmin");
 
 // middleware
-const router = express();
-
-router.use(bodyParser.urlencoded({
-    extended: false
-}))
-router.use(express.urlencoded({
-    extended: true
-}));
-router.set("view engine", "ejs");
-router.use(express.static("public"));
+const router = express.Router();
 
 // Variables
 const adminROUTE = {
-    main: "/login",
     login: "/admin/login",
-    // signup: "/admin/signup",
     welcome: "/admin/welcome",
     products: "/admin/products",
     addproduct: "/admin/addproduct",
     editproduct: "/admin/editproduct/:id",
     deleteproduct: "/admin/delete/:id",
     orders: "/admin/orders",
-    logout: "/logout",
+    logout: "/admin/logout",
     editorders: "/admin/editorders/:id",
     settings: "/admin/settings"
 };
 
 const adminVIEW = {
-    main: "admin/login",
     login: "admin/login",
-    // signup: "admin/signup",
     welcome: "admin/welcome",
     products: "admin/products",
     addproduct: "admin/addproduct",
@@ -47,21 +32,9 @@ const adminVIEW = {
     settings: "admin/settings"
 };
 
-// admin main
-router.get(adminROUTE.main, (req, res) => {
-    res.render(adminVIEW.main);
-});
-
-router.post(adminROUTE.main, async (req, res) => {
-
-});
 // admin welcome
 router.get(adminROUTE.welcome, (req, res) => {
     res.render(adminVIEW.welcome);
-});
-
-router.post(adminROUTE.welcome, async (req, res) => {
-
 });
 
 // admin login
@@ -77,6 +50,7 @@ router.get(adminROUTE.login, async (req, res) => {
 });
 
 router.post(adminROUTE.login, async (req, res) => {
+   
     const admin = await Admin.findOne({
         email: req.body.loginemail,
         password: req.body.loginpassword
@@ -84,6 +58,7 @@ router.post(adminROUTE.login, async (req, res) => {
     if (!admin) return res.render(adminVIEW.login, {
         errorMessage: "You are not an admin or wrong password"
     })
+
     jwt.sign({ admin }, "secretKeyAdmin", (err, token) => {
         if (err) return res.redirect(adminROUTE.login);
         if (token) {
@@ -95,13 +70,11 @@ router.post(adminROUTE.login, async (req, res) => {
         }
         res.redirect(adminROUTE.login);
     });
-
-    //res.redirect(adminROUTE.welcome);
 });
 
 // log Out \\
 router.get(adminROUTE.logout, (req, res) => {
-    res.clearCookie("jsonwebtoken").redirect(adminROUTE.main);
+    res.clearCookie("jsonwebtoken").redirect(adminROUTE.login);
 });
 
 // // admin signup
@@ -185,7 +158,7 @@ router.post(adminROUTE.addproduct, verifyTokenAdmin, async (req, res) => {
         description: req.body.description,
         quantity: req.body.quantity,
         country: req.body.country,
-        user: req.body.admin._id // HÄR SAKNAS NÅT :)
+        user: req.admin.admin._id // HÄR SAKNAS NÅT :)
     });
     
     await addProduct.save((error, success) => {

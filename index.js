@@ -10,13 +10,14 @@ const cookieparser = require("cookie-parser");
 app.use(cookieparser());
 
 app.use(express.urlencoded({ extended: true }));
-app.use(User); // VAD TÄNKTE VI HÄR?
-app.use(Admin); // VAD TÄNKTE VI HÄR?
+
 //const dbUrl = process.env.MONGO_ATLAS_URL;
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(User); // VAD TÄNKTE VI HÄR?
+app.use(Admin); // VAD TÄNKTE VI HÄR?
 
 const dbOptions = { useUnifiedTopology: true, useNewUrlParser: true };
 const port = process.env.PORT || 8002;
