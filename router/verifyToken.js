@@ -8,5 +8,4 @@ module.exports = (req, res, next) => {
     } else {
         res.send("Error message: You have to log in first!");
     }
-};  
-
+};

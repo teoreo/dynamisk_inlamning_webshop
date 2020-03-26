@@ -17,49 +17,28 @@
     }
 }
 
+.ctnorderproduct {
+    padding: 2rem 0rem;
+}
 
+.table-image {
 
-// .container-fluid {
+    td,
+    th {
+        vertical-align: middle;
 
-    .ctnorderproduct {
-        padding: 2rem 0rem;
-     }
-      
-     .table-image {
-      
-        td,
-        th {
-            vertical-align: middle;
-      
-            .img-thumbnail {
-                width: 25px;
-            }
+        .img-thumbnail {
+            width: 25px;
         }
-     }
-     
-         #centercontainer{
-         width: 100px;
-         align-items: center;
-         margin-top: 70px;
-         margin-bottom: 10px;
-         text-align: center;
-            #contentform{
-                .row_admin{
-                    margin-bottom: 8px;
-                }
-                h3{
-                    margin-top: 110px;
-                    text-align: center;
-                }
+    }
+}
+
+#centercontainer {
+    text-align: center;
 
     #contentform {
         .row_admin {
             margin-bottom: 8px;
-        }
-
-        h3 {
-            margin-top: 110px;
-            text-align: center;
         }
 
         #sel1 {
@@ -85,7 +64,6 @@
 
         .inputlong_admp {
             font-weight: 300;
-
             height: 33px;
             background: $background;
             border: 1px solid $dark;
@@ -105,7 +83,6 @@
 
     #quantity {
         @include tablet {
-            margin-left: 10px;
             float: left;
         }
     }
@@ -199,5 +176,3 @@
 
     }
 }
-
- }

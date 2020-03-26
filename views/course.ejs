@@ -28,7 +28,7 @@
             <div class="col-12 navbarmenu">
                 <div class="row">
                     <div class="col-2">
-                        <a href="#" class="headerlink">
+                        <a href="/  " class="headerlink">
                             <img src="../images/logo_blue.svg" alt="logo" class="logoimg">
                         </a>
                     </div>
@@ -46,8 +46,7 @@
 
             <!-- Section two -->
             <% oneCourse.forEach( (course) => { %>
-            <div class="col-12 col-md-5 sectiontwo col order-md-2 fullheight">
-
+            <div class="col-12 col-md-5  col order-md-2 fullheight">
                 <div class="row fullheight imgend">
                     <div class="imgsection_static fullheight">
                         <img class="productimg" src="<%= course.image %> ">
@@ -55,60 +54,51 @@
                 </div>
             </div>
 
-            <!-- Section three ÄNDRA FÄRG PÅ ALLA -->
+            <!-- Section three -->
             <div class="col-12 col-md-1 col sectionthree costaricared order-md-3">
                 <div class="row fullheight">
-                    
                     <div class="col-12 col-md-12 countrymenu-desktop ">
-
                         <% for(let page=1; page <= pagesCount && pagesCount > 1; page++ ) { %>
                         <% if (currentPage === page) { %>
-                        <a href="/course/?page=<%=page%>"><button class="btn paginationbtn"><span class="pagetxt" ><%= page %></span></button></a>
+                        <a href="/course/?page=<%=page%>"><button class="btn paginationbtn"><span
+                                    class="pagetxt"><%= page %></span></button></a>
                         <% } else { %>
                         <a href="/course/?page=<%=page%>">
-                            <button class="btn paginationbtn"><span class="pagetxt" ><%= page %></span> </button>
+                            <button class="btn paginationbtn"><span class="pagetxt"><%= page %></span> </button>
                         </a>
-                        <%  } %> 
+                        <%  } %>
                         <% } %>
                     </div>
-                    
                 </div>
             </div>
 
-
             <!-- Section one -->
-
             <div class="col-12 col-md-6 sectionone col order-sm-3 order-md-1">
                 <div class="row fullheight">
-
-
                     <div class="col-12 content">
                         <form action="/checkout" class="col-12" method="POST">
-                            <!--LOOP-->
                             <div class="col-12 fullheight">
                                 <div class="row titlectn fullheight">
                                     <div class="col-8">
-                                        <h1><%= course.country %></h1>    
+                                        <h1><%= course.country %></h1>
                                     </div>
                                     <div class="col-4 textend mt-3">
                                         <h2><%= course.price %>SEK</h2>
                                     </div>
                                     <div class="col-12">
-                                        <h3><%= course.title %></h3>    
+                                        <h3><%= course.title %></h3>
                                     </div>
                                     <div class="col-12 courseDescription">
-                                        <h3><%= course.description %></h3>
+                                        <p><%= course.description %></p>
                                     </div>
-                                    <div class="col-4">
-                                    <button type="button" class="buttonblue">Book</button>
+                                    <div class="col-sm-12 col-md-4">
+                                        <button type="button" class="buttonblue">Book</button>
+                                    </div>
+                                    <div class="col-sm-12 col-md-8">
+                                        <a href="/wishlist/<%=course._id%>"><img src="/images/handnotclicked.svg" class="smallimg"></a>
+                                        <span>Add course to wishlist!</span>
+                                    </div>
                                 </div>
-                                <div class="col-8">
-                                <a href="/wishlist/<%=course._id%>">
-                                    <img src="/images/handnotclicked.svg" class="smallimg">
-                                </a>
-                                <span>Add course to wishlist!</span>
-                                </div>
-                            </div>
                             </div>
                         </form>
 

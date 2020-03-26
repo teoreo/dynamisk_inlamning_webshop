@@ -24,16 +24,16 @@ router.use(express.urlencoded({ extended: true }));
 router.set("view engine", "ejs");
 router.use(express.static("public"));
 
-
+// Variables \\
 const userROUTE = {
-    main: "/", // done
+    main: "/", 
     course: "/course",
     checkout: "/checkout",
     login: "/login",
     signup: "/signup",
     welcome: "/welcome",
     settings: "/settings",
-    settingparams: "/settings/:id", // Skicka in rätt id
+    settingparams: "/settings/:id",
     orders: "/orders",
     logout: "/logout",
     thankyou: "/thankyou",
@@ -47,7 +47,7 @@ const userROUTE = {
 };
 
 const userVIEW = {
-    main: "firstpagevideo", //done
+    main: "firstpagevideo", 
     course: "course",
     checkout: "checkout",
     login: "login",
@@ -89,10 +89,6 @@ router.get(userROUTE.course, async (req, res) => {
     });
 });
 
-// router.post(userROUTE.course, async (req, res) => {
-
-// });
-
 // customer checkout \\
 router.get(userROUTE.checkout, (req, res) => {
     res.render(userVIEW.checkout);
@@ -101,6 +97,7 @@ router.get(userROUTE.checkout, (req, res) => {
 router.post(userROUTE.checkout, async (req, res) => {
 
 });
+
 // customer signup \\
 router.get(userROUTE.signup, async (req, res) => {
     const errorMessage = ""
@@ -127,6 +124,7 @@ router.post(userROUTE.signup, async (req, res) => {
         html: "<h1>  Välkommen </h1>" + user.email
     })
 });
+
 // customer login \\
 router.get(userROUTE.login, (req, res) => {
     const errorMessage = ""
@@ -164,9 +162,6 @@ router.get(userROUTE.welcome, (req, res) => {
     res.render(userVIEW.welcome);
 });
 
-router.post(userROUTE.welcome, async (req, res) => {
-});
-
 // customer wishlist \\
 router.get(userROUTE.wishlist, verifyToken, async (req, res) => {
     const user = await User.findOne({_id:req.body.user._id}).populate("wishlist.productId")
@@ -189,20 +184,10 @@ router.get(userROUTE.deletewishlist, verifyToken, async (req, res) => {
     res.redirect(userROUTE.wishlist);
 });
 
-
 // customer settings \\
 router.get(userROUTE.settings, (req, res) => {
     res.render(userVIEW.settings);
 });
-
-// router.get(userROUTE.settingsparams, (req, res) => {
-//     console.log(req.params.id)
-//     const user = User.findOne({_id: req.params.id})
-//     // req.params kan behövas 
-//     // const user = User.findOne({_id: req.params.id})
-//     console.log(user);
-//     res.render(userVIEW.settings, user);
-// });
 
 router.post(userROUTE.settings, async (req, res) => {
     const user = await User.updateOne({ _id: req.body._id })
@@ -281,14 +266,6 @@ router.post(userROUTE.resetform, async (req, res) => {
     await user.save();
 
     res.redirect(userROUTE.login)
-});
-
-router.get(userROUTE.prodgenerator, (req, res) => {
-
-});
-
-router.post(userROUTE.prodgenerator, async (req, res) => {
-
 });
 
 module.exports = router;

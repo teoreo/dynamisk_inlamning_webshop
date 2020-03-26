@@ -1,13 +1,13 @@
-const express = require("express");
-const Admin = require("../model/admin");
-const productItem = require("../model/product");
-const jwt = require("jsonwebtoken");
-const verifyTokenAdmin = require("./verifyTokenAdmin");
+const express               = require("express");
+const Admin                 = require("../model/admin");
+const productItem           = require("../model/product");
+const jwt                   = require("jsonwebtoken");
+const verifyTokenAdmin      = require("./verifyTokenAdmin");
 
-// middleware
-const router = express.Router();
+// middleware \\
+const router                = express.Router();
 
-// Variables
+// Variables \\
 const adminROUTE = {
     login: "/admin/login",
     welcome: "/admin/welcome",
@@ -34,14 +34,14 @@ const adminVIEW = {
     addadmin: "admin/addadmin"
 };
 
-// admin welcome
+// admin welcome \\
 router.get(adminROUTE.welcome, (req, res) => {
     res.render(adminVIEW.welcome);
 });
 
-// admin login
+// admin login \\
 router.get(adminROUTE.login, async (req, res) => {
-    // const admin = await new Admin({
+    // const admin = await new Admin({ // Detta är vår hårdkodade Admin som behövs för första test om vi tar bort huvudadmin. 
     //     email: "admin@websurfers.com",
     //     password: "admin"
     // }).save();
@@ -52,7 +52,7 @@ router.get(adminROUTE.login, async (req, res) => {
 });
 
 router.post(adminROUTE.login, async (req, res) => {
-   
+
     const admin = await Admin.findOne({
         email: req.body.loginemail,
         password: req.body.loginpassword
@@ -61,14 +61,21 @@ router.post(adminROUTE.login, async (req, res) => {
         errorMessage: "You are not an admin or wrong password"
     })
 
-    jwt.sign({ admin }, "secretKeyAdmin", (err, token) => {
+    jwt.sign({
+        admin
+    }, "secretKeyAdmin", (err, token) => {
         if (err) return res.redirect(adminROUTE.login);
         if (token) {
             const cookie = req.cookies.jsonwebtoken;
             if (!cookie) {
-                res.cookie("jsonwebtoken", token, { maxAge: 250000000, httpOnly: true });
+                res.cookie("jsonwebtoken", token, {
+                    maxAge: 250000000,
+                    httpOnly: true
+                });
             }
-            res.render(adminVIEW.welcome, { admin });
+            res.render(adminVIEW.welcome, {
+                admin
+            });
         }
         res.redirect(adminROUTE.login);
     });
@@ -79,16 +86,7 @@ router.get(adminROUTE.logout, (req, res) => {
     res.clearCookie("jsonwebtoken").redirect(adminROUTE.login);
 });
 
-// // admin signup
-// router.get(adminROUTE.signup, (req, res) => {
-//     res.render(adminVIEW.signup);
-// });
-
-// router.post(adminROUTE.signup, async (req, res) => {
-
-// });
-
-// admin products
+// admin products \\
 router.get(adminROUTE.products, verifyTokenAdmin, async (req, res) => {
     const currentPage = req.query.page || 1;
     const productPerPage = 2;
@@ -115,43 +113,12 @@ router.get(adminROUTE.deleteproduct, verifyTokenAdmin, async (req, res) => {
     res.redirect(adminROUTE.products)
 });
 
-/* router.get(adminROUTE.editproduct, verifyTokenAdmin, async (req, res) => {
-    const response = await productItem.findById({
-        _id: req.params.id
-    });
-    res.render(adminVIEW.editproduct, {
-        response
-    })
-});
-
-router.post(adminROUTE.editproduct, async (req, res) => {
-    await productItem.updateOne({
-            _id: req.body._id
-        }, {
-            $set: {
-                title: req.body.title,
-                price: req.body.price,
-                description: req.body.description,
-                quantity: req.body.quantity,
-            }
-        }, (error) =>
-        error ? res.send(error.message) : res.redirect(adminROUTE.products)
-    );
-
-    res.redirect(adminROUTE.products)
-
-});
- */
-// router.post(adminROUTE.products, async (req, res) => {
-
-// });
-
-
-// admin addproduct
+// admin addproduct \\
 
 router.get(adminROUTE.addproduct, (req, res) => {
     res.render(adminVIEW.addproduct)
-})
+});
+
 router.post(adminROUTE.addproduct, verifyTokenAdmin, async (req, res) => {
     const addProduct = new productItem({
         title: req.body.title,
@@ -162,18 +129,19 @@ router.post(adminROUTE.addproduct, verifyTokenAdmin, async (req, res) => {
         country: req.body.country,
         user: req.admin.admin._id // HÄR SAKNAS NÅT :)
     });
-    
+
     await addProduct.save((error, success) => {
         if (error) return res.send(error.message)
         if (success) {
             console.log(req.body.country)
             res.redirect(adminROUTE.products)
-            
+
         }
     })
-    
+
 });
-// admin editproduct
+
+// admin editproduct \\
 router.get(adminROUTE.editproduct, verifyTokenAdmin, async (req, res) => {
     const response = await productItem.findById({
         _id: req.params.id
@@ -181,28 +149,28 @@ router.get(adminROUTE.editproduct, verifyTokenAdmin, async (req, res) => {
     res.render(adminVIEW.editproduct, {
         response
     })
-})
+});
 
 router.post(adminROUTE.editproduct, async (req, res) => {
     await productItem.updateOne({
-            _id: req.body._id
-        }, {
-            $set: {
-                title: req.body.title,
-                image: req.body.image,
-                price: req.body.price,
-                description: req.body.description,
-                quantity: req.body.quantity,
-                country: req.body.country,
-            }
-        })
-        //, {
-        //     runValidators: true
-        // }, (error) => error ? res.send(error.message) :
-         res.redirect(adminROUTE.products)
+        _id: req.body._id
+    }, {
+        $set: {
+            title: req.body.title,
+            image: req.body.image,
+            price: req.body.price,
+            description: req.body.description,
+            quantity: req.body.quantity,
+            country: req.body.country,
+        }
+    })
+    //, {
+    //     runValidators: true
+    // }, (error) => error ? res.send(error.message) :
+    res.redirect(adminROUTE.products)
 
     //)
-})
+});
 
 // admin orders \\
 router.get(adminROUTE.orders, (req, res) => {
@@ -218,11 +186,9 @@ router.get(adminROUTE.settings, (req, res) => {
     res.render(adminVIEW.settings);
 });
 
-router.post(adminROUTE.settings, async (req, res) => {
+module.exports = router;
 
-});
-
-// add admin \\
+// add admin \\ // Början på att lägga till en admin, därav ligger detta kvar. 
 /* router.get(adminROUTE.addadmin, (req,res) =>{
 res.render(adminVIEW.addadmin);
 })
@@ -266,6 +232,3 @@ router.post(adminROUTE.addadmin, verifyTokenAdmin, async (req, res) => {
 }); */
 
 
-
-
-module.exports = router;

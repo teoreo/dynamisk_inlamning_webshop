@@ -1,28 +1,7 @@
-// KOLLA VILKEN AV DESSA 
-// DENNA ÄR GAMLA FIRST PAGE
-
-@import "mixins.scss";
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap');
-
-/* Variables */
-
-// FONTS \\
-
-$font: "Montserrat", ;
-
-// Colors \\
-$blue: #68C7C9;
-$red: #FF6948;
-$yellow: #FFC556;
-$green: #9AD187;
-$dark: #979797;
-$fontcolor: #464646;
-$background: #F7F7F7;;
-
-html{ 
+html {
     height: 100%;
     margin: 0;
-   
+
     body {
         height: 100%;
         margin: 0;
@@ -33,173 +12,162 @@ html{
         a {
             color: $fontcolor;
             margin-right: 25px;
-            
-        }
-    
-        // .container-fluid {
-        //     height: 100%;
-        //     min-height: 100%;
-        //     margin: 0;
-            
-            .navbarmenu {
-                position: absolute;
-                z-index: 10;
-            
-                // .logoimg {
-                //     height: 70px;
-                // }
 
-                .navlinks {
+        }
+
+        .navbarmenu {
+            position: absolute;
+            z-index: 10;
+
+            .navlinks {
+                padding-top: 30px;
+                text-align: end;
+
+                @include tablet {
                     padding-top: 30px;
-                    text-align: end;
-
-                    @include tablet {
-                        padding-top: 30px;
-                        padding-left: 50px;
-                    }
-
-                    @include desktop {
-                        padding-top: 30px;
-                        padding-left: 90px;
-                    }
+                    padding-left: 50px;
                 }
 
-                .basketwrapper {
-                    float: right;
-                    // .basketlogo {
-                    //     margin-top: 5px;
-                    //     height: 60px;
-                        
-                    // }
+                @include desktop {
+                    padding-top: 30px;
+                    padding-left: 90px;
                 }
-                
             }
 
-            .sectionone {
-                position: relative;
+            .basketwrapper {
+                float: right;
+            }
+
+        }
+
+        .sectionone {
+            position: relative;
+            height: 100%;
+            margin: 0;
+
+            @include tablet {
                 height: 100%;
-                margin:0;
-                
+
+            }
+
+            .content {
+                height: 100%;
+                padding-top: 100px;
+
                 @include tablet {
-                    height: 100%;
-                    
-                }
-                .content{
-                    height: 100%;
+                    height: 95%;
                     padding-top: 200px;
-
-                    @include tablet {
-                        height: 95%;
-                    }
-                }
-                .footer{
-                    height: 5%;
-                
-                    @include tablet {
-                        height: 5%;
-                    }
-    
                 }
             }
-        }
 
-        .imgsection_static {
-            height: 90%;
-            background-image: url("../images/img3.png");
-            background-size: cover;
-             
-            @include tablet {
-                height: 100%;
-            }
-        }
-        .sectiontwo{
-            background-image: url("https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80");
-        }
-        .sectionthree {
-            height: 10%;
-            text-align: center;
-            background: $blue;
+            .footer {
+                height: 5%;
 
-            @include tablet {
-                height: 100%;
-            }
-            
-            .nextsideup {
-                text-align: center;
                 @include tablet {
-                    height: 33%;
+                    height: 5%;
                 }
 
-                .arrowup {
-                    display: none;
-                    
-                    @include tablet {
-                        height: 58px;
-                        position: absolute;
-                        display: block;
-                        left: 33%;
-                        bottom: 1px;
-                        
-                    
-                    }
-                }
-                .arrowleft {
+            }
+        }
+    }
+
+    .imgsection_static {
+        height: 90%;
+        background-image: url("../images/img3.png");
+        background-size: cover;
+
+        @include tablet {
+            height: 100%;
+        }
+    }
+
+    .sectiontwo {
+        background-image: url("https://images.unsplash.com/photo-1520116468816-95b69f847357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80");
+    }
+
+    .sectionthree {
+        height: 10%;
+        text-align: center;
+        background: $blue;
+
+        @include tablet {
+            height: 100%;
+        }
+
+        .nextsideup {
+            text-align: center;
+
+            @include tablet {
+                height: 33%;
+            }
+
+            .arrowup {
+                display: none;
+
+                @include tablet {
                     height: 58px;
+                    position: absolute;
                     display: block;
-                    margin-left: auto;
-                    margin-right: auto;
-                    
-                    @include tablet {
-                        display: none;
-                    }
+                    left: 33%;
+                    bottom: 1px;
                 }
             }
-            
-            .countrymenu-desktop {
-                margin: 0;
-                position: absolute;
-                @include tablet{    
-                top: 50%;   
-                -ms-transform: translateY(-50%);   
+
+            .arrowleft {
+                height: 58px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+
+                @include tablet {
+                    display: none;
+                }
+            }
+        }
+
+        .countrymenu-desktop {
+            margin: 0;
+            position: absolute;
+
+            @include tablet {
+                top: 50%;
+                -ms-transform: translateY(-50%);
                 transform: translateY(-50%);
                 text-align: center;
-                }
+            }
+        }
+
+        .nextsidedown {
+
+            @include tablet {
+                height: 34%;
             }
 
-            .nextsidedown {
-                
+            .arrowdown {
+                display: none;
+
                 @include tablet {
-                    height: 34%;
-                }
-
-                .arrowdown {
-                    display: none;
-                    
-                    @include tablet {
-                        height: 58px;
-                        display: block;
-                        margin-left: auto;
-                        margin-right: auto;
-                    }
-                }
-
-                .arrowright {
                     height: 58px;
                     display: block;
                     margin-left: auto;
                     margin-right: auto;
+                }
+            }
 
-                    @include tablet {
-                        display: none;
-                    }
+            .arrowright {
+                height: 58px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+
+                @include tablet {
+                    display: none;
                 }
             }
         }
     }
+}
 
-    .fullheight {
-        height: 100%;
-        
-        
-    }
-// }
+.fullheight {
+    height: 100%;
+}

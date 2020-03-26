@@ -5,7 +5,6 @@
 		<h1>ORDERS</h1>
 	</div>
 </div>
-
 <div class="container ctnorderproduct">
 	<div class="row">
 		<div class="col-12">
@@ -32,45 +31,32 @@
 					</tr>
 				</thead>
 				<tbody>
-					<% fiveOrders.forEach((orders) => { %>
 					<tr>
 						<th scope="row">
 						<td class="w-15">
-							<p><%=orders.orderno %></p>
+							<p></p>
 						</td>
 
 						<td class="w-15">
-							<p><%=orders.name %></p>
+							<p></p>
 						</td>
 						<td class="w-15">
-							<p><%=orders.address %></p>
+							<p></p>
 						</td>
 						<td class="w-15">
-							<p><%=orders.price %></p>
+							<p></p>
 						</td>
 						<td class="w-15">
-							<a href="/admin/editproduct/<%=orders._id%>"><img src="/images/edit.svg" alt="edit"
-									class="img-fluid img-thumbnail"></a>
+
 						</td>
 						</th>
 					</tr>
-					<% }) %>
 				</tbody>
 			</table>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-12 ">
-			<% for(let page=1; page <= pagesCount && pagesCount > 1; page++ ) { %>
-			<% if (currentPage === page) { %>
-			<a href="/admin/orders/?page=<%=page%>"><button class="pages"><span class="pagetxt"><%=page%></span></button></a>
-			<% } else { %>
-			<a href="/admin/orders/?page=<%=page%>"><button class="pages">
-					<span><%=page%></span>
-				</button></a>
-			<%  } %>
-
-			<% } %>
 		</div>
 	</div>
 </div>
