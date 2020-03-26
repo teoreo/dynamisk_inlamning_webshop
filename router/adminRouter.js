@@ -18,7 +18,8 @@ const adminROUTE = {
     orders: "/admin/orders",
     logout: "/admin/logout",
     editorders: "/admin/editorders/:id",
-    settings: "/admin/settings"
+    settings: "/admin/settings",
+    addadmin: "/admin/addadmin"
 };
 
 const adminVIEW = {
@@ -29,7 +30,8 @@ const adminVIEW = {
     editproduct: "admin/editproduct",
     orders: "admin/orders",
     editorders: "admin/editorders/:id",
-    settings: "admin/settings"
+    settings: "admin/settings",
+    addadmin: "admin/addadmin"
 };
 
 // admin welcome
@@ -89,7 +91,7 @@ router.get(adminROUTE.logout, (req, res) => {
 // admin products
 router.get(adminROUTE.products, verifyTokenAdmin, async (req, res) => {
     const currentPage = req.query.page || 1;
-    const productPerPage = 4;
+    const productPerPage = 2;
     const sortByDate = req.query.sort;
 
     const allProducts = await productItem.find();
@@ -219,5 +221,51 @@ router.get(adminROUTE.settings, (req, res) => {
 router.post(adminROUTE.settings, async (req, res) => {
 
 });
+
+// add admin \\
+/* router.get(adminROUTE.addadmin, (req,res) =>{
+res.render(adminVIEW.addadmin);
+})
+router.post(adminROUTE.addadmin, verifyTokenAdmin, async (req, res) => {
+    const addAdmin = new Admin({
+        email: req.body.email,
+        password: req.body.password,
+        firstname: req.body.fname,
+        lastname: req.body.lname
+    });
+
+
+    const salt = await bcrypt.genSaltSync(10);
+    const hashPassword = await bcrypt.hash(req.body.password, salt)
+    const signUpuser = await User.findOne({ email: req.body.email })
+    
+    if (signUpuser) return res.render(userVIEW.signup, { errorMessage: "Email already exist" })
+    const user = await new User({
+        email: req.body.email,
+        password: hashPassword
+    }).save();
+    res.render(userVIEW.welcome, { user })
+
+    transport.sendMail({
+        to: user.email,
+        from: "<noreply>stefan.hallberg@medieinstitutet.se",
+        subject: "Login Suceed",
+        html: "<h1>  Välkommen </h1>" + user.email
+    })
+});
+    
+    await addAdmin.save((error, success) => {
+        if (error) return res.send(error.message)
+        if (success) {
+            //res.redirect(adminROUTE.addadmin)
+            res.send("You are now an admin")
+            
+        }
+    })
+    
+}); */
+
+
+
 
 module.exports = router;

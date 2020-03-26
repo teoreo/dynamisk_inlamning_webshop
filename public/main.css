@@ -631,9 +631,15 @@ html {
         @media (min-width: 768px) {
           html .sectionthree .nextsideup .arrowleft {
             display: none; } }
-    @media (min-width: 768px) {
-      html .sectionthree .countrymenu-desktop {
-        height: 33%; } }
+    html .sectionthree .countrymenu-desktop {
+      margin: 0;
+      position: absolute; }
+      @media (min-width: 768px) {
+        html .sectionthree .countrymenu-desktop {
+          top: 50%;
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+          text-align: center; } }
     @media (min-width: 768px) {
       html .sectionthree .nextsidedown {
         height: 34%; } }
@@ -656,6 +662,11 @@ html {
 
 .fullheight {
   height: 100%; }
+
+.addicon {
+  width: 5%;
+  margin-right: 2px;
+  position: absolute; }
 
 body .container-fluid #title_admin {
   margin-top: 180px;
@@ -734,3 +745,11 @@ body .container-fluid #row_orders {
   overflow: hidden; }
   .imgend .productimg {
     height: 100%; }
+
+.paginationbtn {
+  background: none;
+  border: none;
+  width: 40px;
+  margin-bottom: 4px; }
+  .paginationbtn .pagetxt :active {
+    font-weight: bold; }

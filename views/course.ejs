@@ -58,36 +58,20 @@
             <!-- Section three ÄNDRA FÄRG PÅ ALLA -->
             <div class="col-12 col-md-1 col sectionthree costaricared order-md-3">
                 <div class="row fullheight">
-                    <div class="col-4 col-md-12 nextsideup">
-                        <!-- LOOP -->
-                        <a class="" href="#">
-                            <img src="../images/arrow_left.svg" alt="next side" class="arrowleft">
-                        </a>
-                        <a class="" href="#">
-                            <img src="../images/arrow_up.svg" alt="next side" class="arrowup">
-                        </a>
-                    </div>
-                    <div class="col-4 col-md-12 countrymenu-desktop">
+                    
+                    <div class="col-12 col-md-12 countrymenu-desktop ">
 
                         <% for(let page=1; page <= pagesCount && pagesCount > 1; page++ ) { %>
                         <% if (currentPage === page) { %>
-                        <a href="/course/?page=<%=page%>"><span class="pagetxt"><%= page %></span></a>
+                        <a href="/course/?page=<%=page%>"><button class="btn paginationbtn"><span class="pagetxt" ><%= page %></span></button></a>
                         <% } else { %>
                         <a href="/course/?page=<%=page%>">
-                            <span><%= page %></span> 
+                            <button class="btn paginationbtn"><span class="pagetxt" ><%= page %></span> </button>
                         </a>
                         <%  } %> 
                         <% } %>
                     </div>
-                    <div class="col-4 col-md-12 nextsidedown">
-                        <a class="" href="#">
-                            <img src="../images/arrow_right.svg" alt="next side" class="arrowright">
-                        </a>
-                        <a class="" href="#">
-                            <img src="../images/arrow_down.svg" alt="next side" class="arrowdown">
-                        </a>
-                        <!-- LOOP END -->
-                    </div>
+                    
                 </div>
             </div>
 

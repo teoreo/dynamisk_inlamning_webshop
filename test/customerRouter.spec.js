@@ -11,7 +11,7 @@ describe("should test if ecommerce logic works", () => {
 
     before( (done) => {
         mongoose.connect(databaseURL, { useUnifiedTopology: true, useNewUrlParser: true }).then(() => {
-            server = router.listen(8081, () => console.log(`App testing on 8081!`));
+            server = router.listen(8002, () => console.log(`App testing on 8002!`));
             done();
         }); 
     })

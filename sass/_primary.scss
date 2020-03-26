@@ -156,10 +156,13 @@ html{
             }
             
             .countrymenu-desktop {
-                
-
-                @include tablet {
-                    height: 33%;
+                margin: 0;
+                position: absolute;
+                @include tablet{    
+                top: 50%;   
+                -ms-transform: translateY(-50%);   
+                transform: translateY(-50%);
+                text-align: center;
                 }
             }
 

@@ -10,7 +10,8 @@
 <div class="row justify-content-center mb-2">
     <div class="col-12 col-md-7 col-lg-6 backgroundrec">
         <div class="row fullheight">
-            
+            <% if(product.productId !== null) {%>
+
             <div class="col-12 col-lg-6 imgctn">
                 <img src="<%=product.productId.image%>" class="orderimg" />
             </div>
@@ -24,7 +25,9 @@
                     </div>
                     <div class="col-12">
                         <a href="/deletewishlist/<%=product.productId._id%>">Delete from my wishlist</a>
-                        
+                    <%}else{%>
+                            "product is not in store"
+                        <%}%> 
                     </div>
                 </div>
                 </div>
