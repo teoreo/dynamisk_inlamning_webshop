@@ -237,7 +237,7 @@ router.post(userROUTE.reset, async (req, res) => {
             subject: "Reset password",
             html: `<h1> Reset Password Link: http://localhost:8003/reset/${resetToken} </h1>`
         })
-        res.send("skit ner er")
+        res.redirect(userROUTE.login)
     })
 
 });
