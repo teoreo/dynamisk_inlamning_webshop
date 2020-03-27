@@ -10,12 +10,13 @@ const verifyToken = require("./verifyToken");
 const sendGridTransport = require("nodemailer-sendgrid-transport");
 const config = require("../config/config");
 
+
 // middleware  \\
 const router = express();
-
+//Api-nyckeln för SendGrid är rätt men SendGrid vill inte accepterat vår nyckel. Har även skapat flera olika nycklar men dessa blev inte godkända. Alla i gruppen har testat men koderna fungerar ej. Testat med flera olika sätt. Algoritmerna är rätt. 
 const transport = nodemailer.createTransport(sendGridTransport({
     auth: {
-        ap_key: config.mail
+        api_user: config.mail,
     }
 }));
 
@@ -26,7 +27,7 @@ router.use(express.static("public"));
 
 // Variables \\
 const userROUTE = {
-    main: "/", 
+    main: "/",
     course: "/course",
     checkout: "/checkout",
     login: "/login",
@@ -47,7 +48,7 @@ const userROUTE = {
 };
 
 const userVIEW = {
-    main: "firstpagevideo", 
+    main: "firstpagevideo",
     course: "course",
     checkout: "checkout",
     login: "login",
@@ -94,9 +95,6 @@ router.get(userROUTE.checkout, (req, res) => {
     res.render(userVIEW.checkout);
 });
 
-router.post(userROUTE.checkout, async (req, res) => {
-
-});
 
 // customer signup \\
 router.get(userROUTE.signup, async (req, res) => {
@@ -109,7 +107,7 @@ router.post(userROUTE.signup, async (req, res) => {
     const salt = await bcrypt.genSaltSync(10);
     const hashPassword = await bcrypt.hash(req.body.password, salt)
     const signUpuser = await User.findOne({ email: req.body.email })
-    
+
     if (signUpuser) return res.render(userVIEW.signup, { errorMessage: "Email already exist" })
     const user = await new User({
         email: req.body.email,
@@ -138,7 +136,7 @@ router.post(userROUTE.login, async (req, res) => {
     if (!user) return res.render(userVIEW.login, { errorMessage: "Email does not exist" })
     const validUser = await bcrypt.compare(req.body.loginpassword, user.password)
     if (!validUser) return res.render(userVIEW.login, { errorMessage: "Wrong password" })
-  
+
     jwt.sign({ user }, "secretKey", (err, token) => {
         if (err) return res.redirect(userROUTE.login);
         if (token) {
@@ -164,22 +162,22 @@ router.get(userROUTE.welcome, (req, res) => {
 
 // customer wishlist \\
 router.get(userROUTE.wishlist, verifyToken, async (req, res) => {
-    const user = await User.findOne({_id:req.body.user._id}).populate("wishlist.productId")
+    const user = await User.findOne({ _id: req.body.user._id }).populate("wishlist.productId")
     console.log(user)
-    res.render(userVIEW.wishlist, {user});
+    res.render(userVIEW.wishlist, { user });
 });
 
 router.get(userROUTE.wishlistid, verifyToken, async (req, res) => {
-    const product = await productItem.findOne({_id:req.params.id})
-    const user = await User.findOne({_id:req.body.user._id})
+    const product = await productItem.findOne({ _id: req.params.id })
+    const user = await User.findOne({ _id: req.body.user._id })
     console.log(req.body.user)
     await user.addToWishlist(product)
     res.redirect(userROUTE.wishlist);
 });
 
 router.get(userROUTE.deletewishlist, verifyToken, async (req, res) => {
-    const user = await User.findOne({_id:req.body.user._id})
-    
+    const user = await User.findOne({ _id: req.body.user._id })
+
     user.removeFromList(req.params.id)
     res.redirect(userROUTE.wishlist);
 });
@@ -208,18 +206,12 @@ router.get(userROUTE.orders, (req, res) => {
     res.render(userVIEW.orders);
 });
 
-router.post(userROUTE.orders, async (req, res) => {
-
-});
 
 // customer thankyou \\
 router.get(userROUTE.thankyou, (req, res) => {
     res.render(userVIEW.thankyou);
 });
 
-router.post(userROUTE.thankyou, async (req, res) => {
-
-});
 
 // customer reset password
 // skickas mejl med länk för att återställa lösenordet
@@ -228,7 +220,7 @@ router.get(userROUTE.reset, (req, res) => {
 });
 
 router.post(userROUTE.reset, async (req, res) => {
-    const user = await User.findOne({ email: req.body.resetMail })
+    const user = await User.findOne({ email: req.body.email })
     if (!user) return res.redirect(userROUTE.signup)
 
     crypto.randomBytes(32, async (err, token) => {
@@ -241,11 +233,11 @@ router.post(userROUTE.reset, async (req, res) => {
 
         await transport.sendMail({
             to: user.email,
-            from: "<noreply>stefan.hallberg@medieinstitutet.se",
+            from: "stefanhalllberg@live.se",
             subject: "Reset password",
-            html: `<h1> Reset Password Link: http://localhost:8005/reset/${resetToken} </h1>`
+            html: `<h1> Reset Password Link: http://localhost:8003/reset/${resetToken} </h1>`
         })
-        res.redirect(userROUTE.login)
+        res.send("skit ner er")
     })
 
 });
