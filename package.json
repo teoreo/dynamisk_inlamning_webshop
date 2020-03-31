@@ -6,9 +6,12 @@
   "directories": {
     "test": "test"
   },
+  "engines": {
+    "node": "10.16.3"
+  },
   "scripts": {
     "test": "mocha",
-    "start": "nodemon index.js & node-sass -w sass -o public",
+    "start": "node index.js",
     "scss": "node-sass --watch sass -o public"
   },
   "repository": {
@@ -35,11 +38,11 @@
     "node-sass-middleware": "^0.11.0",
     "nodemailer": "^6.4.5",
     "nodemailer-sendgrid-transport": "^0.2.0",
-    "views": "^1.0.2"
+    "views": "^1.0.2",
+    "cookie-parser": "^1.4.5"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "cookie-parser": "^1.4.5",
     "mocha": "^7.1.1",
     "nodemon": "^2.0.2",
     "supertest": "^4.0.2"

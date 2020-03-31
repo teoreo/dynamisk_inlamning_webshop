@@ -22,7 +22,7 @@ const dbOptions = {
   useUnifiedTopology: true,
   useNewUrlParser: true
 };
-const port = process.env.PORT || 8003;
+const port = process.env.PORT || 8004;
 mongoose.connect(config.databaseURL, dbOptions).then(() => {
   app.listen(port, () => console.log(`App listening on port ${port}!`));
 });
