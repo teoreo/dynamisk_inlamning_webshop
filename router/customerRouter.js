@@ -9,8 +9,8 @@ const crypto = require("crypto");
 const verifyToken = require("./verifyToken");
 const sendGridTransport = require("nodemailer-sendgrid-transport");
 const config = require("../config/config");
-const env                   = require("dotenv").config({ path: "./.env" });
-const stripe                = require("stripe")(process.env.STRIPE_SECRET_KEY);
+require("dotenv").config({ path: "./.env" });
+const stripe                = require("stripe")(process.env.client_secret);
 
 // middleware  \\
 const router = express();
@@ -95,17 +95,10 @@ router.get(userROUTE.course, async (req, res) => {
 });
 
 // Customer Checkout \\
-
-router.get(userROUTE.checkout, verifyToken, async (req, res) => {
-    const user = await User.findOne({_id:req.body.user._id}).populate("checkout.productId")
-    console.log(user)
-    res.render(userVIEW.checkout, {user});
-});
-
 router.get(userROUTE.checkoutid, verifyToken, async (req, res) => {
     const product = await productItem.findOne({_id:req.params.id})
     const user = await User.findOne({_id:req.body.user._id})
-    console.log(req.body.user)
+    console.log(product)
     await user.addToCheckout(product)
     res.redirect(userROUTE.checkout);
 });
@@ -116,16 +109,41 @@ router.get(userROUTE.deletecheckout, verifyToken, async (req, res) => {
     user.removeFromCheckOutList(req.params.id)
     res.redirect(userROUTE.course);
 });
+//to pay
+router.get(userROUTE.checkout, verifyToken, async (req, res) => {
+    console.log(req.body)
+    const user = await User.findOne({_id: req.body.user._id}).populate("checkout.productId");
+    
+    return stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        line_items: user.checkout.map((product) => {
+            return {
+                name: product.productId.title,
+                amount: product.productId.price*100,
+                quantity: 1, 
+                currency: "sek",
+            }
+        }),
+        success_url: req.protocol + "://" + req.get("Host") + "/",
+        cancel_url: "http://localhost:8004/course"
+    }).then( (session) => {
+        res.render(userVIEW.checkout, {user, sessionId:session.id})
+    });
+});
 
-router.get(userROUTE.orders, async (req, res) => {
-    const user = await User.findOne({_id: req.body.user.id}).populate("wishlist.productId")
-    res.render(userVIEW.orders)
+
+
+/* 
+//min egen//
+router.get(userROUTE.checkout, verifyToken,async (req, res) => {
+    const user = await User.findOne({_id: req.body.user._id}).populate("checkout.productId")
+    
     // skapar en sessionId
     return stripe.checkout.sessions.create({
         payment_method_types: ["card"],
-        line_items: user.wishlist.map((product)=>{ // map() returnerar en ny array med objektet ist för forEach
+        line_items: user.checkout.map((product)=>{ // map() returnerar en ny array med objektet ist för forEach
             return {
-                name: product.productId.name, // name och amount är från stripe men "väder" är vårt
+                name: product.productId.title, // name och amount är från stripe men "väder" är vårt
                 amount:product.productId.price*100, //räknar öre ist för hel krona
                 quantity: product.quantity, // denna är hårdkodad pga jag inte har ett input med det
                 currency: "sek"
@@ -136,7 +154,9 @@ router.get(userROUTE.orders, async (req, res) => {
     }).then((session)=>{
         res.render(userVIEW.checkout, {user, sessionId:session.id});
     })
-})
+}); */
+
+
 
 // Stripe \\ 
 /* const calculateOrderAmount = items => {     

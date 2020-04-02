@@ -17,6 +17,12 @@ const userSchema = new Schema({
     city: String,
     resetToken: String,
     expirationToken: Date,
+    checkout: [{
+        productId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Product"
+        }
+    }],
     wishlist: [{
         productId: {
             type: mongoose.Schema.Types.ObjectId,
