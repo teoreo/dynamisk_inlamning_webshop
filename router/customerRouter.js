@@ -9,7 +9,8 @@ const crypto = require("crypto");
 const verifyToken = require("./verifyToken");
 const sendGridTransport = require("nodemailer-sendgrid-transport");
 const config = require("../config/config");
-
+const env                   = require("dotenv").config({ path: "./.env" });
+const stripe                = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 // middleware  \\
 const router = express();
@@ -44,7 +45,10 @@ const userROUTE = {
     prodgenerator: "/prodgenerator",
     wishlist: "/wishlist",
     wishlistid: "/wishlist/:id",
-    deletewishlist: "/deletewishlist/:id"
+    deletewishlist: "/deletewishlist/:id",
+    checkoutid: "/checkout/:id",
+    deletecheckout: "/deletecheckout/:id"
+
 };
 
 const userVIEW = {
@@ -90,10 +94,72 @@ router.get(userROUTE.course, async (req, res) => {
     });
 });
 
-// customer checkout \\
-router.get(userROUTE.checkout, (req, res) => {
-    res.render(userVIEW.checkout);
+// Customer Checkout \\
+
+router.get(userROUTE.checkout, verifyToken, async (req, res) => {
+    const user = await User.findOne({_id:req.body.user._id}).populate("checkout.productId")
+    console.log(user)
+    res.render(userVIEW.checkout, {user});
 });
+
+router.get(userROUTE.checkoutid, verifyToken, async (req, res) => {
+    const product = await productItem.findOne({_id:req.params.id})
+    const user = await User.findOne({_id:req.body.user._id})
+    console.log(req.body.user)
+    await user.addToCheckout(product)
+    res.redirect(userROUTE.checkout);
+});
+
+router.get(userROUTE.deletecheckout, verifyToken, async (req, res) => {
+    const user = await User.findOne({_id:req.body.user._id})
+    
+    user.removeFromCheckOutList(req.params.id)
+    res.redirect(userROUTE.course);
+});
+
+router.get(userROUTE.orders, async (req, res) => {
+    const user = await User.findOne({_id: req.body.user.id}).populate("wishlist.productId")
+    res.render(userVIEW.orders)
+    // skapar en sessionId
+    return stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        line_items: user.wishlist.map((product)=>{ // map() returnerar en ny array med objektet ist för forEach
+            return {
+                name: product.productId.name, // name och amount är från stripe men "väder" är vårt
+                amount:product.productId.price*100, //räknar öre ist för hel krona
+                quantity: product.quantity, // denna är hårdkodad pga jag inte har ett input med det
+                currency: "sek"
+            }
+        }),
+        success_url: req.protocol + "://" + req.get("Host") +":"+ "/",
+        cancel_url:"http://localhost:8004/products"
+    }).then((session)=>{
+        res.render(userVIEW.checkout, {user, sessionId:session.id});
+    })
+})
+
+// Stripe \\ 
+/* const calculateOrderAmount = items => {     
+    // Replace this constant with a calculation of the order's amount     
+    // Calculate the order total on the server to prevent     
+    // people from directly manipulating the amount on the client     
+    return 1400; };    
+    
+    app.post(userROUTE.checkout, async (req, res) => {
+        const { items, currency } = req.body;
+        // Create a PaymentIntent with the order amount and currency
+        const paymentIntent = await stripe.paymentIntents.create({
+            amount: calculateOrderAmount(items),
+            currency: currency
+        });
+    
+    // Send publishable key and PaymentIntent details to client
+        res.send({
+        publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+        clientSecret: paymentIntent.client_secret
+        });
+    }); */
+
 
 
 // customer signup \\
@@ -202,8 +268,23 @@ router.post(userROUTE.settings, async (req, res) => {
 });
 
 // customer orders \\
-router.get(userROUTE.orders, (req, res) => {
-    res.render(userVIEW.orders);
+router.get(userROUTE.orders, async (req, res) => {
+    const user = await User.findOne({_id: req.body.user._id}).populate("wishlist.productId")
+    res.render(userVIEW.checkout, {user});
+});
+router.get(userROUTE.checkoutid, verifyToken, async (req, res) => {
+    const product = await productItem.findOne({_id:req.params.id})
+    const user = await User.findOne({_id:req.body.user._id})
+    console.log(req.body.user)
+    await user.addToCheckout(product)
+    res.redirect(userROUTE.checkout);
+});
+
+router.get(userROUTE.deletecheckout, verifyToken, async (req, res) => {
+    const user = await User.findOne({_id:req.body.user._id})
+    
+    user.removeFromCheckOutList(req.params.id)
+    res.redirect(userROUTE.course);
 });
 
 
