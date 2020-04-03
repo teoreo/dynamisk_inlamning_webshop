@@ -131,57 +131,6 @@ router.get(userROUTE.checkout, verifyToken, async (req, res) => {
     });
 });
 
-
-
-/* 
-//min egen//
-router.get(userROUTE.checkout, verifyToken,async (req, res) => {
-    const user = await User.findOne({_id: req.body.user._id}).populate("checkout.productId")
-    
-    // skapar en sessionId
-    return stripe.checkout.sessions.create({
-        payment_method_types: ["card"],
-        line_items: user.checkout.map((product)=>{ // map() returnerar en ny array med objektet ist för forEach
-            return {
-                name: product.productId.title, // name och amount är från stripe men "väder" är vårt
-                amount:product.productId.price*100, //räknar öre ist för hel krona
-                quantity: product.quantity, // denna är hårdkodad pga jag inte har ett input med det
-                currency: "sek"
-            }
-        }),
-        success_url: req.protocol + "://" + req.get("Host") +":"+ "/",
-        cancel_url:"http://localhost:8004/products"
-    }).then((session)=>{
-        res.render(userVIEW.checkout, {user, sessionId:session.id});
-    })
-}); */
-
-
-
-// Stripe \\ 
-/* const calculateOrderAmount = items => {     
-    // Replace this constant with a calculation of the order's amount     
-    // Calculate the order total on the server to prevent     
-    // people from directly manipulating the amount on the client     
-    return 1400; };    
-    
-    app.post(userROUTE.checkout, async (req, res) => {
-        const { items, currency } = req.body;
-        // Create a PaymentIntent with the order amount and currency
-        const paymentIntent = await stripe.paymentIntents.create({
-            amount: calculateOrderAmount(items),
-            currency: currency
-        });
-    
-    // Send publishable key and PaymentIntent details to client
-        res.send({
-        publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
-        clientSecret: paymentIntent.client_secret
-        });
-    }); */
-
-
-
 // customer signup \\
 router.get(userROUTE.signup, async (req, res) => {
     const errorMessage = ""
